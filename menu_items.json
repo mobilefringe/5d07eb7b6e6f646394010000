@@ -21,7 +21,7 @@
     },
     {
         "name": "header.news_events",
-        "href": "/events",
+        "href": "",
         "id": "events_link",
         "sub_menu": [{
                 "name": "header.events",
