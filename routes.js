@@ -24,7 +24,7 @@ define([], function() {
             component: view('default'),
             children: [{
                     path: '',
-                    component: view('re promotions'),
+                    component: view('promotions'),
                     name: 'promoList'
                 },
                 {
