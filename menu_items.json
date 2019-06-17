@@ -15,9 +15,9 @@
         ]
     },
     {
-        "name": "header.promotions",
+        "name": "header.retailer promotions",
         "href": "/retailer-promotions",
-        "id": "promotions_link"
+        "id": "promo_link"
     },
     {
         "name": "header.news_events",
