@@ -51,6 +51,11 @@
         ]
     },
     {
+        "name": "header.hours",
+        "href": "/hours",
+        "id": "hours_link"
+    },
+    {
         "name": "header.services",
         "href": "",
         "open_dropdown": false,
@@ -95,7 +100,7 @@
         "open_dropdown": false,
         "sub_menu": [
             {
-                "name": "header.contact_us",
+                "name": "header.contact_sevenoaks",
                 "href": "/contact_us"
             },
             {
@@ -107,10 +112,5 @@
                 "href": "/jobs"
             }
         ]
-    },
-    {
-        "name": "header.hours",
-        "href": "/hours",
-        "id": "hours_link"
     }
 ]
