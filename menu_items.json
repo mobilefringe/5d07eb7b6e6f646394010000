@@ -32,7 +32,7 @@
                 "href": "/contest"
             },
             {
-                "name": "header.what's_new",
+                "name": "header.blog",
                 "href": "/contest",
                 "sub_menu": [{
                     "name": "header.gift_ideas",
