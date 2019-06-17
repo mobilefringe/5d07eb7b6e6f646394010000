@@ -104,12 +104,20 @@
                 "href": "/contact_us"
             },
             {
-                "name": "header.leasing",
+                "name": "header.e-newsletter",
+                "href": "/newsletter"
+            },
+            {
+                "name": "header.careers",
+                "href": "/jobs"
+            },
+            {
+                "name": "header.leasing_opportunities",
                 "href": "/pages/sudburycentre-leasing"
             },
             {
-                "name": "header.employment",
-                "href": "/jobs"
+                "name": "header.about_morguard",
+                "href": ""
             }
         ]
     }
