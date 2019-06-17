@@ -28,7 +28,7 @@
                 "href": "/events"
             },
             {
-                "name": "header.contents",
+                "name": "header.contests",
                 "href": "/contest"
             },
             {
@@ -56,7 +56,7 @@
         "id": "hours_link"
     },
     {
-        "name": "header.about_us",
+        "name": "header.about",
         "href": "",
         "open_dropdown": false,
         "id": "services_link",
