@@ -15,7 +15,7 @@
         ]
     },
     {
-        "name": "header.promotions",
+        "name": "header.promos",
         "href": "/promotions",
         "id": "promo_link"
     },
