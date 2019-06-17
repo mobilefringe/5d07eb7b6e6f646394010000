@@ -22,7 +22,16 @@
     {
         "name": "header.news_events",
         "href": "/events",
-        "id": "events_link"
+        "id": "events_link",
+        "sub_menu": [{
+                "name": "header.events",
+                "href": "/events"
+            },
+            {
+                "name": "header.contents",
+                "href": "/contest"
+            }
+        ]
     },
     {
         "name": "header.services",
