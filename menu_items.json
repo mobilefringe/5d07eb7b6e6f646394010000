@@ -20,7 +20,7 @@
         "id": "promo_link"
     },
     {
-        "name": "header.news_events",
+        "name": "header.events_&_contests",
         "href": "",
         "id": "events_link",
         "sub_menu": [{
@@ -29,6 +29,14 @@
             },
             {
                 "name": "header.contents",
+                "href": "/contest"
+            },
+            {
+                "name": "header.what's_new",
+                "href": "/contest"
+            },
+            {
+                "name": "header.kids_club",
                 "href": "/contest"
             }
         ]
