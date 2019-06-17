@@ -62,7 +62,7 @@
         "id": "services_link",
         "sub_menu": [
             {
-                "name": "header.guest_services",
+                "name": "header.services",
                 "href": "/pages/sudburycentre-customer-service"
             },
             {
