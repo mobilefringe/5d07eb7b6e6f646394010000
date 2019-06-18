@@ -104,7 +104,7 @@ define([], function() {
             // }]
         },
         {
-            path: '/kids-club',
+            path: '/kids_club',
             component: view('default'),
             children: [{
                 path: '',
