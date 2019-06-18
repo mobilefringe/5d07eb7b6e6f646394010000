@@ -59,7 +59,7 @@
     				<div class="footer" v-if="dataLoaded">
     					<div class="site_container">
     						<div class="footer_logos">
-    							<div class="site_logo ">
+    							<div v-if="property" class="site_logo ">
     								<router-link to="/"><img :src="property_logo" :alt="property.name"/></router-link>
     							</div>
     							<div class="footer_property">
