@@ -26,17 +26,8 @@
             props:['locale'],
             data: function() {
                 return {
-                    form_data: {},
-                    formSuccess: false,
-                    formError: false,
-                    validaNum: '',
-                    correctValNum: null,
-                    validNumError: false,
-                    currentContest: null,
                     pageBanner: null,
-                    genderError : false,
                     currentPage: null,
-                    formNotFilled: false,
                     dataloaded: false,
                     promoBanner: null
                 }
