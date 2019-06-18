@@ -1,174 +1,180 @@
 <template>
-    <div class="page_container" id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
-        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+	<div v-if="dataloaded">
+		<div class="page_header" v-if="promoBanner" v-lazy:background-image="promoBanner.image_url">
 			<div class="site_container">
-				<div class="header_content">
-					<h1>Kids Club</h1>
+				<div class="header_content caps">
+					<h1>Gift Cards</h1>
 				</div>
 			</div>
 		</div>
-        <div class="site_container">
-            <div class="row text-left">
-                <div class="col-sm-12">
-                    <div v-if="currentPage" v-html="currentPage.body"></div>
-                </div>
-            </div> 
-            <div class="row"> 
-                <div class="col-sm-12 contest_contents">
-                    <form class="form-horizontal padding_top_20 js-cm-form" action="https://mobilefringe.createsend.com/t/d/s/vgldd/" method="post" v-on:submit.prevent="validateBeforeSubmit" id="kids_club">
-						<div class="form-group " id="child_container">
-						    <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_first_name')}">
-                				<label class="label" for="child_first_name">Child's First Name <span class="req_star"> *</span></label>
-                				<input v-model="form_data.child_first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="child's first name" id="child_first_name" required>
-                				<span v-show="errors.has('child_first_name')" class="form-control-feedback">{{ errors.first('child_first_name') }}</span>
-                			</div>
-                			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_last_name')}">
-                				<label class="label" for="child_last_name">Child's Last Name <span class="req_star"> *</span></label>
-                				<input v-model="form_data.child_last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_last_name" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="child's last name" id="child_last_name" required>
-                				<span v-show="errors.has('child_last_name')" class="form-control-feedback">{{ errors.first('child_last_name') }}</span>
-                			</div>
-                			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_age')}">
-                				<label class="label" for="child_age">Child's Age <span class="req_star"> *</span></label>
-                				<input v-model="form_data.child_age" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_age" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="child's age" id="child_age" required>
-                				<span v-show="errors.has('child_age')" class="form-control-feedback">{{ errors.first('child_age') }}</span>
-                			</div>
-                			<!--<input class="form-control" name="cm-name" type="hidden" :value="form_data.child_first_name + ' ' + form_data.child_last_name">-->
-                			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('birthday')}">
-                				<label class="label" for="birthday">Child's Birthday <span class="req_star"> *</span></label>
-                				<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:MM/DD/YYYY'" :class="{'input': true}" name="cm-f-fjutut" type="text" placeholder="mm/dd/yyyy" data-vv-delay="500" data-vv-as="birthday" id="birthday" required>
-                				<span v-show="errors.has('cm-f-fjutut')" class="form-control-feedback">{{ errors.first('cm-f-fjutut') }}</span>
-                			</div>
-                			<div class="col-sm-6 col-xs-12">
-                			    <p class="kids_club_form_notice">Happy Kids Club is for kids 10 years of age and under</p>
-                			</div>
-                		</div>
-						<div class="form-group">
-						    <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('parent_first_name')}">
-                				<label class="label" for="parent_first_name">Parent or Guardian First Name<span class="req_star"> *</span></label>
-                				<input v-model="form_data.parent_first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="parent_first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="parent's first name" id="parent_first_name" required>
-                				<span v-show="errors.has('parent_first_name')" class="form-control-feedback">{{ errors.first('parent_first_name') }}</span>
-                			</div>
-                			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('parent_last_name')}">
-                				<label class="label" for="parent_last_name">Parent or Guardian Last Name<span class="req_star"> *</span></label>
-                				<input v-model="form_data.parent_last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="parent_first_name" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="parent's last name" id="parent_last_name" required>
-                				<span v-show="errors.has('parent_last_name')" class="form-control-feedback">{{ errors.first('parent_last_name') }}</span>
-                			</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
-								<label class="label" for="email">Parent or Guardian Email Address<span class="req_star"> *</span></label>
-								<input v-model="form_data.email" v-validate="'required|email'" class="form-control js-cm-email-input" :class="{'input': true}" name="cm-vgldd-vgldd" type="email" placeholder="Email" data-vv-delay="500" data-vv-as="email" required>
-								<span v-show="errors.has('cm-vgldd-vgldd')" class="form-control-feedback">{{ errors.first('cm-vgldd-vgldd') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('phone')}" >
-								<label class="label" for="phone">Phone Number <span class="req_star"> *</span></label>
-								<input v-model="form_data.phone" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="cm-f-fjuthu" type="text" placeholder="Phone number" data-vv-delay="500" data-vv-as="phone" required>
-								<span v-show="errors.has('cm-f-fjuthu')" class="form-control-feedback">{{ errors.first('cm-f-fjuthu') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12 " :class="{'has-error': errors.has('mailing_address')}"  style="padding-top: 20px;">
-								<label class="label" for="mailing_address">Address <span class="req_star"> *</span></label>
-								<input v-model="form_data.mailing_address" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="cm-f-fjutkl" type="text" placeholder="Mailing Address" data-vv-delay="500" data-vv-as="mailing address" required>
-								<span v-show="errors.has('cm-f-fjutkl')" class="form-control-feedback">{{ errors.first('cm-f-fjutkl') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12"  :class="{'has-error': errors.has('city')}" style="padding-top: 20px;">
-								<label class="label" for="city"> City <span class="req_star"> *</span></label>
-								<input v-model="form_data.city" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="cm-f-fjutky" type="text" placeholder="Town/City" data-vv-delay="500" data-vv-as="city" required>
-								<span v-show="errors.has('cm-f-fjutky')" class="form-control-feedback">{{ errors.first('cm-f-fjutky') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12 " :class="{'has-error': errors.has('postal')}"  style="padding-top: 20px;">
-								<label class="label" for="postal">Postal Code <span class="req_star"> *</span></label>
-								<input v-model="form_data.postal_code" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="cm-f-fjutkj" type="text" placeholder="Postal Code" data-vv-delay="500" data-vv-as="postal code" required>
-								<span v-show="errors.has('cm-f-fjutkj')" class="form-control-feedback">{{ errors.first('cm-f-fjutkj') }}</span>
+		<div class="site_container page_content">
+			<div id="events_container" v-if="news.length > 0">
+				<paginate name="news" v-if="news" :list="news" class="paginate-list margin-60" :per="4">
+					<div class="row event_container" v-for="(item, index) in paginated('news')" :class="{ 'last': index === (paginated('news').length - 1) }">
+						<div class="col-sm-6 col-md-3 event_image_container">
+							<img :src="item.image_url"  class="event_image image" alt="item.title" />
+						</div>
+						<div class="col-sm-6 col-md-9 event_dets_container">
+							<h4 class="event_name caps" v-if="locale=='en-ca'">{{ item.title }}</h4>
+							<p class="event_dates">{{item.publish_date | moment("MMM DD, YYYY", timezone)}}</p>
+							<p class="event_dates">By: {{ item.author }}</p>
+							<p class="event_desc" v-if="locale=='en-ca'">{{item.body_short}}</p>
+							<div class="text-right  col-sm-6" v-if="item" style="padding:0">
+    							<router-link :to="{ name: 'newsDetails', params: { id: item.slug }}" class="event_learn_more pull-left">
+    							    {{ $t("news_page.read_more") }} <i class="fa fa-angle-right" aria-hidden="true"></i>
+    						    </router-link>
 							</div>
 						</div>
-						<div class="form-group account-btn text-left m-t-10 agreement">
-						    <div class="col-xs-12">
-						        <label class="checkbox">
-                                    <input name="agree_to_receive" required type="checkbox" >
-                                     Yes, I would like to receive Kidz Club newsletters on behalf of my child.
-                                </label>
-						    </div>
-						    <div class="col-xs-12">
-						        <label class="checkbox">
-                                    <input name="agree_terms" required type="checkbox" >
-                                    I have read and understand Parkland Mall's <router-link to="/pages/parklandmall-terms-and-conditions-parkland-mall-kidz-club">terms and conditions.</router-link>
-                                </label>
-						    </div>
-							<div class="col-xs-12" style="margin-top: 20px;">
-								<button class="contest_btn" type="submit" :disabled="formSuccess">Submit</button>
-							</div>
+						<div class="col-sm-12">
+							<hr>
 						</div>
-					</form>
-                    
-                    <div id="send_contact_success" class="alert alert-success text-left" role="alert" v-show="formSuccess" style="margin-top: 20px;">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        <span class="sr-only">Success</span>
-                        Thank you for subscribing.
-                    </div>
-                    <div id="send_contact_error" class="alert alert-danger text-left" role="alert" v-show="formError" style="margin-top: 20px;">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span>
-                        There was an error when trying to submit your request. Please try again later.
-                    </div>
-                    <div id="send_form_error" class="alert alert-danger text-left" role="alert" v-show="formNotFilled" style="margin-top: 20px;">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span>
-                            Please fill all required fields and try again!
-                    </div>
-                </div>
-            </div>
-            <div class="padding_top_40"></div>    
-        </div>
-    </div>
+					</div>
+				</paginate>
+			</div>
+			<div id="no_events" class="row" v-else>
+				<div class="col-md-12">
+					<p>{{$t("news_page.no_news_message")}}!</p>
+				</div>
+			</div>
+			<div class="row margin-60">
+				<div class="col-md-12">
+					<paginate-links for="news" :async="true" :limit="5" :show-step-links="true"></paginate-links>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
+<style>
+    .events_container .date_bar{
+        /* Today: */
+        background: #D3D3D3;
+        height: 40px;
+        line-height: 40px;
+        margin: auto;
+        text-align: center;
+    }
+    .events_container .date_bar .fa{
+        cursor: pointer;
+    }
+    .events_container .current_date{
+        color: #636363;
+        padding: 0 10px;
+    }
+    .events_container .all_dates {
+        border-bottom: 1px solid #aea99e;
+    }
+    .events_container .all_dates span {
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 1.5px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 5px;
+        cursor: pointer;
+    }
+    .events_container .all_dates [class*="date_"]:focus, [class*="date_"]:hover { 
+        background-color: #D3D3D3;
+    }
+    .events_container .all_dates span.active { 
+        background-color: #bababa;
+    }
+    .events_container .promo_dets {
+        border-bottom: 1px solid #aea99e;
+    }
+    .events_container .row.is-table-row {
+        margin: 0;
+    }
+    .events_container .row.is-table-row [class*="col-"] {
+        padding:0;
+    }
+    .events_container .feature_read_more {
+        width : auto;
+    }
+    .events_container .social_share network {
+        display:inline-block;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+    .events_container .social_share .social_icons{
+        width : 24px;
+        height : 24px;
+        display:inline;
+        margin: 0 2px;
+    }
+    
+</style>
+
 <script>
-    define(["Vue", "vuex", "axios", "moment", "moment-timezone", 'vee-validate', 'utility', 'vue-checkbox-radio'], function(Vue, Vuex,axios, moment, tz, VeeValidate, Utility, CheckboxRadio) {
-        Vue.use(VeeValidate);
-        // Vue.use(CheckboxRadio.default);
-        return Vue.component("kids-club-component", {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate", "vue-social-sharing"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate, SocialSharing) {
+        Vue.use(Meta);
+        Vue.use(VueLazyload);
+        Vue.use(VuePaginate);
+        return Vue.component("news-component", {
             template: template, // the variable template will be injected
             props:['locale'],
             data: function() {
                 return {
-                    validaNum: '',
-                    correctValNum: null,
-                    validNumError: false,
-                    currentContest: null,
-                    pageBanner: null,
-                    currentPage: null,
-                    formNotFilled: false
+                    dataloaded: false,
+                    promoBanner: null,
+                    paginate: ['news'],
                 }
             },
             created() {
                 this.loadData().then(response => {
-                    this.currentPage = response[0].data;
-                    // this.currentContest = this.findContestBySlug('parklandmall-kids-club');
-                    var temp_repo = this.findRepoByName('Gift Card Banner');
+                    this.posts
+                    this.dataloaded = true;
+                    
+                    var temp_repo = this.findRepoByName('Pages Banner');
                     if(temp_repo) {
-                        this.pageBanner = temp_repo.images[0];
+                        this.promoBanner = temp_repo.images[0];
                     }
-                    this.pageBanner = this.pageBanner;
                 });
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'findContestBySlug',
-                    'findRepoByName'
-                ])
+                    'processedEvents',
+                    'findRepoByName',
+                    'news',
+                    'findBlogByName'
+                ]),
+                news() {
+                    var news = this.findBlogByName("News").posts;
+                    var vm = this;
+                    var temp_news = [];
+                    _.forEach(news, function(value, key) {
+                        today = moment().tz(vm.timezone);
+                        webDate = moment(value.publish_date).tz(vm.timezone);
+                        if (today >= webDate) {
+                            if (_.includes(value.image_url, 'missing')) {
+                                value.image_url = "//codecloud.cdn.speedyrails.net/sites/5c0581a36e6f643f53050000/image/jpeg/1527006352000/bccblogplaceholder.jpg";
+                            }
+                            value.body_short = _.truncate(value.body, { 'length': 99, 'separator': ' ' });
+                            
+                            temp_news.push(value);
+                        }
+                    });
+                    news = _.reverse(_.sortBy(temp_news, function (o) { return o.publish_date }));
+                    console.log(news)
+                    return news
+                },
             },
             methods: {
                 loadData: async function() {
                     try {
                         // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        var host = this.property.mm_host.replace("http:", "");
-                        let results = await Promise.all([this.$store.dispatch('LOAD_PAGE_DATA', {url: host + "	/pages/sevenoaks-gift-cards.json"}),this.$store.dispatch("getData", "contests"),this.$store.dispatch("getData", "repos")]);
-                        return results;
+                        let results = await Promise.all([this.$store.dispatch("getData", "blogs"), this.$store.dispatch("getData", "repos")]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
-
+                shareURL(slug){
+                    var share_url = "http://bramaleacitycentre.com/news/" + slug;
+                    return share_url;
+                },
             }
         });
     });
