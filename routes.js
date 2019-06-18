@@ -106,6 +106,7 @@ define([], function() {
         {
             path: '/kids_club',
             component: view('default'),
+            redirect: '/',
             children: [{
                 path: '',
                 component: view('kids_club'),
