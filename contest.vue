@@ -1,5 +1,5 @@
 <template>
-    <div class="page_container" id="contact_us_container" v-if="currentContest"> <!-- for some reason if you do not put an outer container div this component template will not render -->
+    <div class="page_container" id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render --> <!--  v-if="currentContest" -->
         <!--<div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">-->
         <div class="page_header" v-bind:style="{ backgroundImage: 'url(http://via.placeholder.com/1920x300)' }">
 			<!--http://via.placeholder.com/1920x300-->
