@@ -189,6 +189,7 @@
                         let results = await Promise.all([
                             this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/sevenoaks-kids-club.json"}),
                             this.$store.dispatch("getData", "repos")
+                            console.log(results, "res")
                         ]);
                         return results;
                     } catch (e) {
