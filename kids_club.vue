@@ -29,6 +29,7 @@
                 			</div>
                 			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_age')}">
                 				<label class="label" for="child_age">Child's Age <span class="req_star"> *</span></label>
+                				<p class="kids_club_form_notice">Happy Kids Club is for kids 10 years of age and under</p>
                 				<input v-model="form_data.child_age" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_age" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="child's age" id="child_age" required>
                 				<span v-show="errors.has('child_age')" class="form-control-feedback">{{ errors.first('child_age') }}</span>
                 			</div>
@@ -38,7 +39,6 @@
                 				<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:MM/DD/YYYY'" :class="{'input': true}" name="cm-f-fjutut" type="text" placeholder="mm/dd/yyyy" data-vv-delay="500" data-vv-as="birthday" id="birthday" required>
                 				<span v-show="errors.has('cm-f-fjutut')" class="form-control-feedback">{{ errors.first('cm-f-fjutut') }}</span>
                 			</div>
-                				<!--<p class="kids_club_form_notice">Happy Kids Club is for kids 10 years of age and under</p>-->
                 		</div>
 						<div class="form-group">
 						    <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('parent_first_name')}">
