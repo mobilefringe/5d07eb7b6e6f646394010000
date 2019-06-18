@@ -83,10 +83,9 @@
                 this.loadData().then(response => {
                     this.dataLoaded = true;
                     this.popup = this.$store.state.popups[0];
-                    
+                    console.log(data, "h")
                     var socialFeed = response[4].data;
                     var social_feed = socialFeed.social.instagram;
-                    console.log(social_feed, "sss")
                     this.instaFeed = _.slice(social_feed, [0], [4]);
                     
                     this.meta = this.findMetaDataByPath(this.$route.path);
