@@ -44,10 +44,8 @@
             computed: {
                 ...Vuex.mapGetters([
                     'property',
-                    'timezone',
                     'processedEvents',
                     'findRepoByName',
-                    'news',
                     'findBlogByName'
                 ]),
             },
