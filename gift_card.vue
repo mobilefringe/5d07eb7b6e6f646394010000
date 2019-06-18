@@ -70,39 +70,39 @@
                 ])
             },
             methods: {
-                validateBeforeSubmit(form) {
-                    this.$validator.validateAll().then((result) => {
-                        let errors = this.errors;
-                        let mm_success = false;
-                        if(errors && errors.items.length == 0){
-                            //format contests data for MM
-                            var json_data = {};
-                            var contest_entry = {};
-                            contest_entry.json = json_data;
-                            host_name = this.property.mm_host.replace("http:", "");
-                            var url = host_name + "/contests/" + this.currentContest.slug + "/json_entry";
-                            $.ajax({
-                                url: url,
-                                type: "POST",
-                                data: contest_entry,
-                                async: false,
-                                success: function(data) {
-                                    // vm.formSuccess = true;
-                                   mm_success = true;
-                                   console.log("mm post successful");
-                                },
-                                error: function(data){
-                                    console.log("error data:" , data);
-                                    mm_success = false;
-                                }
-                            });
-                            if(mm_success) {
-                                // return;
-                                form.target.submit();
-                                // this.campaignMonitorCall($('#kids_club'), '92D4C54F0FEC16E5ADC2B1904DE9ED1A986580DC6A3319628442A577C97C4456693086D5C481B009E96C7FD4BC0DC2C652A2FE59DB69EFC4F97AF377DCF262CF');
+                // validateBeforeSubmit(form) {
+                //     this.$validator.validateAll().then((result) => {
+                //         let errors = this.errors;
+                //         let mm_success = false;
+                //         if(errors && errors.items.length == 0){
+                //             //format contests data for MM
+                //             var json_data = {};
+                //             var contest_entry = {};
+                //             contest_entry.json = json_data;
+                //             host_name = this.property.mm_host.replace("http:", "");
+                //             var url = host_name + "/contests/" + this.currentContest.slug + "/json_entry";
+                //             $.ajax({
+                //                 url: url,
+                //                 type: "POST",
+                //                 data: contest_entry,
+                //                 async: false,
+                //                 success: function(data) {
+                //                     // vm.formSuccess = true;
+                //                   mm_success = true;
+                //                   console.log("mm post successful");
+                //                 },
+                //                 error: function(data){
+                //                     console.log("error data:" , data);
+                //                     mm_success = false;
+                //                 }
+                //             });
+                //             if(mm_success) {
+                //                 // return;
+                //                 form.target.submit();
+                //                 // this.campaignMonitorCall($('#kids_club'), '92D4C54F0FEC16E5ADC2B1904DE9ED1A986580DC6A3319628442A577C97C4456693086D5C481B009E96C7FD4BC0DC2C652A2FE59DB69EFC4F97AF377DCF262CF');
                                 
                                 
-                            }
+                //             }
                             else {
                                 this.formError = true;
                             }
