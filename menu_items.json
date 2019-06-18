@@ -23,7 +23,8 @@
         "name": "header.events_and_contests",
         "href": "",
         "id": "events_link",
-        "sub_menu": [{
+        "sub_menu": [
+            {
                 "name": "header.events",
                 "href": "/events"
             },
@@ -42,9 +43,9 @@
         ]
     },
     {
-                "name": "header.employment",
-                "href": "/jobs",
-                "id": "jobs_link"
+        "name": "header.employment",
+        "href": "/jobs",
+        "id": "jobs_link"
     },
     {
         "name": "header.about",
