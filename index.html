@@ -82,7 +82,7 @@
                                 <social-links></social-links>
     						</div>
     						<div class="footer_terms">
-    							<p>
+    							<p v-if="property">
     							    &copy; {{copyright_year}}
     							    <span class="caps"> {{property.name}}</span> 
     							    {{$t("footer.all_rights")}}
