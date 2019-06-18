@@ -252,8 +252,7 @@
                 },
                 loadData: async function(id) {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "contests"),this.$store.dispatch("getData", "repos")]);
+                        // let results = await Promise.all([this.$store.dispatch("getData", "contests"),this.$store.dispatch("getData", "repos")]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
