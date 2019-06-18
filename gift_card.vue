@@ -27,8 +27,7 @@
             data: function() {
                 return {
                     dataloaded: false,
-                    promoBanner: null,
-                    paginate: ['news'],
+                    promoBanner: null
                 }
             },
             created() {
