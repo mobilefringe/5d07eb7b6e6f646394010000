@@ -174,7 +174,7 @@
                     validaNum: '',
                     correctValNum: null,
                     validNumError: false,
-                    currentContest: null,
+                    currentContest: {},
                     pageBanner: null
                 }
             },
