@@ -26,13 +26,16 @@
             props:['locale'],
             data: function() {
                 return {
+                    form_data: {},
+                    formSuccess: false,
                     validaNum: '',
                     correctValNum: null,
                     validNumError: false,
                     currentContest: null,
                     pageBanner: null,
                     genderError : false,
-                    currentPage: null
+                    currentPage: null,
+                    formNotFilled: false
                 }
             },
             created() {
