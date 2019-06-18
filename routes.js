@@ -127,7 +127,7 @@ define([], function() {
             children: [{
                 path: '',
                 component: view('contest'),
-                name: 'contestList'
+                name: 'contest'
             }]
         },
         {
