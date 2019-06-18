@@ -61,7 +61,7 @@
                     var temp_repo = this.findRepoByName('Map Banner');
                     if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                        console.log(pageBanner, "hh")
+                        console.log(this.pageBanner, "hh")
                     }
                     else {
                         this.pageBanner = {};
