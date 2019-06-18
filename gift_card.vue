@@ -129,15 +129,11 @@
             props:['locale'],
             data: function() {
                 return {
-                    form_data: {},
-                    formSuccess: false,
-                    formError: false,
                     validaNum: '',
                     correctValNum: null,
                     validNumError: false,
                     currentContest: null,
                     pageBanner: null,
-                    genderError : false,
                     currentPage: null,
                     formNotFilled: false
                 }
@@ -146,7 +142,7 @@
                 this.loadData().then(response => {
                     this.currentPage = response[0].data;
                     this.currentContest = this.findContestBySlug('parklandmall-kids-club');
-                    var temp_repo = this.findRepoByName('Kids Club Banner');
+                    var temp_repo = this.findRepoByName('Gift Card Banner');
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
