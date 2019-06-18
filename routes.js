@@ -140,6 +140,15 @@ define([], function() {
             }]
         },
         {
+            path: '/gift-cards',
+            component: view('default'),
+            children: [{
+                path: '',
+                component: view('gift_card'),
+                name: 'giftCards'
+            }]
+        },
+        {
             path: '/newsletter',
             component: view('default'),
             children: [{
