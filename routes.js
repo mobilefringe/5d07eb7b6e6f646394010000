@@ -145,7 +145,7 @@ define([], function() {
             children: [{
                 path: '',
                 component: view('gift_card'),
-                name: 'giftCards'
+                name: 'gift-cards'
             }]
         },
         {
