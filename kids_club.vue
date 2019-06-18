@@ -134,8 +134,8 @@
             created() {
                 this.loadData().then(response => {
                     this.currentPage = response[0].data;
-                    this.currentContest = this.findContestBySlug('parklandmall-kids-club');
-                    var temp_repo = this.findRepoByName('Kidz Club');
+                    this.currentContest = this.findContestBySlug('sevenoaks-kids-club');
+                    var temp_repo = this.findRepoByName('Kids Club');
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
