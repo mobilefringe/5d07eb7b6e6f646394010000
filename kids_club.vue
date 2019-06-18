@@ -34,13 +34,6 @@
                 				<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:MM/DD/YYYY'" :class="{'input': true}" name="cm-f-fjutut" type="text" placeholder="mm/dd/yyyy" data-vv-delay="500" data-vv-as="birthday" id="birthday" required>
                 				<span v-show="errors.has('cm-f-fjutut')" class="form-control-feedback">{{ errors.first('cm-f-fjutut') }}</span>
                 			</div>
-                			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('gender')}"  style="padding-top: 20px;">
-                				<label class="label" for="gender">Gender <span class="req_star"> *</span></label>
-                				<input style="display:none;" id="gender" name="cm-f-fjutkr" :value="form_data.gender">
-                				<radio name="gender" value="male" v-model="form_data.gender" required>Male</radio>
-                                <radio name="gender" value="female" v-model="form_data.gender" required>Female</radio>
-                                <span v-if="genderError" class="form-control-feedback">Please choosed a gender</span>
-                			</div>
                 		</div>
 						<div class="form-group">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
