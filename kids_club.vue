@@ -3,7 +3,7 @@
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
-					<h1>Kidz Club</h1>
+					<h1>Kids Club</h1>
 				</div>
 			</div>
 		</div>
@@ -72,7 +72,7 @@
 						    <div class="col-xs-12">
 						        <label class="checkbox">
                                     <input name="agree_to_receive" required type="checkbox" >
-                                     Yes, I would like to receive Kidz Club newsletters on behalf of my child.
+                                     Yes, I would like to receive Kids Club newsletters on behalf of my child.
                                 </label>
 						    </div>
 						    <div class="col-xs-12">
