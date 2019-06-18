@@ -35,7 +35,7 @@
                     this.posts
                     this.dataloaded = true;
                     
-                    var temp_repo = this.findRepoByName('Pages Banner');
+                    var temp_repo = this.findRepoByName('Gift Card Banner');
                     if(temp_repo) {
                         this.promoBanner = temp_repo.images[0];
                     }
