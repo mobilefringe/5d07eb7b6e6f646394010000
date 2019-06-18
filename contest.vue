@@ -159,9 +159,9 @@
 
 <script>
     define(["Vue", "vuex", "axios", "moment", "moment-timezone", "vue-moment", "vue-meta", 'vee-validate', "v-calendar", 'utility'], function(Vue, Vuex,axios, moment, tz, VueMoment, Meta, VeeValidate, VCalendar, Utility) {
-        Vue.use(Meta);
-        Vue.use(VeeValidate);
-        Vue.use(VCalendar.default);
+        // Vue.use(Meta);
+        // Vue.use(VeeValidate);
+        // Vue.use(VCalendar.default);
 
         return Vue.component("contest-component", {
             template: template, // the variable template will be injected
