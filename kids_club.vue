@@ -3,7 +3,7 @@
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
-					<h1>Kidz Club</h1>
+					<h1>Kids Club</h1>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
                 			</div>
                 			<!--<input class="form-control" name="cm-name" type="hidden" :value="form_data.child_first_name + ' ' + form_data.child_last_name">-->
                 			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('birthday')}"   style="padding-top: 20px;">
-                				<label class="label" for="birthday">Birthday <span class="req_star"> *</span></label>
+                				<label class="label" for="birthday">Child's Age <span class="req_star"> *</span></label>
                 				<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:MM/DD/YYYY'" :class="{'input': true}" name="cm-f-fjutut" type="text" placeholder="mm/dd/yyyy" data-vv-delay="500" data-vv-as="birthday" id="birthday" required>
                 				<span v-show="errors.has('cm-f-fjutut')" class="form-control-feedback">{{ errors.first('cm-f-fjutut') }}</span>
                 			</div>
