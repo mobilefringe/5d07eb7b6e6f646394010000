@@ -4,7 +4,7 @@
 			<!--http://via.placeholder.com/1920x300-->
 			<div class="site_container">
 				<div class="header_content">
-					<h1 v-if="locale=='en-ca'">{{currentContest.name}}</h1>
+					<h1 v-if="locale=='en-ca'">{{currentContest.name}}  hello</h1>
 					<!--<h1 v-else>{{currentContest.name_2}}</h1>--><h1 v-else>French name</h1>
 				</div>
 			</div>
