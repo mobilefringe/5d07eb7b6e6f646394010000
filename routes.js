@@ -121,15 +121,15 @@ define([], function() {
                 name: 'blogList'
             }]
         },
-        // {
-        //     path: '/contest',
-        //     component: view('default'),
-        //     children: [{
-        //         path: '',
-        //         component: view('contest'),
-        //         name: 'contest'
-        //     }]
-        // },
+        {
+            path: '/contest',
+            component: view('default'),
+            children: [{
+                path: '',
+                component: view('contest'),
+                name: 'contest'
+            }]
+        },
         {
             path: '/contact_us',
             component: view('default'),
@@ -211,20 +211,6 @@ define([], function() {
                         pageName: 'Search Results',
                     },
                     name: 'search-results'
-                }
-            ]
-        },
-        {
-            path: '/contest',
-            component: view('default'),
-            meta: {
-                breadcrumb: 'Contest',
-            },
-            children: [
-                {
-                    path: '',
-                    component: view('contest'),
-                    name: 'contest'
                 }
             ]
         },
