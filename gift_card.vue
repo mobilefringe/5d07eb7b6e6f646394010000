@@ -21,7 +21,7 @@
         Vue.use(Meta);
         Vue.use(VueLazyload);
         Vue.use(VuePaginate);
-        return Vue.component("gift_card", {
+        return Vue.component("gift-card-component", {
             template: template, // the variable template will be injected
             props:['locale'],
             data: function() {
