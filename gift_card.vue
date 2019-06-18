@@ -42,6 +42,9 @@
                         this.promoBanner = temp_repo.images[0];
                     }
                 });
+                this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/"+this.$root.subdomain+"-gift-cards.json"}).then(response => {
+                    this.currentPage = response.data;
+                });
             },
             computed: {
                 ...Vuex.mapGetters([
