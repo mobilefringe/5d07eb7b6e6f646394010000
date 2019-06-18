@@ -5,6 +5,9 @@
 				<div class="header_content caps">
 					<h1>Gift Cards</h1>
 				</div>
+				<div class="col-sm-12">
+                    <div v-if="currentPage" v-html="currentPage.body"></div>
+                </div>
 			</div>
 		</div>
 		<div class="site_container page_content">
