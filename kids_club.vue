@@ -38,7 +38,7 @@
                 				<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:MM/DD/YYYY'" :class="{'input': true}" name="cm-f-fjutut" type="text" placeholder="mm/dd/yyyy" data-vv-delay="500" data-vv-as="birthday" id="birthday" required>
                 				<span v-show="errors.has('cm-f-fjutut')" class="form-control-feedback">{{ errors.first('cm-f-fjutut') }}</span>
                 			</div>
-                			<div class="col-sm-6 col-xs-12" style="padding-top: 20px;">
+                			<div class="col-sm-6 col-xs-12">
                 			    <p class="kids_club_form_notice">Happy Kids Club is for kids 10 years of age and under</p>
                 			</div>
                 		</div>
