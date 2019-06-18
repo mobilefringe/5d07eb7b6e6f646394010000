@@ -44,6 +44,7 @@
             computed: {
                 ...Vuex.mapGetters([
                     'property',
+                    'timezone',
                     'processedEvents',
                     'findRepoByName',
                     'findBlogByName'
@@ -53,14 +54,12 @@
                 loadData: async function() {
                     try {
                         // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "blogs"), this.$store.dispatch("getData", "repos")]);
+                        var host = this.property.mm_host.replace("http:", "");
+                        let results = await Promise.all([this.$store.dispatch('LOAD_PAGE_DATA', {url: host + "	/pages/sevenoaks-gift-cards.json"}),this.$store.dispatch("getData", "contests"),this.$store.dispatch("getData", "repos")]);
+                        return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
-                },
-                shareURL(slug){
-                    var share_url = "http://bramaleacitycentre.com/news/" + slug;
-                    return share_url;
                 },
             }
         });
