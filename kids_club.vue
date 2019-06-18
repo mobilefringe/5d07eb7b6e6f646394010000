@@ -11,6 +11,15 @@
             <div class="row text-left">
                 <div class="col-sm-12">
                     <div v-if="currentPage" v-html="currentPage.body"></div>
+                    <div>
+                        <div class="details_img_container">
+                            <img id="about_page_image" src="" alt="">
+                        </div>
+                        <div class="details_info_container">
+                            <div class="details_title" id="about_page_title"></div>
+                            <div class="details_info" id="about_page_desc"></div>
+                        </div>
+                    </div>
                 </div>
             </div> 
             <div class="row"> 
