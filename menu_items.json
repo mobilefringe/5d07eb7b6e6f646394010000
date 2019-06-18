@@ -33,16 +33,7 @@
             },
             {
                 "name": "header.blog",
-                "href": "/contest",
-                "sub_menu": [{
-                    "name": "header.gift_ideas",
-                    "href": ""
-                },
-                {
-                    "name": "header.styles",
-                    "href": ""
-                }
-                    ]
+                "href": "/contest"
             },
             {
                 "name": "header.kids_club",
