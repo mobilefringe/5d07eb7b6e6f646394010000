@@ -36,10 +36,15 @@
                 			</div>
                 		</div>
 						<div class="form-group">
-						    <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_first_name')}">
+						    <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('parent_first_name')}">
                 				<label class="label" for="parent_first_name">Parent or Guardian First Name<span class="req_star"> *</span></label>
-                				<input v-model="form_data.parent_first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="parent's first name" id="parent_first_name" required>
+                				<input v-model="form_data.parent_first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="parent_first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="parent's first name" id="parent_first_name" required>
                 				<span v-show="errors.has('parent_first_name')" class="form-control-feedback">{{ errors.first('parent_first_name') }}</span>
+                			</div>
+                			<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('parent_last_name')}">
+                				<label class="label" for="parent_last_name">Parent or Guardian Last Name<span class="req_star"> *</span></label>
+                				<input v-model="form_data.parent_last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="parent_first_name" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="parent's last name" id="parent_last_name" required>
+                				<span v-show="errors.has('parent_last_name')" class="form-control-feedback">{{ errors.first('parent_last_name') }}</span>
                 			</div>
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
 								<label class="label" for="email">Parent's Email <span class="req_star"> *</span></label>
