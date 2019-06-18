@@ -59,6 +59,7 @@
                         var host = this.property.mm_host.replace("http:", "");
                         let results = await Promise.all([this.$store.dispatch('LOAD_PAGE_DATA', {url: host + " /pages/sevenoaks-gift-cards.json"}),this.$store.dispatch("getData", "contests"),this.$store.dispatch("getData", "repos")]);
                         return results;
+                        console.log(results, "res")
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
