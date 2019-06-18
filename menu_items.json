@@ -42,9 +42,9 @@
         ]
     },
     {
-        "name": "header.hours",
-        "href": "/hours",
-        "id": "hours_link"
+                "name": "header.employment",
+                "href": "/jobs",
+                "id": "jobs_link"
     },
     {
         "name": "header.about",
@@ -77,12 +77,12 @@
                 "href": "/contact_us"
             },
             {
-                "name": "header.newsletter",
-                "href": "/newsletter"
+                "name": "header.hours",
+                "href": "/hours"
             },
             {
-                "name": "header.employment",
-                "href": "/jobs"
+                "name": "header.newsletter",
+                "href": "/newsletter"
             },
             {
                 "name": "header.leasing",
