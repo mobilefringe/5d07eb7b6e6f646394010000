@@ -83,7 +83,6 @@
                 this.loadData().then(response => {
                     this.dataLoaded = true;
                     this.popup = this.$store.state.popups[0];
-                    console.log(response, "h")
                     var socialFeed = response[4].data;
                     var social_feed = socialFeed.social.instagram;
                     this.instaFeed = _.slice(social_feed, [0], [4]);
