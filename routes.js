@@ -20,7 +20,7 @@ define([], function() {
             ]
         },
         {
-            path: '/promotions',
+            path: '/retailer-promotions',
             component: view('default'),
             children: [{
                     path: '',
