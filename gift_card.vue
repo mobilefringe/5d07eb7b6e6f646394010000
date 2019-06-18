@@ -80,17 +80,6 @@
                         if(errors && errors.items.length == 0){
                             //format contests data for MM
                             var json_data = {};
-                            json_data.child_first_name = this.form_data.child_first_name;
-                            json_data.child_last_name = this.form_data.child_last_name;
-                            json_data.child_birthday = this.form_data.birthday;
-                            json_data.child_age = this.form_data.age;
-                            json_data.parent_first_name = this.form_data.parent_first_name;
-                            json_data.parent_first_name = this.form_data.parent_first_name;
-                            json_data.parent_email = this.form_data.email;
-                            json_data.phone = this.form_data.phone;
-                            json_data.address = this.form_data.mailing_address;
-                            json_data.city = this.form_data.city;
-                            json_data.postal_code = this.form_data.postal_code;
                             var contest_entry = {};
                             contest_entry.json = json_data;
                             host_name = this.property.mm_host.replace("http:", "");
