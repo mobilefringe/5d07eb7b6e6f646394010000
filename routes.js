@@ -109,8 +109,7 @@ define([], function() {
             children: [{
                 path: '',
                 component: view('kids_club'),
-                name: 'kidsClub',
-                props: true
+                name: 'kidsClub'
             }]
         },
         {
