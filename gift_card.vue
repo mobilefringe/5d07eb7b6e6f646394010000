@@ -71,9 +71,6 @@
             },
             methods: {
                 validateBeforeSubmit(form) {
-                    if(this.form_data.gender == null || this.form_data.gender == undefined || this.form_data.gender.length == 0){
-                        this.genderError = true;
-                    }
                     this.$validator.validateAll().then((result) => {
                         let errors = this.errors;
                         let mm_success = false;
