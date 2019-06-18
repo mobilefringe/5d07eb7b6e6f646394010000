@@ -251,7 +251,10 @@
                 },
                 loadData: async function(id) {
                     try {
-                        // let results = await Promise.all([this.$store.dispatch("getData", "contests"),this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "repos"),
+                            this.$store.dispatch("getData", "contests")
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
