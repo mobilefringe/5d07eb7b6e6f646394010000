@@ -104,22 +104,21 @@ define([], function() {
             // }]
         },
         {
-            path: '/gift-cards',
+            path: '/kids_club',
             component: view('default'),
-            redirect: '/',
             children: [{
                 path: '',
-                component: view('gift_cards'),
-                name: 'giftCards'
+                component: view('kids_club'),
+                name: 'kidsClub'
             }]
         },
         {
-            path: '/rewards_club',
+            path: '/blog',
             component: view('default'),
             children: [{
                 path: '',
-                component: view('rewards_club'),
-                name: 'rewardsClub'
+                component: view('blog'),
+                name: 'blogList'
             }]
         },
         {
