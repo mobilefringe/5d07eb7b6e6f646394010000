@@ -182,13 +182,13 @@
                 this.loadData().then(response => {
                     // this.currentContest = this.findContestBySlug('eastyork-test-contest');
                     var temp_repo = this.findRepoByName('Pages Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
+                    console.log("this.pageBanner", this.pageBanner)
                 });
             },
             mounted() {
