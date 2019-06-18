@@ -104,12 +104,13 @@ define([], function() {
             // }]
         },
         {
-            path: '/bcc-bee-hives',
+            path: '/gift-cards',
             component: view('default'),
+            redirect: '/',
             children: [{
                 path: '',
-                component: view('bees'),
-                name: 'bees'
+                component: view('gift_cards'),
+                name: 'giftCards'
             }]
         },
         {
