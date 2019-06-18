@@ -112,7 +112,7 @@
 <script>
     define(["Vue", "vuex", "axios", "moment", "moment-timezone", 'vee-validate', 'utility', 'vue-checkbox-radio'], function(Vue, Vuex,axios, moment, tz, VeeValidate, Utility, CheckboxRadio) {
         Vue.use(VeeValidate);
-        Vue.use(CheckboxRadio.default);
+        // Vue.use(CheckboxRadio.default);
         return Vue.component("kids-club-component", {
             template: template, // the variable template will be injected
             props:['locale'],
