@@ -33,11 +33,11 @@
             },
             {
                 "name": "header.blog",
-                "href": "/contest"
+                "href": "/blog"
             },
             {
                 "name": "header.kids_club",
-                "href": "/contest"
+                "href": "/kids_club"
             }
         ]
     },
@@ -54,15 +54,15 @@
         "sub_menu": [
             {
                 "name": "header.services",
-                "href": "/pages/sudburycentre-customer-service"
+                "href": "/pages/sevenoaks-guest-services"
             },
             {
                 "name": "header.gift_cards",
-                "href": "/pages/sudburycentre-gift-cards"
+                "href": "/pages/sevenoaks-gift-cards"
             },
             {
                 "name": "header.community_programs",
-                "href": "/pages/sudburycentre-community-support"
+                "href": "/pages/sevenoaks-community-programs"
             }
         ]
     },
@@ -86,11 +86,11 @@
             },
             {
                 "name": "header.leasing",
-                "href": "/pages/sudburycentre-leasing"
+                "href": "/pages/sevenoaks-leasing"
             },
             {
                 "name": "header.about",
-                "href": ""
+                "href": "/pages/sevenoaks-about-morguard"
             }
         ]
     }
