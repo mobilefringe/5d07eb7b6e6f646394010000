@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                        <h4 class="hours_note text-left" >Please note:</h4>
+                        <h4 class="hours_note text-left" >Please note: Store hours may vary for Hudson's Bay, Shoppers Drug Mart, Best Buy, Sevenoaks Liquor Store, Sport Check, Royal Bank, CIBC, Chatters Hair Salon and Starbucks.</h4>
                     </div>
                         
                     </div>
