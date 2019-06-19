@@ -89,7 +89,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 newsletter_email: "",
                 stickyMenu: false,
                 isSticky: 350,
-                subdomain: "sudburycentre",
+                subdomain: "5d07eb7b6e6f646394010000",
                 twitter_user: "newsudbury"
             }
         },
