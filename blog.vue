@@ -6,27 +6,27 @@
                 <div class="main_post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
                 </div>
-                <div class="main_post_content">
-                    <h2 class="main_post_heading caps">{{ post.title }}</h2>
-                    <p class="post_dates">{{ post.publish_date | moment("MMM DD, YYYY", timezone) }}</p>
-                    <div class="post_text" v-html="post.body_short"></div>
-                    <router-link :to="{ name: 'postDetails', params: { id: post.slug }}" class="post_read_more"  :aria="post.title">
-					   {{ $t("blog_page.read_post") }} <i class="fa fa-angle-right" aria-hidden="true"></i>
-				    </router-link>
-				    <social-sharing :url="shareURL(post.slug)" :title="post.title" :description="post.body_short" :quote="_.truncate(post.body, {'length': 99})" twitter-user="BCCstyle" :media="post.image_url" inline-template >
-						<div class="post_list_share">
-							<div class="social_share">
-								<network network="facebook">
-									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-								</network>
-								<network network="twitter">
-									<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-								</network>
-							</div>
-						</div>
-					</social-sharing>
-                </div>
-            </div>
+     <!--           <div class="main_post_content">-->
+     <!--               <h2 class="main_post_heading caps">{{ post.title }}</h2>-->
+     <!--               <p class="post_dates">{{ post.publish_date | moment("MMM DD, YYYY", timezone) }}</p>-->
+     <!--               <div class="post_text" v-html="post.body_short"></div>-->
+     <!--               <router-link :to="{ name: 'postDetails', params: { id: post.slug }}" class="post_read_more"  :aria="post.title">-->
+					<!--   {{ $t("blog_page.read_post") }} <i class="fa fa-angle-right" aria-hidden="true"></i>-->
+				 <!--   </router-link>-->
+				 <!--   <social-sharing :url="shareURL(post.slug)" :title="post.title" :description="post.body_short" :quote="_.truncate(post.body, {'length': 99})" twitter-user="BCCstyle" :media="post.image_url" inline-template >-->
+					<!--	<div class="post_list_share">-->
+					<!--		<div class="social_share">-->
+					<!--			<network network="facebook">-->
+					<!--				<i class="fa fa-facebook social_icons" aria-hidden="true"></i>-->
+					<!--			</network>-->
+					<!--			<network network="twitter">-->
+					<!--				<i class="fa fa-twitter social_icons" aria-hidden="true"></i>-->
+					<!--			</network>-->
+					<!--		</div>-->
+					<!--	</div>-->
+					<!--</social-sharing>-->
+     <!--           </div>-->
+     <!--       </div>-->
             <div class="post_container" v-if="posts" v-for="post in posts">
                 <div class="post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
