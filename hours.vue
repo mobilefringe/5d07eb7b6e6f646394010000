@@ -44,6 +44,10 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <h4 class="hours_note text-left" >Please note:</h4>
+                        </div>
+                    </div>
                         
                     </div>
                 </div>
