@@ -178,7 +178,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    this.currentContest = this.findContestBySlug('sevenoaks-kids-club	');
+                    this.currentContest = this.findContestBySlug('sevenoaks-kids-club');
                     var temp_repo = this.findRepoByName('Contests Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
