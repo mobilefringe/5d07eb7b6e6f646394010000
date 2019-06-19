@@ -86,6 +86,7 @@
             created(){
                 this.loadData().then(response => {
                     this.currentPage = response[0].data;
+                    console.log(response[0].data, "??")
                     var temp_repo = this.findRepoByName('Contact Us Banner');
                     if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
@@ -95,7 +96,6 @@
                     }
                 });
                 this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/"+this.$root.subdomain+"-contact-us.json"}).then(response => {
-                    console.log(response.data, "??")
                     this.currentPage = response.data;
                 });
             },
