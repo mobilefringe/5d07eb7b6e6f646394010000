@@ -87,7 +87,7 @@
                     'findBlogByName'
                 ]),
                 blogs() {
-                    var blog = this.findBlogByName("Sevenpoaks").posts;
+                    var blog = this.findBlogByName("Sevenoaks").posts;
                     var vm = this;
                     var temp_blog = [];
                     _.forEach(blog, function(value, key) {
