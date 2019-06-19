@@ -95,8 +95,8 @@
                     }
                 });
                 this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/"+this.$root.subdomain+"-contact-us.json"}).then(response => {
-                    this.currentPage = response.data;
                     console.log(response.data, "??")
+                    this.currentPage = response.data;
                 });
             },
             mounted () {
