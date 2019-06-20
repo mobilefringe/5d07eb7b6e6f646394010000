@@ -8,7 +8,7 @@
 			</div>
     	</div>
         <div class="margin_60"></div>
-		<!--<div class="site_container inside_page_content page_content">-->
+		<div class="site_container inside_page_content page_content">
 		<!--    <div class="margin_60 main_post_container clearfix" v-if="firstPost" v-for="post in firstPost">-->
   <!--              <div class="main_post_image">-->
   <!--                  <img :src="post.image_url" :alt="'Blog Post: ' + post.title">-->
