@@ -34,7 +34,7 @@
 		<!--			</social-sharing>-->
   <!--              </div>-->
   <!--          </div>-->
-            <div class="post_container" v-if="posts" v-for="post in posts">
+            <div class="post_container" v-if="posts" v-for="post in blogs">
                 <div class="post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
                 </div>
@@ -82,11 +82,6 @@
                 }
             },
             created() {
-                // this.loadData().then(response => {
-                //     this.firstPost
-                //     this.posts
-                //     this.dataloaded = true;
-                // });
                 this.loadData().then(response => {
                     console.log(response)
                     // this.firstPost
