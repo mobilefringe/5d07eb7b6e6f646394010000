@@ -89,8 +89,8 @@
                 // });
                 this.loadData().then(response => {
                     this.firstPost
-                    console.log(this.posts)
                     this.posts
+                    console.log(this.posts, "pots")
                     this.dataloaded = true;
                     var temp_repo = this.findRepoByName('Blog Banner');
                     if(temp_repo && temp_repo.images) {
