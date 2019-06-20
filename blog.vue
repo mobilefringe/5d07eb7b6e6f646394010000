@@ -129,6 +129,7 @@
                     return blog
                 },
                 firstPost() {
+                    console.log(this.blogs, "po")
                     var first_post = _.slice(this.blogs, 0, 1);
                     return first_post
                 },
