@@ -2870,6 +2870,7 @@ iframe.station_41 {
 
 .toggle-container {
     display: flex;
+    justify-content: space-between;
 }
 
 .side_image {
