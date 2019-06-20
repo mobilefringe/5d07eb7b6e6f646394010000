@@ -6,7 +6,7 @@
                 <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
         			<div class="site_container">
         				<div class="header_content">
-        					<h1>Gift Cards</h1>
+        					<h1>Guest Services</h1>
         				</div>
         			</div>
         		</div>
