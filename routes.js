@@ -70,7 +70,12 @@ define([], function() {
         },
         {
             path: '/guest-services',
-            component: view('guest_services'),
+            component: view('default'),
+            children: [{
+                path: '',
+                component: view('guest_services'),
+                name: 'guest-services'
+            }]
         },
         {
             path: '/posts',
