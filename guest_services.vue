@@ -130,7 +130,6 @@
             template: template, // the variable template will be injected,
             data: function () {
                 return {
-                    dataLoaded: false,
                     siteInfo: site,
                     pageName: "Sales & Events",
                     toggleEvents: false,
@@ -141,7 +140,7 @@
             },
             created (){
                 this.loadData().then(response => {
-                    this.dataLoaded = true;
+                    // this.dataLoaded = true;
                     this.currentPage = response[0].data;
                     var temp_repo = this.findRepoByName('Guest Services Banner');
                     if(temp_repo) {
