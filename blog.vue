@@ -159,6 +159,12 @@
 
                     }
                 },
+                loadMore() {
+                    if (this.showMore <= this.blogs.length) {
+                        var num = this.showMore + this.incrementBy;
+                        this.showMore = num;
+                    }
+                },
                 shareURL(slug) {
                     var share_url = "https://www.bramaleacitycentre.com/posts/" + slug
                     return share_url
