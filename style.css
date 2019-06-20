@@ -2859,11 +2859,9 @@ iframe.station_41 {
     margin-bottom: 10px;
 }
 
-.btn-info:hover {
-    background: #000;
-}
-
-.btn-info:active {
+.btn-info:hover,
+.btn-info:active,
+.btn-info:visited {
     background: #000;
 }
 
