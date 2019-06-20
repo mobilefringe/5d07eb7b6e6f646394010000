@@ -2871,6 +2871,7 @@ iframe.station_41 {
 .toggle-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .side_image {
