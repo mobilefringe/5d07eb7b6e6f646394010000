@@ -129,7 +129,7 @@
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue!inside_banner.vue", "vue!side_image.vue", "json!site.json", "bootstrap-vue"], function (Vue, Vuex, moment, tz, VueMoment, insideBanner, sideImage, site, BootstrapVue) {
         Vue.use(BootstrapVue);
-        return Vue.component("promotions-and-events-component", {
+        return Vue.component("guest-services-component", {
             template: template, // the variable template will be injected,
             data: function () {
                 return {
