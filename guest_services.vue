@@ -143,6 +143,12 @@
             created (){
                 this.loadData().then(response => {
                     this.dataLoaded = true;
+                    this.currentPage = response[0].data;
+                    var temp_repo = this.findRepoByName('Guest Services Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    this.pageBanner = this.pageBanner;
                 });
             },
             computed: {
