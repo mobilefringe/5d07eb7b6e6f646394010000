@@ -88,7 +88,6 @@
                 //     this.dataloaded = true;
                 // });
                 this.loadData().then(response => {
-                    console.log(response, "e")
                     this.firstPost
                     this.posts
                     this.dataloaded = true;
@@ -107,7 +106,8 @@
                     'property',
                     'timezone',
                     'blogs',
-                    'findBlogByName'
+                    'findBlogByName',
+                    'findRepoByName'
                 ]),
                 blogs() {
                     var blog = this.findBlogByName("Sevenoaks Shopping Centre").posts;
