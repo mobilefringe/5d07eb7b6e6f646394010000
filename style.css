@@ -2841,6 +2841,11 @@ iframe.station_41 {
 	}
 }
 
+/* GUEST SERVICES */
+.btn-info {
+    background: $primary;
+}
+
 
 /* HOURS */
 
