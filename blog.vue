@@ -59,7 +59,7 @@
 					</social-sharing>
                 </div>
             </div>
-            <div class="contact_btn" id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()">Load More</div>
+            <button class="contact_btn" id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()">Load More</button>
             <p v-else>No More Posts</p>
         </div>
     </div>
