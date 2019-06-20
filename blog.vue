@@ -92,9 +92,9 @@
                     this.posts
                     this.dataloaded = true;
                     this.currentPage = response[0].data;
-                    console.log(this.currentPage, "e")
                     // this.currentContest = this.findContestBySlug('parklandmall-kids-club');
                     var temp_repo = this.findRepoByName('Blog Banner');
+                    console.log(temp_repo, "e")
                     if(temp_repo) {
                         this.pageBanner = temp_repo.images[0];
                     }
