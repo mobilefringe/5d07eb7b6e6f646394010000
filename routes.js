@@ -69,6 +69,10 @@ define([], function() {
             ]
         },
         {
+            path: '/guest-services',
+            component: view('guest_services'),
+        },
+        {
             path: '/posts',
             component: view('default'),
             children: [{
