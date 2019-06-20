@@ -53,6 +53,14 @@
             },
             created(){
                this.updatePageData(this.id);
+               this.loadData().then(response => {
+                    this.currentPage = response[0].data;
+                    var temp_repo = this.findRepoByName('Guest Services Banner');
+                    if(temp_repo) {
+                        this.pageBanner = temp_repo.images[0];
+                    }
+                    this.pageBanner = this.pageBanner;
+                });
             },
             computed: {
                 ...Vuex.mapGetters([
