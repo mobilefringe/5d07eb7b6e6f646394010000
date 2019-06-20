@@ -13,9 +13,9 @@
                 <!--<banner-component :page_name="pageName"></banner-component>-->
                 <div class="main_container mobile_padding margin_30">
                     <div class="details_row">
-                        <div class="details_col_3 hidden_phone">
-                            <image-component :page_name="pageName"></image-component>  
-                        </div>
+                        <!--<div class="details_col_3 hidden_phone">-->
+                        <!--    <image-component :page_name="pageName"></image-component>  -->
+                        <!--</div>-->
                         <div class="details_col_9">
                             <!-- PROMOTIONS -->
                             <b-card no-body class="mb-1 inside_page_toggle">
