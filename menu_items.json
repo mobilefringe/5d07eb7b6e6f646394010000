@@ -55,7 +55,7 @@
         "sub_menu": [
             {
                 "name": "header.services",
-                "href": "/pages/sevenoaks-guest-services"
+                "href": "/guest_services"
             },
             {
                 "name": "header.gift_cards",
