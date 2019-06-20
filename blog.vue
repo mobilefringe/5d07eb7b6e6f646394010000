@@ -90,6 +90,7 @@
                 this.loadData().then(response => {
                     // this.firstPost
                     this.posts
+                    console.log(this.posts)
                     this.dataloaded = true;
                     var temp_repo = this.findRepoByName('Blog Banner');
                     if(temp_repo && temp_repo.images) {
