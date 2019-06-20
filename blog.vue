@@ -111,7 +111,6 @@
                 // },
                 blogList() {
                     var blog_list = _.drop(this.blogs);
-                    console.log(blog_list, "h")
                     return blog_list
                 }
             },
@@ -119,6 +118,7 @@
                 loadData: async function () {
                     try {
                         let results = await Promise.all([this.$store.dispatch("getData", "blogs")]);
+                        console.log(results, "h")
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
