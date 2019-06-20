@@ -2855,6 +2855,7 @@ iframe.station_41 {
     font-size: 20px;
     text-align: left;
     padding-left: 30px;
+    margin-bottom: 5px;
 }
 
 .btn-info:hover {
@@ -2863,10 +2864,6 @@ iframe.station_41 {
 
 .accordian-container {
     border-left: 1px solid #D8D8D8;
-}
-
-.accordian-separator {
-    margin: 5px 0;
 }
 
 /* HOURS */
