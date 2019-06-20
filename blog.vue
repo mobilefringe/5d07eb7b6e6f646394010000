@@ -34,7 +34,7 @@
 		<!--			</social-sharing>-->
   <!--              </div>-->
   <!--          </div>-->
-            <div class="post_container" v-if="posts" v-for="post in posts">
+            <div class="post_container" >
                 <div class="post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
                 </div>
@@ -90,7 +90,6 @@
                 this.loadData().then(response => {
                     this.firstPost
                     this.posts
-                    console.log(this.posts, "pots")
                     this.dataloaded = true;
                     var temp_repo = this.findRepoByName('Blog Banner');
                     if(temp_repo && temp_repo.images) {
