@@ -2,31 +2,31 @@
     <div v-if="dataloaded">
         <div class="margin_60"></div>
 		<div class="site_container inside_page_content page_content">
-		   <!-- <div class="margin_60 main_post_container clearfix" v-if="firstPost" v-for="post in firstPost">-->
-     <!--           <div class="main_post_image">-->
-     <!--               <img :src="post.image_url" :alt="'Blog Post: ' + post.title">-->
-     <!--           </div>-->
-     <!--           <div class="main_post_content">-->
-     <!--               <h2 class="main_post_heading caps">{{ post.title }}</h2>-->
-     <!--               <p class="post_dates">{{ post.publish_date | moment("MMM DD, YYYY", timezone) }}</p>-->
-     <!--               <div class="post_text" v-html="post.body_short"></div>-->
-     <!--               <router-link :to="{ name: 'postDetails', params: { id: post.slug }}" class="post_read_more"  :aria="post.title">-->
-					<!--   {{ $t("blog_page.read_post") }} <i class="fa fa-angle-right" aria-hidden="true"></i>-->
-				 <!--   </router-link>-->
-				 <!--   <social-sharing :url="shareURL(post.slug)" :title="post.title" :description="post.body_short" :quote="_.truncate(post.body, {'length': 99})" twitter-user="BCCstyle" :media="post.image_url" inline-template >-->
-					<!--	<div class="post_list_share">-->
-					<!--		<div class="social_share">-->
-					<!--			<network network="facebook">-->
-					<!--				<i class="fa fa-facebook social_icons" aria-hidden="true"></i>-->
-					<!--			</network>-->
-					<!--			<network network="twitter">-->
-					<!--				<i class="fa fa-twitter social_icons" aria-hidden="true"></i>-->
-					<!--			</network>-->
-					<!--		</div>-->
-					<!--	</div>-->
-					<!--</social-sharing>-->
-     <!--           </div>-->
-     <!--       </div>-->
+		    <div class="margin_60 main_post_container clearfix" v-if="firstPost" v-for="post in firstPost">
+                <div class="main_post_image">
+                    <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
+                </div>
+                <div class="main_post_content">
+                    <h2 class="main_post_heading caps">{{ post.title }}</h2>
+                    <p class="post_dates">{{ post.publish_date | moment("MMM DD, YYYY", timezone) }}</p>
+                    <div class="post_text" v-html="post.body_short"></div>
+                    <router-link :to="{ name: 'postDetails', params: { id: post.slug }}" class="post_read_more"  :aria="post.title">
+					   {{ $t("blog_page.read_post") }} <i class="fa fa-angle-right" aria-hidden="true"></i>
+				    </router-link>
+				    <social-sharing :url="shareURL(post.slug)" :title="post.title" :description="post.body_short" :quote="_.truncate(post.body, {'length': 99})" twitter-user="BCCstyle" :media="post.image_url" inline-template >
+						<div class="post_list_share">
+							<div class="social_share">
+								<network network="facebook">
+									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+								</network>
+								<network network="twitter">
+									<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+								</network>
+							</div>
+						</div>
+					</social-sharing>
+                </div>
+            </div>
             <div class="post_container" v-if="posts" v-for="post in posts">
                 <div class="post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
@@ -74,7 +74,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    // this.firstPost
+                    this.firstPost
                     this.posts
                     this.dataloaded = true;
                 });
@@ -90,7 +90,6 @@
                     var blog = this.findBlogByName("Sevenoaks Shopping Centre").posts;
                     var vm = this;
                     var temp_blog = [];
-                    console.log(temp_blog, "h")
                     _.forEach(blog, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.publish_date).tz(vm.timezone);
@@ -106,10 +105,10 @@
                     blog = _.reverse(_.sortBy(temp_blog, function (o) { return o.publish_date }));
                     return blog
                 },
-                // firstPost() {
-                //     var first_post = _.slice(this.blogs, 0, 1);
-                //     return first_post
-                // },
+                firstPost() {
+                    var first_post = _.slice(this.blogs, 0, 1);
+                    return first_post
+                },
                 blogList() {
                     var blog_list = _.drop(this.blogs);
                     return blog_list
