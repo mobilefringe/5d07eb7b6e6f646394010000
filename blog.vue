@@ -1,14 +1,14 @@
 <template>
     <div v-if="dataloaded">
-        <div class="margin_60"></div>
-		<div class="site_container inside_page_content page_content">
-    		<div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
     			<div class="site_container">
     				<div class="header_content">
     					<h1>What's New</h1>
     				</div>
     			</div>
-    		</div>
+    	</div>
+        <div class="margin_60"></div>
+		<div class="site_container inside_page_content page_content">
 		    <div class="margin_60 main_post_container clearfix" v-if="firstPost" v-for="post in firstPost">
                 <div class="main_post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
