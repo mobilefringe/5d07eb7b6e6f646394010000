@@ -34,7 +34,7 @@
 		<!--			</social-sharing>-->
   <!--              </div>-->
   <!--          </div>-->
-            <div class="post_container" v-for="post in blogs">
+            <div class="post_container" v-for="(post, index) in blogs"  v-if="showMore > index" :key="index">
                 <div class="post_image">
                     <img :src="post.image_url" :alt="'Blog Post: ' + post.title">
                 </div>
@@ -59,7 +59,7 @@
 					</social-sharing>
                 </div>
             </div>
-            <button class="contact_btn" v-if="!noMorePosts" @click="handleButton">Load More</button>
+            <div id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()"></div>
             <p v-if="noPosts">No More Posts</p>
         </div>
     </div>
@@ -78,7 +78,9 @@
                     noMorePosts: false,
                     noPosts: false,
                     pageBanner: null,
-                    currentPage: null
+                    currentPage: null,
+                    showMore: 3,
+                    incrementBy: 3
                 }
             },
             created() {
@@ -124,11 +126,6 @@
                     blog = _.reverse(_.sortBy(temp_blog, function (o) { return o.publish_date }));
                     return blog
                 },
-                // firstPost() {
-                //     console.log(this.blogs)
-                //     var first_post = _.slice(this.blogs, 0, 1);
-                //     return first_post
-                // },
                 blogList() {
                     var blog_list = _.drop(this.blogs);
                     return blog_list
