@@ -111,8 +111,8 @@
                 // },
                 blogList() {
                     var blog_list = _.drop(this.blogs);
-                    return blog_list
                     console.log(blog_list, "h")
+                    return blog_list
                 }
             },
             methods: {
