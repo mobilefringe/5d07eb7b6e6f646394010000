@@ -2867,6 +2867,7 @@ iframe.station_41 {
 
 .accordian-toggle {
     position: relative;
+    right: 0;
 }
 
 /* HOURS */
