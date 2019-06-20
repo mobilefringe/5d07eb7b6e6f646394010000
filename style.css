@@ -2842,11 +2842,13 @@ iframe.station_41 {
 }
 
 /* GUEST SERVICES */
+.btn {
+    padding: 10px auto;
+}
 .btn-info {
     background: $primary;
     border: none;
     border-radius: 0px;
-    padding: 20px auto;
 }
 
 
