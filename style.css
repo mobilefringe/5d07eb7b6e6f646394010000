@@ -2854,8 +2854,8 @@ iframe.station_41 {
     padding: 15px;
 }
 
-.side_img_container {
-    border-right: 1px solid #D8D8D8;
+.accordian-container {
+    border-left: 1px solid #D8D8D8;
 }
 
 /* HOURS */
