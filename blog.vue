@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()"></div>
-            <p v-if="noPosts">No More Posts</p>
+            <p v-else>No More Posts</p>
         </div>
     </div>
 </template>
