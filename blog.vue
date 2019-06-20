@@ -59,7 +59,7 @@
 					</social-sharing>
                 </div>
             </div>
-            <!--<button class="contact_btn" v-if="!noMorePosts" @click="handleButton">Load More</button>-->
+            <button class="contact_btn" v-if="!noMorePosts" @click="handleButton">Load More</button>
             <p v-if="noPosts">No More Posts</p>
         </div>
     </div>
