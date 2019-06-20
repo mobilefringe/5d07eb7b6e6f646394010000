@@ -92,13 +92,14 @@
                     this.firstPost
                     this.posts
                     this.dataloaded = true;
-                    this.currentPage = response[0].data;
-                    // this.currentContest = this.findContestBySlug('parklandmall-kids-club');
                     var temp_repo = this.findRepoByName('Blog Banner');
-                    if(temp_repo) {
+                    if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     }
-                    this.pageBanner = this.pageBanner;
+                    else {
+                        this.pageBanner = {};
+                        this.pageBanner.image_url = "";
+                    }
                 });
             },
             computed: {
