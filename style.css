@@ -2866,7 +2866,7 @@ iframe.station_41 {
 }
 
 .accordian-toggle {
-    position: relative;
+    position: absolute;
     right: 0;
 }
 
