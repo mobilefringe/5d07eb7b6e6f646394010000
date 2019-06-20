@@ -2874,6 +2874,10 @@ iframe.station_41 {
     align-items: center;
 }
 
+.fa-plus {
+    margin-right: 30px;
+}
+
 .side_image {
     width: 350px;
 }
