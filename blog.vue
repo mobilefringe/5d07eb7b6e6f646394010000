@@ -128,11 +128,11 @@
                     blog = _.reverse(_.sortBy(temp_blog, function (o) { return o.publish_date }));
                     return blog
                 },
-                firstPost() {
-                    console.log(this.blogs)
-                    var first_post = _.slice(this.blogs, 0, 1);
-                    return first_post
-                },
+                // firstPost() {
+                //     console.log(this.blogs)
+                //     var first_post = _.slice(this.blogs, 0, 1);
+                //     return first_post
+                // },
                 blogList() {
                     var blog_list = _.drop(this.blogs);
                     return blog_list
