@@ -2847,6 +2847,10 @@ iframe.station_41 {
 }
 
 /* GUEST SERVICES */
+.description_text {
+    margin: 30px 0;
+}
+
 .btn-info {
     background: $primary;
     border: none;
@@ -2866,6 +2870,8 @@ iframe.station_41 {
     padding-left: 50px;
     border-left: 1px solid #D8D8D8;
 }
+
+
 
 /* HOURS */
 
