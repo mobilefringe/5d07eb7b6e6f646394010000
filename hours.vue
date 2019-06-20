@@ -34,7 +34,7 @@
                         </div>
                         <div class="padding_top_20"></div>
                         
-                        <span v-if="hour in closeholidays"><h3 class="hours_heading text-left">{{$t("hours_page.holiday_closures")}}</h3>
+                        <span v-if="closeholidays"><h3 class="hours_heading text-left">{{$t("hours_page.holiday_closures")}}</h3>
                         <div id="closed_hours_container" class="hours_container">
                             <div class="hours_div text-left" v-for="hour in closeHolidays">
                                 <span>
@@ -115,6 +115,7 @@
                     var holidayHours = this.holidayHours;
                     return _.sortBy(_.filter(holidayHours, function(o) { return o.is_closed; }), [function(o) { return o.holiday_date; }]);
                 }
+                console.log(closeHolidays)
             },
             methods : {
                 loadData: async function() {
