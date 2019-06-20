@@ -127,7 +127,7 @@
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue!inside_banner.vue", "vue!side_image.vue", "json!site.json", "bootstrap-vue"], function (Vue, Vuex, moment, tz, VueMoment, insideBanner, sideImage, site, BootstrapVue) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "bootstrap-vue"], function (Vue, Vuex, moment, tz, VueMoment, BootstrapVue) {
         Vue.use(BootstrapVue);
         return Vue.component("guest-services-component", {
             template: template, // the variable template will be injected,
