@@ -2846,9 +2846,7 @@ iframe.station_41 {
     background: $primary;
     border: none;
     border-radius: 0px;
-}
-.accordian-btn {
-    padding: 20px auto;
+    padding: 20px;
 }
 
 /* HOURS */
