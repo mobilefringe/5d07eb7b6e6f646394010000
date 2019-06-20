@@ -55,7 +55,7 @@
         "sub_menu": [
             {
                 "name": "header.services",
-                "href": "/guest_services"
+                "href": "/guest-services"
             },
             {
                 "name": "header.gift_cards",
