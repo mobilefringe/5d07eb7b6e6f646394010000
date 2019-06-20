@@ -90,6 +90,7 @@
                     var blog = this.findBlogByName("Sevenoaks Shopping Centre").posts;
                     var vm = this;
                     var temp_blog = [];
+                    console.log(temp_blog, "h")
                     _.forEach(blog, function(value, key) {
                         today = moment().tz(vm.timezone);
                         webDate = moment(value.publish_date).tz(vm.timezone);
@@ -103,7 +104,6 @@
                         }
                     });
                     blog = _.reverse(_.sortBy(temp_blog, function (o) { return o.publish_date }));
-                     console.log(blog, "h")
                     return blog
                 },
                 // firstPost() {
