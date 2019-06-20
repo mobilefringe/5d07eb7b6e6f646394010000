@@ -2886,6 +2886,12 @@ iframe.station_41 {
     width: 350px;
 }
 
+@media (max-width: 992px) {
+    .accordian-container {
+        padding-left: 0px;
+    }
+}
+
 
 
 /* HOURS */
