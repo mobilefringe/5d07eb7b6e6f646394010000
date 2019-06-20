@@ -88,7 +88,7 @@
                 //     this.dataloaded = true;
                 // });
                 this.loadData().then(response => {
-                    this.firstPost
+                    // this.firstPost
                     this.posts
                     this.dataloaded = true;
                     var temp_repo = this.findRepoByName('Blog Banner');
