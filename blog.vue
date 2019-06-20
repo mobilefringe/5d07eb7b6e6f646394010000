@@ -88,6 +88,7 @@
                 //     this.dataloaded = true;
                 // });
                 this.loadData().then(response => {
+                    console.log(response)
                     // this.firstPost
                     this.posts
                     this.dataloaded = true;
@@ -142,8 +143,6 @@
                 loadData: async function () {
                     try {
                         let results = await Promise.all([this.$store.dispatch("getData", "blogs")]);
-                        return results;
-                        console.log(blogs, "res")
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
