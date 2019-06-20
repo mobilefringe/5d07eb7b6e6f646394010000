@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6 ">
-                        <h3 class="hours_heading text-left">{{$t("hours_page.holiday_hours")}}</h3
+                        <h3 class="hours_heading text-left">{{$t("hours_page.holiday_hours")}}</h3>
                         <div id="holidays_hours_container" class="hours_container">
                             <div class="hours_div text-left" v-for="hour in reducedHolidays">
                                 <span>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="padding_top_20"></div>
                         
-                        <span v-if="holiday_closures"><h3 class="hours_heading text-left">{{$t("hours_page.holiday_closures")}}</h3></span>
+                        <span v-if="holiday_closures"><h3 class="hours_heading text-left">{{$t("hours_page.holiday_closures")}}</h3>
                         <div id="closed_hours_container" class="hours_container">
                             <div class="hours_div text-left" v-for="hour in closeHolidays">
                                 <span>
@@ -44,6 +44,7 @@
                                 </span>
                             </div>
                         </div>
+                        </span>
                     </div>
                     <div class="col-sm-12">
                         <h4 class="hours_note text-left" >Please note: Store hours may vary for Hudson's Bay, Shoppers Drug Mart, Best Buy, Sevenoaks Liquor Store, Sport Check, Royal Bank, CIBC, Chatters Hair Salon and Starbucks.</h4>
