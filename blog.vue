@@ -103,6 +103,7 @@
                         }
                     });
                     blog = _.reverse(_.sortBy(temp_blog, function (o) { return o.publish_date }));
+                     console.log(blog, "h")
                     return blog
                 },
                 // firstPost() {
@@ -118,7 +119,6 @@
                 loadData: async function () {
                     try {
                         let results = await Promise.all([this.$store.dispatch("getData", "blogs")]);
-                        console.log(results, "h")
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
