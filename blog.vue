@@ -74,7 +74,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    this.firstPost
+                    // this.firstPost
                     this.posts
                     this.dataloaded = true;
                 });
