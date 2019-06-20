@@ -186,7 +186,6 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
-                    console.log("this.pageBanner", this.pageBanner)
                 });
             },
             mounted() {
