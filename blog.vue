@@ -142,6 +142,7 @@
                 loadData: async function () {
                     try {
                         let results = await Promise.all([this.$store.dispatch("getData", "blogs")]);
+                        console.log(results, "res")
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
