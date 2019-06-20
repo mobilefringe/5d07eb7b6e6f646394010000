@@ -2852,6 +2852,8 @@ iframe.station_41 {
     border: none;
     border-radius: 0px;
     padding: 15px;
+    font-size: 22px;
+    text-align: left;
 }
 
 .accordian-container {
