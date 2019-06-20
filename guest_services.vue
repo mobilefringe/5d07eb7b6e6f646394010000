@@ -137,7 +137,9 @@
                     siteInfo: site,
                     pageName: "Sales & Events",
                     toggleEvents: false,
-                    togglePromos: false
+                    togglePromos: false,
+                    pageBanner: null,
+                    currentPage: null
                 }
             },
             created (){
