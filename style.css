@@ -2868,8 +2868,8 @@ iframe.station_41 {
     border-left: 1px solid #D8D8D8;
 }
 
-.toggle-btn {
-    
+.toggle-container {
+    display: flex;
 }
 
 .side_image {
