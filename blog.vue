@@ -81,12 +81,15 @@
                 }
             },
             created() {
+                // this.loadData().then(response => {
+                //     this.firstPost
+                //     this.posts
+                //     this.dataloaded = true;
+                // });
                 this.loadData().then(response => {
                     this.firstPost
                     this.posts
                     this.dataloaded = true;
-                });
-                this.loadData().then(response => {
                     this.currentPage = response[0].data;
                     // this.currentContest = this.findContestBySlug('parklandmall-kids-club');
                     var temp_repo = this.findRepoByName('Blog Banner');
