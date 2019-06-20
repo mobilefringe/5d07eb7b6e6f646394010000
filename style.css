@@ -2865,6 +2865,10 @@ iframe.station_41 {
     border-left: 1px solid #D8D8D8;
 }
 
+.accordian-separator {
+    padding: 5px 0;
+}
+
 /* HOURS */
 
 .hours_day {
