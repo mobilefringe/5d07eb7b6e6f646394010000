@@ -113,6 +113,7 @@
                 },
                 closeHolidays () {
                     var holidayHours = this.holidayHours;
+                    console.log(holidayHours, "ho")
                     return _.sortBy(_.filter(holidayHours, function(o) { return o.is_closed; }), [function(o) { return o.holiday_date; }]);
                 }
             },
