@@ -88,7 +88,7 @@
                     'findBlogPostBySlug'
                 ]),
                 relatedPosts () {
-                    var blog_posts = _.reverse(_.orderBy(this.findBlogByName("Bramalea City Centre").posts, function (o) { return o.publish_date }));
+                    var blog_posts = _.reverse(_.orderBy(this.findBlogByName("Sevenoaks Shopping Centre").posts, function (o) { return o.publish_date }));
 
                     var current_post_date = this.currentPost.publish_date
                     var current_post_id = this.currentPost.id
