@@ -52,7 +52,7 @@
 </template>
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-social-sharing"], function (Vue, Vuex, moment, tz, VueMoment, SocialSharing) {
-        return Vue.component("blog_details-component", {
+        return Vue.component("blog-details-component", {
             template: template, // the variable template will be injected,
             props: ['id'],
             data: function () {
