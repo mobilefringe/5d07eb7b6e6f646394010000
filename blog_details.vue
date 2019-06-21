@@ -117,6 +117,7 @@
                 updateCurrentBlog(id) {
                     var blogName = "Sevenoaks Shopping Centre";
                     this.currentPost = this.findBlogPostBySlug(blogName, id);
+                    console.log(currentPost, "name")
                     if (this.currentPost === null || this.currentPost === undefined) {
                         this.$router.replace({ name: '404' });
                     }
