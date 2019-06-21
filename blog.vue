@@ -84,6 +84,7 @@
                 ]),
                 blogs() {
                     var blog = this.findBlogByName("Sevenoaks Shopping Centre").posts;
+                    console.log(blog, "p")
                     var vm = this;
                     var temp_blog = [];
                     _.forEach(blog, function(value, key) {
