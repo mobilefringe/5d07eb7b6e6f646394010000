@@ -161,7 +161,7 @@
                 this.loadData().then(response => {
                     this.dataloaded = true;
                     
-                    var temp_repo = this.findRepoByName('Contest Banner');
+                    var temp_repo = this.findRepoByName('Contests Banner');
                     if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
                     }
