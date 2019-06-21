@@ -178,7 +178,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    // this.currentContest = this.findContestBySlug('eastyork-test-contest');
+                    this.currentContest = this.findContestBySlug('LOVE FROM ABBOTSFORD');
                     var temp_repo = this.findRepoByName('Contests Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
