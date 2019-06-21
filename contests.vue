@@ -144,7 +144,7 @@
         Vue.use(Meta);
         Vue.use(VueLazyload);
         Vue.use(VuePaginate);
-        return Vue.component("events-component", {
+        return Vue.component("contests-component", {
             template: template, // the variable template will be injected
             props:['locale'],
             data: function() {
