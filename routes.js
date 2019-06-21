@@ -93,6 +93,21 @@ define([], function() {
                 }
             ]
         },
+            path: '/blog',
+            component: view('default'),
+            children: [{
+                    path: '',
+                    component: view('blog'),
+                    name: 'blogList'
+                },
+                {
+                    path: ':id',
+                    component: view('blog_details'),
+                    name: 'blogDetails',
+                    props: true
+                }
+            ]
+        },
         {
             path: '/map',
             component: view('default'),
