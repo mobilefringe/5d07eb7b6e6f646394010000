@@ -1,261 +1,242 @@
 <template>
-    <div class="page_container" id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render --> <!--  v-if="currentContest" -->
-        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+	<div v-if="dataloaded">
+		<div class="page_header" v-if="pageBanner" v-lazy:background-image="pageBanner.image_url">
+			<!--http://via.placeholder.com/1920x300-->
 			<div class="site_container">
-				<div class="header_content">
-					<h1 v-if="locale=='en-ca'">{{currentContest.name}}  hello</h1>
-					<!--<h1 v-else>{{currentContest.name_2}}</h1>--><h1 v-else>French name</h1>
+				<div class="header_content caps">
+					<h1>{{$t("events_page.events")}}</h1>
+					<h2 style="display:none;">Scroll to  view events</h2>
+					<h3 style="display:none;">View all events below</h3>
+					
 				</div>
 			</div>
 		</div>
-        <div class="site_container">
-            <div class="row text-center">
-                    <img :src='currentContest.image_url' alt="contest image" class="image"  v-if="locale=='en-ca'">
-                    <img :src="'//mallmaverick.com'+currentContest.photo_2_url" alt="contest image" class="image"  v-else>
-                </div> 
-            <div class="row"> 
-                <div class="col-sm-12 contest_contents">
-                    <div class="description_text text_left" style="padding-top:40px" v-if="locale=='en-ca'" v-html="currentContest.rich_description">
-                        <!--{{currentContest.description}}-->
-                    </div>
-                    <div class="description_text text_left" style="padding-top:40px" v-else  v-html="currentContest.rich_description_2">
-                        <!--{{currentContest.description_2}}-->
-                    </div>
-                    <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
-						<div class="form-group ">
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
-								<label class="label" for="first_name">First Name</label>
-								<input v-model="form_data.first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="first name">
-								<span v-show="errors.has('first_name')" class="form-control-feedback">{{ errors.first('first_name') }}</span>
+		<div class="site_container page_content" id="events_container">
+			<div  v-if="events.length > 0">
+				<!--<paginate name="events" v-if="events" :list="events" class="paginate-list margin-60" :per="4">-->
+					<!--<div class="row event_container" v-for="(promo,index) in paginated('events')" :class="{ 'last': index === (paginated('events').length - 1) }">-->
+		
+            		<div class="row event_container" v-if="showMore > index" v-for="(promo,index) in promos">				
+            		    <div class="col-sm-6 col-md-4 event_image_container">
+							<!--<router-link :to="'/events/'+ promo.slug" class="event_learn_more">-->
+							<div class="image_container details_store_image">
+							    <!--<img :src="promo.store.store_front_url_abs"  class="event_image image" :alt="'Click here to view ' + promo.name"/>-->
+							    <div v-if="!checkImageURL(promo)" class="store_details_image center-block">
+                                    <div class="no_logo">
+                                        <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
+                                        <h2 class="store_details_name">{{ promo.store.name }}</h2>
+                                    </div>    
+                                </div>
+                                <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
 							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('last_name')}">
-								<label class="label" for="last_name">Last Name</label>
-								<input v-model="form_data.last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="last_name" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="last name">
-								<span v-show="errors.has('last_name')" class="form-control-feedback">{{ errors.first('last_name') }}</span>
+							<!--</router-link>-->
+						</div>
+						<div class="col-sm-6 col-md-8 event_dets_container">
+							<h4 class="event_name caps" v-if="locale=='en-ca'">{{promo.name}}</h4>
+							<h4 class="event_name caps" v-else>{{promo.name_2}}</h4>
+							<div class="event_thick_line"></div>
+							<p class="event_dates">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
+							<p class="event_desc" v-if="locale=='en-ca'">{{promo.description_short}}</p>
+							<p class="event_desc" v-else>{{promo.description_short_2}}</p>
+						
+							<div class="text-right col-md-6 col-sm-12" v-if="promo" style="padding:0">
+								<router-link :to="'/events/'+ promo.slug" class="event_learn_more pull-left hvr-icon-wobble-horizontal" :aria="promo.name">
+								    {{$t("events_page.read_more")}} <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
+							    </router-link>
+								<social-sharing :url="$root.shareURL('events',promo.slug)" :title="promo.title" :description="promo.body" :quote="_.truncate(promo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="promo.image_url" inline-template >
+									<div class="blog-social-share pull_right">
+										<div class="social_share">
+											<network network="facebook">
+												<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+											</network>
+											<network network="twitter">
+												<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+											</network>
+										</div>
+									</div>
+								</social-sharing>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
-								<label class="label" for="email">Email</label>
-								<input v-model="form_data.email" v-validate="'required|email'" class="form-control" :class="{'input': true}" name="email" type="email" placeholder="Email" data-vv-delay="500" data-vv-as="email">
-								<span v-show="errors.has('email')" class="form-control-feedback">{{ errors.first('email') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('phone')}" >
-								<label class="label" for="phone">Phone Number</label>
-								<input v-model="form_data.phone" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="phone" type="text" placeholder="Phone number" data-vv-delay="500" data-vv-as="phone">
-								<span v-show="errors.has('phone')" class="form-control-feedback">{{ errors.first('phone') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('street')}"  style="padding-top: 20px;">
-								<label class="label" for="street">Street Address</label>
-								<input v-model="form_data.mailing_address" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="street" type="text" placeholder="Street Address" data-vv-delay="500" data-vv-as="street address">
-								<span v-show="errors.has('street')" class="form-control-feedback">{{ errors.first('street') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12"  :class="{'has-error': errors.has('city')}" style="padding-top: 20px;">
-								<label class="label" for="city"> City</label>
-								<input v-model="form_data.city" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="city" type="text" placeholder="Town/City" data-vv-delay="500" data-vv-as="city">
-								<span v-show="errors.has('city')" class="form-control-feedback">{{ errors.first('city') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12 " :class="{'has-error': errors.has('postal')}"  style="padding-top: 20px;">
-								<label class="label" for="postal">Postal Code</label>
-								<input v-model="form_data.postal_code" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="postal" type="text" placeholder="Postal Code" data-vv-delay="500" data-vv-as="postal code">
-								<span v-show="errors.has('postal')" class="form-control-feedback">{{ errors.first('postal') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('birthday')}"   style="padding-top: 20px;">
-								<label class="label" for="birthday">Birthday</label>
-								<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:MM/DD/YYYY'" :class="{'input': true}" name="birthday" type="text" placeholder="mm/dd/yyyy" data-vv-delay="500" data-vv-as="birthday">
-                                <!--<v-date-picker mode='single' v-model='birthday'  v-validate="'required:true'" select-color='green'></v-date-picker>-->
-								<span v-show="errors.has('birthday')" class="form-control-feedback">{{ errors.first('birthday') }}</span>
-							</div>
+						<div class="col-sm-12">
+							<hr>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-6" :class="{'has-error': errors.has('validate')}">
-								<label class="label" for="validate">Enter the following number below to proceed: {{correctValNum}}</label> 
-								<input v-model="validaNum" v-validate="'required|numeric|min:6|max:6'" class="form-control col-xs-3" :class="{'input': true}" name="validate" type="text" placeholder="Enter above number" data-vv-delay="500" data-vv-as="validation">
-								<span v-show="errors.has('validate')" class="form-control-feedback">{{ errors.first('validate') }}</span>
-								<span v-if="validaNum.length === 6 && validaNum !== correctValNum && errors.first('validate') == null" class="form-control-feedback" :class="{shake_element : validNumError}">Please enter correct number</span>
-							</div>
-						</div>
-						<div class="form-group account-btn text-left m-t-10 agreement">
-						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
-						        <label class="checkbox">
-                                    <input name="agree_newsletter" type="checkbox" v-model="form_data.agree_newsletter">
-                                        Yes, I would like to receive ongoing news related to events, promotions and special announcements from {{property.name}}
-                                </label>
-						    </div>
-						    <div class="col-xs-12">
-						        <label class="checkbox">
-                                    <input name="agree_terms" required type="checkbox" >
-                                    I agree to the <a href = "/pages/eastgate-contest-rules-and-regulations" target="_blank"><u> rules and regulations</u></a>
-                                </label>
-						    </div>
-							<div class="col-xs-12" style="margin-top: 20px;padding: 0;">
-								<button class="contest_btn" type="submit" :disabled="formSuccess">Submit</button>
-							</div>
-						</div>
-					</form>
-                    
-                    <div id="send_contact_success" class="alert alert-success text-left" role="alert" v-show="formSuccess">
-                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        <span class="sr-only">Success</span>
-                        Thank you for contacting us. A member from our team will contact you shortly.
-                    </div>
-                    <div id="send_contact_error" class="alert alert-danger text-left" role="alert" v-show="formError">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span>
-                        There was an error when trying to submit your request. Please try again later.
-                    </div>
-                    
-                </div>
+					</div>
+				<!--</paginate>-->
+			</div>
+			<div id="no_events" class="row" v-else>
+				<div class="col-md-12">
+					<p>{{$t("events_page.no_event_message")}}</p>
+				</div>
+			</div>
+			<div class="show_more"  v-if="promos && showMore < promos.length">
+              <div
+                class="pointer"
+                @click="loadMoreItems()"
+              >{{$t("events_page.more_promos")}}</div>
             </div>
-            <div class="padding_top_40"></div>    
-        </div>
-    </div>
+		</div>
+	</div>
 </template>
 
 <style>
-    #contact_us_container .row{
-        margin-left:inherit;
+    .events_container .date_bar{
+        /* Today: */
+        background: #D3D3D3;
+        height: 40px;
+        line-height: 40px;
+        margin: auto;
+        text-align: center;
     }
-    .contest_contents {
-        min-height: 700px;
+    .events_container .date_bar .fa{
+        cursor: pointer;
     }
-    /*.form-group [class*="col-"] {*/
-    /*    padding-top:0;    */
-    /*}*/
-    .form-group .form-control-feedback{
-        font-size: 12px;
-        /*top:60px;*/
-        color: #F44336;
-        top: initial;
-        bottom: -27px;
+    .events_container .current_date{
+        color: #636363;
+        padding: 0 10px;
     }
-    .popover-container input {
-        margin-top: 10px;
-        display: block;
-        width: 100%;
-        height: 34px;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        color: #555;
-        background-color: #fff;
-        background-image: none;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    .events_container .all_dates {
+        border-bottom: 1px solid #aea99e;
     }
-    .agreement.form-group {
-        margin:0;   
+    .events_container .all_dates span {
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 1.5px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 5px;
+        cursor: pointer;
     }
-    .checkbox {
-        font-weight: normal;
+    .events_container .all_dates [class*="date_"]:focus, [class*="date_"]:hover { 
+        background-color: #D3D3D3;
     }
+    .events_container .all_dates span.active { 
+        background-color: #bababa;
+    }
+    .events_container .promo_dets {
+        border-bottom: 1px solid #aea99e;
+    }
+    .events_container .row.is-table-row {
+        margin: 0;
+    }
+    .events_container .row.is-table-row [class*="col-"] {
+        padding:0;
+    }
+    .events_container .feature_read_more {
+        width : auto;
+    }
+    .events_container .social_share network {
+        display:inline-block;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+    .events_container .social_share .social_icons{
+        width : 24px;
+        height : 24px;
+        display:inline;
+        margin: 0 2px;
+    }
+    
 </style>
 
 <script>
-    define(['Vue', 'vuex', 'axios', 'moment', 'moment-timezone', 'vue-moment', 'vee-validate', 'v-calendar', 'utility'], function(Vue, Vuex, axios, moment, tz, VueMoment, VeeValidate, VCalendar, Utility) {
-        Vue.use(VeeValidate);
-        Vue.use(VCalendar.default);
-
-        return Vue.component("contest-component", {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate) {
+        Vue.use(Meta);
+        Vue.use(VueLazyload);
+        Vue.use(VuePaginate);
+        return Vue.component("events-component", {
             template: template, // the variable template will be injected
             props:['locale'],
             data: function() {
                 return {
-                    form_data: {},
-                    formSuccess: false,
-                    formError: false,
-                    validaNum: '',
-                    correctValNum: null,
-                    validNumError: false,
-                    currentContest: {},
-                    pageBanner: null
+                    dataloaded: false,
+                    pageBanner: null,
+                    // paginate: ['events'],
+                    incrementBy: 5,
+                    showMore: 5,
+                    promos: null
                 }
             },
             created() {
                 this.loadData().then(response => {
-                    this.currentContest = this.findContestBySlug('sevenoaks-kids-club');
-                    var temp_repo = this.findRepoByName('Contests Banner');
-                    if (temp_repo && temp_repo.images) {
+                    this.dataloaded = true;
+                    
+                    var temp_repo = this.findRepoByName('Contest Banner');
+                    if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    } else {
-                        this.pageBanner = {};
-                        this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
+                    else {
+                        this.pageBanner = {};
+                        this.pageBanner.image_url = "";
+                    }
+                    this.promos = this.events;
                 });
-            },
-            mounted() {
-                //creating random validation num 
-                this.correctValNum = Utility.rannumber();
-                
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'findContestBySlug',
-                    'findRepoByName'
+                    'processedEvents',
+                    'findRepoByName',
                 ]),
+                events() {
+                    var vm = this;
+                    var temp_promo = [];
+                    _.forEach(this.processedEvents, function(value, key) {
+                        today = moment().tz(vm.timezone);
+                        webDate = moment(value.show_on_web_date).tz(vm.timezone);
+                        if (today >= webDate) {
+                            value.description_short = _.truncate(value.description, {
+                                'length': 150
+                            });
+                            value.description_short_2 = _.truncate(value.description_2, {
+                                'length': 150
+                            });
+                            if (value.store != null && value.store != undefined && _.includes(value.store.store_front_url_abs, 'missing')) {
+                                value.store.store_front_url_abs = vm.property.default_logo_url;
+                            }
+                            else if (value.store == null || value.store == undefined) {
+                                value.store = {};
+                                value.store.store_front_url_abs =  vm.property.default_logo_url;
+                            }
+                            temp_promo.push(value);
+                        }
+                    });
+                    temp_promo = _.sortBy(temp_promo, ['created_at', 'start_date']).reverse();
+                    return temp_promo;
+                },
             },
             methods: {
-                loadData: async function(id) {
+                loadData: async function() {
                     try {
-                        let results = await Promise.all([
-                            this.$store.dispatch("getData", "repos"),
-                            this.$store.dispatch("getData", "contests")
-                        ]);
-                        return results;
+                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
+                        let results = await Promise.all([this.$store.dispatch("getData", "events"), this.$store.dispatch("getData", "repos")]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                validateBeforeSubmit() {
-                    this.$validator.validateAll().then((result) => {
-                        if (result &&  (this.correctValNum === this.validaNum)) {
-                            let errors = this.errors;
-                            this.validNumError = false;
-                            if(this.form_data.agree_newsletter ) {
-                                $.getJSON("//mobilefringe.createsend.com/t/d/s/irudui/?callback=?",
-                                "cm-name=" + this.form_data.first_name + this.form_data.last_name +
-                                "&cm-irudui-irudui=" + this.form_data.email +
-                                "&cm-f-jtukyu=" + this.form_data.city+
-                                "&cm-f-jtukjr=" + this.form_data.phone +
-                                "&cm-f-jtukjy=" + this.form_data.mailing_address +
-                                "&cm-f-jtukjj=" + this.form_data.postal_code +
-                                "&cm-f-jtukjt=" + this.form_data.birthday,
-                                    function (data) {
-                                    if (data.Status === 400) {
-                                        e.preventDefault();
-                                        console.error("Please try again later.");
-                                    } else { // 200
-                                        console.log("Newsletter submission successful.");
-                                    }
-                                });  
-                            }
-                            //format contests data for MM
-                            var contest_entry = {};
-                            contest_entry.contest = this.form_data;
-                            var vm = this;
-                            host_name = this.property.mm_host.replace("http:", "");
-                            var url = host_name + "/contests/" + this.currentContest.slug + "/create_js_entry";
-                            $.ajax({
-                                url: url,
-                                type: "POST",
-                                data: contest_entry,
-                                success: function(data) {
-                                    vm.formSuccess = true;
-                                },
-                                error: function(data){
-                                    vm.formError = true;
-                                }
-                            });
+                loadMoreItems() {
+                  if (this.showMore <= this.promos.length) {
+                    var num = this.showMore + this.incrementBy;
+                    this.showMore = num;
+                  }
+                },
+                checkImageURL(value) {
+                    if (_.includes(value.image_url, "missing")) {
+                        if (value.store === null || value.store === undefined) {
+                            return this.property.default_logo_url;
+                        } else if (
+                            value.store != null &&
+                            value.store != undefined &&
+                            _.includes(value.store.store_front_url_abs, "missing")
+                        ) {
+                            return null;
+                        } else {
+                            return value.store.store_front_url_abs;
                         }
-
-                    })
+                    } else {
+                        return value.event_image_url_abs;
+                    }
                 }
             }
         });
