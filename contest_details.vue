@@ -178,7 +178,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    this.currentContest = this.findContestBySlug('LOVE FROM ABBOTSFORD');
+                    this.currentContest = this.findContestBySlug('sevenoaks-love-from-abbotsford');
                     var temp_repo = this.findRepoByName('Contests Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
