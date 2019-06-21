@@ -2892,6 +2892,34 @@ iframe.station_41 {
     }
 }
 
+.inside_page_toggle {
+    header {
+        margin: 0;
+        min-height: auto;
+    } 
+    button {
+        margin-bottom: 20px;
+        padding: 5px 20px;
+        height: 38px;
+        border-radius: 0;
+        background: $primary;
+        font-family: Georgia, Times, Times New Roman, serif; 
+        font-style: italic;
+        font-size: 1.375rem;
+        line-height: normal;
+        color: $secondary_text;
+        text-align: left;
+        &:hover, &:focus{
+            color: $secondary_text;
+        }
+        .fa {
+            float: right;
+            font-size: 1.125rem;
+            line-height: 1.875rem;
+        }
+    }
+}
+
 
 
 /* HOURS */
