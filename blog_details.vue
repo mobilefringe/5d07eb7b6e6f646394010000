@@ -115,7 +115,7 @@
                     }
                 },
                 updateCurrentBlog(id) {
-                    var blogName = "Bramalea City Centre";
+                    var blogName = "Sevenoaks Shopping Centre";
                     this.currentPost = this.findBlogPostBySlug(blogName, id);
                     if (this.currentPost === null || this.currentPost === undefined) {
                         this.$router.replace({ name: '404' });
