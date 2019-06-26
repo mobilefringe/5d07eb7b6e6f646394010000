@@ -77,10 +77,12 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    console.log("response", response.data)
-                    // this.currentPage = response.data[1];
+
                     this.dataloaded = true;
-                });    
+                }); 
+                this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/sevenoaks-hours-disclaimer.json"}).then(response => {
+                    this.currentPage = response.data;
+                });
             },
             mounted () {
                 this.form_data.email = this.$route.query.email;
@@ -118,8 +120,7 @@
                 loadData: async function() {
                     try {
                         let results = await Promise.all([
-                            this.$store.dispatch("getData", "repos"), 
-                            this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "	/pages/sevenoaks-newsletter.json" })
+                            this.$store.dispatch("getData", "repos")
                         ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
