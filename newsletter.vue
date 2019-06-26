@@ -1,5 +1,5 @@
 <template>
-    <div class="page_container" id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
+    <div class="page_container" id="contact_us_container"> <!-- this component template will not render without an outer container div -->
         <div  v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -21,8 +21,8 @@
                                 <input v-model="form_data.email" required class="form-control js-cm-email-input" name="cm-ydjkad-ydjkad" type="email" placeholder="Email" id="fieldEmail">
                             </div>
                         </div>
-                        <div class="form-group margin_30">
-                            <div class="col-xs-12">
+                        <div class="form-group">
+                            <div class="col-xs-12 margin_30">
     					        <label class="checkbox">
                                     <input name="agree_newsletter" required  type="checkbox">
                                        By submitting my email, I agree to receive Commercial Electronic Messages from Morguard, the management company of Sevenoaks Shopping Centre and its affiliates that will include: special retail sales offers, promotions, new retailer announcements, upcoming events, trend and style news and other inside information. You can unsubscribe at any time. shopsevenoaks.com Sevenoaks Shopping Centre 32900 South Fraser Way, Suite 201 Abbotsford, BC V2S 5A1
@@ -35,18 +35,6 @@
                             </div>
                         </div>
                     </form>
-                    
-                    <!--<div id="send_contact_success" class="alert alert-success" role="alert" v-show="formSuccess">-->
-                    <!--    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>-->
-                    <!--    <span class="sr-only">{{$t("newsletter_page.success")}} : </span>-->
-                    <!--    {{$t("newsletter_page.thank_you_message")}}-->
-                    <!--</div>-->
-                    <!--<div id="send_contact_error" class="alert alert-danger" role="alert" v-show="formError">-->
-                    <!--    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
-                    <!--    <span class="sr-only">{{$t("newsletter_page.error")}} : </span>-->
-                    <!--    {{$t("newsletter_page.error_message")}}-->
-                    <!--</div>-->
-                    
                 </div>
             </div>
             <div class="padding_top_40"></div>    
@@ -63,8 +51,7 @@
     }
 </style>
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", 'vee-validate', 'jquery', 'utility', 'campaignMonitor'], function(Vue, Vuex, moment, tz, VueMoment, Meta, VeeValidate, $, Utility, campaignMonitor) {
-        Vue.use(Meta);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'campaignMonitor'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, campaignMonitor) {
         Vue.use(VeeValidate);
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
@@ -80,10 +67,9 @@
             created () {
                 this.loadData().then(response => {
                     var temp_repo = this.findRepoByName('Newsletter Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
@@ -110,14 +96,13 @@
                 validateBeforeSubmit(form) {
                     this.$validator.validateAll().then((result) => {
                         let errors = this.errors;
-                        if(errors && errors.items.length == 0){ 
+                        if (errors && errors.items.length == 0) { 
                             if(errors.length > 0) {
                                 console.log("Error", errors);
                                 this.formError = true;
                                 form.preventDefault();
                                 form.target.action = "";
-                            }
-                            else {
+                            } else {
                                 this.campaignMonitorCall($('#subForm'), '92D4C54F0FEC16E5ADC2B1904DE9ED1AEC652151923F368AFF8F79BD97653D518B1251FC5BB09D7603C4AFEECA699B380141E6B93F1A28592DA91D0CB25CE7F2'); 
                             }
                         }
@@ -125,8 +110,9 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([,this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
