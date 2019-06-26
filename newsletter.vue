@@ -1,5 +1,5 @@
 <template>
-    <div v-if="dataloaded"> <!-- this component template will not render without an outer container div -->
+    <div v-if="dataLoaded"> <!-- this component template will not render without an outer container div -->
     <!--<div class="page_container" id="contact_us_container"> -->
         <div  v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
@@ -61,6 +61,7 @@
             template: template, // the variable template will be injected
             data: function() {
                 return {
+                    dataLoaded: false,
                     pageBanner: null,
                     currentPage: {},
                     form_data : {},
