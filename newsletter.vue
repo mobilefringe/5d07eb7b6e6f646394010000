@@ -60,11 +60,11 @@
             template: template, // the variable template will be injected
             data: function() {
                 return {
-                    currentPage: null,
+                    pageBanner: null,
+                    currentPage: {},
                     form_data : {},
                     formSuccess : false,
                     formError: false,
-                    pageBanner: null
                 }
             },
             created () {
@@ -76,8 +76,8 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    
-                    this.currentPage = response.data[1];
+                    console.log("response", response)
+                    // this.currentPage = response.data[1];
                     
                 });    
             },
