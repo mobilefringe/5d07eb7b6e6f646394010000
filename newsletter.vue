@@ -10,7 +10,7 @@
         <div class="site_container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="text-left contact_us_body" v-if="currentPage.body" v-html="currentPage.body"></div>
+                    <div class="text-left" v-if="currentPage.body" v-html="currentPage.body"></div>
                 </div>
             </div>
             <div class="row">
