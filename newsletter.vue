@@ -1,6 +1,6 @@
 <template>
-    <div v-if="dataloaded"> <!-- this component template will not render without an outer container div -->
-    <!--<div class="page_container" > -->
+    <div v-if="dataloaded" class="page_container" id="contact_us_container"> <!-- this component template will not render without an outer container div -->
+    <!--<div > -->
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -8,7 +8,7 @@
 				</div>
 			</div>
 		</div>  
-        <div id="contact_us_container" class="site_container">
+        <div class="site_container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-left contact_us_body" v-if="currentPage.body" v-html="currentPage.body"></div>
