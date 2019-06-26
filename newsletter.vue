@@ -1,5 +1,6 @@
 <template>
-    <div class="page_container" id="contact_us_container"> <!-- this component template will not render without an outer container div -->
+    <div v-if="dataloaded"> <!-- this component template will not render without an outer container div -->
+    <!--<div class="page_container" id="contact_us_container"> -->
         <div  v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
