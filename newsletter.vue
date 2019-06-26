@@ -1,5 +1,5 @@
 <template>
-    <div v-if="dataloaded"> <!-- this component template will not render without an outer container div -->
+    <div v-if="dataloaded" id="contact_us_container"> <!-- this component template will not render without an outer container div -->
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -7,42 +7,40 @@
 				</div>
 			</div>
 		</div> 
-		<div class="page_container" id="contact_us_container">
-            <div class="site_container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-left contact_us_body" v-if="currentPage.body" v-html="currentPage.body"></div>
-                    </div>
-                    <div class="col-md-12 contact_contents">
-                        <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AEC652151923F368AFF8F79BD97653D518B1251FC5BB09D7603C4AFEECA699B380141E6B93F1A28592DA91D0CB25CE7F2">
-                            <div class="form-group ">
-                                <div class="col-sm-6 col-xs-12" >
-                                    <label class="label" for="fieldName">{{$t("newsletter_page.name")}}</label>
-                                    <input v-model="form_data.name" required class="form-control" name="cm-name" type="text" placeholder="Name" id="fieldName">
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <label class="label" for="fieldEmail">{{$t("newsletter_page.email")}}</label>
-                                    <input v-model="form_data.email" required class="form-control js-cm-email-input" name="cm-ydjkad-ydjkad" type="email" placeholder="Email" id="fieldEmail">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-12 margin_30">
-        					        <label class="checkbox">
-                                        <input name="agree_newsletter" required  type="checkbox">
-                                           By submitting my email, I agree to receive Commercial Electronic Messages from Morguard, the management company of Sevenoaks Shopping Centre and its affiliates that will include: special retail sales offers, promotions, new retailer announcements, upcoming events, trend and style news and other inside information. You can unsubscribe at any time. shopsevenoaks.com Sevenoaks Shopping Centre 32900 South Fraser Way, Suite 201 Abbotsford, BC V2S 5A1
-                                    </label>
-        					    </div>
-        					</div>
-        					<div class="form-group">
-                                <div class="col-xs-12">
-                                    <button class="contest_btn js-cm-submit-button" type="submit" :disabled="formSuccess">{{$t("newsletter_page.subscribe")}}</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+        <div class="site_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-left contact_us_body" v-if="currentPage.body" v-html="currentPage.body"></div>
                 </div>
-                <div class="padding_top_40"></div>    
+                <div class="col-md-12 contact_contents">
+                    <form class="form-horizontal js-cm-form" id="subForm" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="92D4C54F0FEC16E5ADC2B1904DE9ED1AEC652151923F368AFF8F79BD97653D518B1251FC5BB09D7603C4AFEECA699B380141E6B93F1A28592DA91D0CB25CE7F2">
+                        <div class="form-group ">
+                            <div class="col-sm-6 col-xs-12" >
+                                <label class="label" for="fieldName">{{$t("newsletter_page.name")}}</label>
+                                <input v-model="form_data.name" required class="form-control" name="cm-name" type="text" placeholder="Name" id="fieldName">
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <label class="label" for="fieldEmail">{{$t("newsletter_page.email")}}</label>
+                                <input v-model="form_data.email" required class="form-control js-cm-email-input" name="cm-ydjkad-ydjkad" type="email" placeholder="Email" id="fieldEmail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12 margin_30">
+    					        <label class="checkbox">
+                                    <input name="agree_newsletter" required  type="checkbox">
+                                       By submitting my email, I agree to receive Commercial Electronic Messages from Morguard, the management company of Sevenoaks Shopping Centre and its affiliates that will include: special retail sales offers, promotions, new retailer announcements, upcoming events, trend and style news and other inside information. You can unsubscribe at any time. shopsevenoaks.com Sevenoaks Shopping Centre 32900 South Fraser Way, Suite 201 Abbotsford, BC V2S 5A1
+                                </label>
+    					    </div>
+    					</div>
+    					<div class="form-group">
+                            <div class="col-xs-12">
+                                <button class="contest_btn js-cm-submit-button" type="submit" :disabled="formSuccess">{{$t("newsletter_page.subscribe")}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+            <div class="padding_top_40"></div>    
         </div>
     </div>
 </template>
