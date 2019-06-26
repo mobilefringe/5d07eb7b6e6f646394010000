@@ -77,7 +77,7 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    console.log("response", this.response)
+                    console.log("response", response.data)
                     // this.currentPage = response.data[1];
                     this.dataloaded = true;
                 });    
