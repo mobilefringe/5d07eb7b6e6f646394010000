@@ -76,7 +76,7 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    console.log("response", response)
+                    console.log("response", this.response)
                     // this.currentPage = response.data[1];
                     
                 });    
@@ -103,7 +103,7 @@
                     this.$validator.validateAll().then((result) => {
                         let errors = this.errors;
                         if (errors && errors.items.length == 0) { 
-                            if(errors.length > 0) {
+                            if (errors.length > 0) {
                                 console.log("Error", errors);
                                 this.formError = true;
                                 form.preventDefault();
