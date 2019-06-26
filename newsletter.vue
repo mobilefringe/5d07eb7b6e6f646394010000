@@ -21,7 +21,7 @@
                                 <input v-model="form_data.email" required class="form-control js-cm-email-input" name="cm-ydjkad-ydjkad" type="email" placeholder="Email" id="fieldEmail">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group margin_30">
                             <div class="col-xs-12">
     					        <label class="checkbox">
                                     <input name="agree_newsletter" required  type="checkbox">
