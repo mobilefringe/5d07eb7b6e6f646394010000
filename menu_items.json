@@ -26,11 +26,7 @@
         "sub_menu": [
             {
                 "name": "header.events",
-                "href": "/events"
-            },
-            {
-                "name": "header.contests",
-                "href": "/contests"
+                "href": "/events-and-contests"
             },
             {
                 "name": "header.blog",
