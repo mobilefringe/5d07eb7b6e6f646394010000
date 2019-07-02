@@ -45,8 +45,8 @@
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentPromo.name}}</h3>
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentPromo.name_2}}</h3>
+					<h3 class="promo_name" v-if="locale=='en-ca'">{{currentPromo.name}}</h3>
+					<h3 class="promo_name" v-else>{{currentPromo.name_2}}</h3>
 					<div class="row">
     					<div v-if="currentPromo.promotionable_type == 'Store'" class="visible_phone">
     					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentPromo.store.name_2}}</h4>
