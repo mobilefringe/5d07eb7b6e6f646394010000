@@ -43,17 +43,16 @@
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
-					
 					<h3 class="promo_name" style="margin: 20px auto 0px;" v-if="locale=='en-ca'">{{currentJob.name}}</h3>
 					<h3 class="promo_name" style="margin: 20px auto 0px;" v-else>{{currentJob.name_2}}</h3>
-					<div class="row">
-					    <div v-if="currentJob.jobable_type == 'Store'" class="visible_phone">
-    					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentJob.store.name_2}}</h4>
-    					    <h4 class="event_store_name caps" v-else>{{currentJob.store.name}}</h4>
-    					</div>
-						<p class="promo_div_date pull-left">{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>
+				    <div v-if="currentJob.jobable_type == 'Store'" class="visible_phone">
+					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentJob.store.name_2}}</h4>
+					    <h4 class="event_store_name caps" v-else>{{currentJob.store.name}}</h4>
+					</div>
+					<div class="promo_div_date">
+						<p>{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>
 						<social-sharing :url="$root.shareURL('jobs',currentJob.slug)" :title="currentJob.title" :description="currentJob.body" :quote="_.truncate(currentJob.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentJob.image_url" inline-template >
-							<div class="blog-social-share pull-right" style="margin: 15px auto;">
+							<div class="blog-social-share pull-right">
 								<div class="social_share">
 									<network network="facebook">
 										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
