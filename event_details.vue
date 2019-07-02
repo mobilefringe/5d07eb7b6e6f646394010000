@@ -126,6 +126,7 @@
                 },
                 updatecurrentEvent (id) {
                     this.currentEvent = this.findEventBySlug(id);
+                    console.log("this", currentEvent)
                     // if (this.currentEvent === null || this.currentEvent === undefined){
                     //     this.$router.replace('/');
                     // }
