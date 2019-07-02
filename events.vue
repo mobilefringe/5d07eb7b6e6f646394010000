@@ -122,7 +122,7 @@
                     }
                     
                     this.itemList = _.concat(this.events, this.contests);
-                    console.log("itemList", itemList)
+                    console.log("itemList", this.itemList)
                     
                     this.dataloaded = true;
                 });
