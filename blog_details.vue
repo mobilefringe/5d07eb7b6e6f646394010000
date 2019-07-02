@@ -71,13 +71,13 @@
                 $route: function () {
                     this.updateCurrentBlog(this.$route.params.id);
                 },
-                currentPost: function () {
-                    if(this.currentPost != null){
-                        if (_.includes(this.currentPost.image_url, 'missing')) {
-                            this.currentPost.image_url = "//codecloud.cdn.speedyrails.net/sites/5c0581a36e6f643f53050000/image/jpeg/1527006352000/bccblogplaceholder.jpg";
-                        }
-                    }
-                } 
+                // currentPost: function () {
+                //     if (this.currentPost != null){
+                //         if (_.includes(this.currentPost.image_url, 'missing')) {
+                //             this.currentPost.image_url = "//codecloud.cdn.speedyrails.net/sites/5c0581a36e6f643f53050000/image/jpeg/1527006352000/bccblogplaceholder.jpg";
+                //         }
+                //     }
+                // } 
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -108,7 +108,9 @@
             methods: {
                 loadData: async function () {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "blogs")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "blogs")
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
