@@ -190,8 +190,8 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
 
             },
             toggleSubMenu (name) {
-               this.menu_items.map(menu => {
-                    if(menu.name !== name) {
+                this.menu_items.map(menu => {
+                    if (menu.name !== name) {
                         menu.show_sub_menu = false;
                     }
                 });
