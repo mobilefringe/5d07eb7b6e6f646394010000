@@ -125,7 +125,7 @@
                         if (this.contests) {
                             this.itemList = _.concat(this.events, this.contests);
                         } else {
-                            this.itemList =this.events;
+                            this.itemList = this.events;
                         }
                     }
                     
@@ -185,7 +185,7 @@
                     }
                 },
                 loadMoreItems() {
-                  if (this.showMore <= this.promos.length) {
+                  if (this.showMore <= this.itemList.length) {
                     var num = this.showMore + this.incrementBy;
                     this.showMore = num;
                   }
