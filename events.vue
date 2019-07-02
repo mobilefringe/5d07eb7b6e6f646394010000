@@ -25,7 +25,6 @@
                                 </div>
                                 <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
 							</div>
-							<!--</router-link>-->
 						</div>
 						<div class="col-sm-6 col-md-8 event_dets_container">
 							<h4 class="event_name caps" v-if="locale=='en-ca'">{{promo.name}}</h4>
@@ -57,7 +56,6 @@
 							<hr>
 						</div>
 					</div>
-				<!--</paginate>-->
 			</div>
 			<div id="no_events" class="row" v-else>
 				<div class="col-md-12">
@@ -65,49 +63,13 @@
 				</div>
 			</div>
 			<div class="show_more"  v-if="promos && showMore < promos.length">
-              <div
-                class="pointer"
-                @click="loadMoreItems()"
-              >{{$t("events_page.more_promos")}}</div>
+              <div class="pointer" @click="loadMoreItems()">{{$t("events_page.more_promos")}}</div>
             </div>
 		</div>
 	</div>
 </template>
 
 <style>
-    .events_container .date_bar{
-        /* Today: */
-        background: #D3D3D3;
-        height: 40px;
-        line-height: 40px;
-        margin: auto;
-        text-align: center;
-    }
-    .events_container .date_bar .fa{
-        cursor: pointer;
-    }
-    .events_container .current_date{
-        color: #636363;
-        padding: 0 10px;
-    }
-    .events_container .all_dates {
-        border-bottom: 1px solid #aea99e;
-    }
-    .events_container .all_dates span {
-        font-size: 16px;
-        color: #000000;
-        letter-spacing: 1.5px;
-        height: 30px;
-        line-height: 30px;
-        padding: 0 5px;
-        cursor: pointer;
-    }
-    .events_container .all_dates [class*="date_"]:focus, [class*="date_"]:hover { 
-        background-color: #D3D3D3;
-    }
-    .events_container .all_dates span.active { 
-        background-color: #bababa;
-    }
     .events_container .promo_dets {
         border-bottom: 1px solid #aea99e;
     }
