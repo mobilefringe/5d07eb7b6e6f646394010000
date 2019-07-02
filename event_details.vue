@@ -100,21 +100,6 @@
                         });
                         this.storeEvents = temp_event;
                     }
-                    if(this.currentEvent.store) {
-                        var storeHours = [];
-                        var vm = this;
-                        _.forEach(this.currentEvent.store.store_hours, function (value, key) {
-                            var hour = vm.findHourById(value);
-                            if(hour.day_of_week === 0){
-                                hour.order = 7;
-                            }
-                            else {
-                                hour.order = hour.day_of_week;
-                            }
-                            storeHours.push();
-                        });
-                        this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);;
-                    }
                 }
             },
             computed: {
