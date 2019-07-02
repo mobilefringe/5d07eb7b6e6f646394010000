@@ -80,6 +80,7 @@
   "events_page": {
     "events" : "Events",
     "read_more" : "View Event Details",
+    "contest_read_more" : "View Contest Details",
     "no_event_message" : "There are no Events at this time. Please check back soon.",
     "back_to_events" : "Back to Events",
     "more_promos": "Load More Events"
