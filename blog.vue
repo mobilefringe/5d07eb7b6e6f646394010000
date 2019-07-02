@@ -40,51 +40,40 @@
     </div>
 </template>
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-lazy-load", "vue-social-sharing"], function (Vue, Vuex, moment, tz, VueMoment, VueLazyload, SocialSharing) {
-        Vue.use(VueLazyload);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-social-sharing"], function (Vue, Vuex, moment, tz, VueMoment, SocialSharing) {
         return Vue.component("blog-component", {
             template: template, // the variable template will be injected
             data: function () {
                 return {
                     dataloaded: false,
-                    posts: [],
-                    morePosts: [],
-                    morePostsFetched: false,
-                    noMorePosts: false,
-                    noPosts: false,
                     pageBanner: null,
-                    currentPage: null,
                     showMore: 3,
                     incrementBy: 3
                 }
             },
             created() {
                 this.loadData().then(response => {
-                    console.log(response)
-                    // this.firstPost
-                    this.posts
-                    this.dataloaded = true;
                     var temp_repo = this.findRepoByName('Blog Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
+                    
+                    this.dataloaded = true;
                 });
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
+                    'findRepoByName',
                     'blogs',
-                    'findBlogByName',
-                    'findRepoByName'
+                    'findBlogByName'
                 ]),
                 blogs() {
                     var blog = this.findBlogByName("Sevenoaks Shopping Centre").posts;
-                    console.log(blog, "p")
                     var vm = this;
                     var temp_blog = [];
                     _.forEach(blog, function(value, key) {
@@ -101,38 +90,16 @@
                     });
                     blog = _.reverse(_.sortBy(temp_blog, function (o) { return o.publish_date }));
                     return blog
-                },
-                blogList() {
-                    var blog_list = _.drop(this.blogs);
-                    return blog_list
                 }
             },
             methods: {
                 loadData: async function () {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "blogs")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "blogs")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
-                    }
-                },
-                handleButton: function () {
-                    if(!this.morePostsFetched){
-                        this.morePosts = this.blogList;
-                        this.posts = this.morePosts.splice(0, 3);
-                        this.morePostsFetched = true;
-                    } else {
-                        var nextPosts = this.morePosts.splice(0, 3);
-                        // Add 3 more posts to posts array
-                        var vm = this;
-                        _.forEach(nextPosts, function(value, key) {
-                            vm.posts.push(value);
-                        });
-                    }
-                    if(this.blogList.length === 0){
-                        this.noMorePosts = true
-                        this.noPosts = true
-                    } else {
-
                     }
                 },
                 loadMore() {
