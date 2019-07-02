@@ -47,33 +47,29 @@
 				<div class="col-sm-8 promo_image_container text-left">
 					<h3 class="promo_name" v-if="locale=='en-ca'">{{currentPromo.name}}</h3>
 					<h3 class="promo_name" v-else>{{currentPromo.name_2}}</h3>
-					<div class="row">
-    					<div v-if="currentPromo.promotionable_type == 'Store'" class="visible_phone">
-    					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentPromo.store.name_2}}</h4>
-    					    <h4 class="event_store_name caps" v-else>{{currentPromo.store.name}}</h4>
-    					</div>
-    					<div class="promo_div_date">
-						    <p>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
-    						<social-sharing :url="$root.shareURL('promotions',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
-    							<div class="blog-social-share pull-right">
-    								<div class="social_share">
-    									<network network="facebook">
-    										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-    									</network>
-    									<network network="twitter">
-    										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-    									</network>
-    								</div>
-    							</div>
-    						</social-sharing>
-    					</div>
+					<div v-if="currentPromo.promotionable_type == 'Store'" class="visible_phone">
+					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentPromo.store.name_2}}</h4>
+					    <h4 class="event_store_name caps" v-else>{{currentPromo.store.name}}</h4>
 					</div>
-					<div class="col-sm-12 no_padding">
-						<img v-if="!_.includes(currentPromo.image_url, 'missing')" v-lazy="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
-						<div class="text-left promo_description">
-							<p v-if="locale=='en-ca'" v-html="currentPromo.rich_description"></p>
-							<p v-else v-html="currentPromo.rich_description_2"></p>
-						</div>
+					<div class="promo_div_date">
+					    <p>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
+						<social-sharing :url="$root.shareURL('promotions',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
+							<div class="blog-social-share pull-right">
+								<div class="social_share">
+									<network network="facebook">
+										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+									</network>
+									<network network="twitter">
+										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+									</network>
+								</div>
+							</div>
+						</social-sharing>
+					</div>
+					<img v-if="!_.includes(currentPromo.image_url, 'missing')" v-lazy="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
+					<div class="text-left promo_description">
+						<p v-if="locale=='en-ca'" v-html="currentPromo.rich_description"></p>
+						<p v-else v-html="currentPromo.rich_description_2"></p>
 					</div>
 				</div>
 			</div>
@@ -184,8 +180,10 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "promotions"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "promotions"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
