@@ -67,18 +67,7 @@
 </template>
 
 <style>
-    .events_container .promo_dets {
-        border-bottom: 1px solid #aea99e;
-    }
-    .events_container .row.is-table-row {
-        margin: 0;
-    }
-    .events_container .row.is-table-row [class*="col-"] {
-        padding:0;
-    }
-    .events_container .feature_read_more {
-        width : auto;
-    }
+    
     .events_container .social_share network {
         display:inline-block;
         width: 24px;
@@ -125,9 +114,7 @@
                             this.itemList = this.events;
                         }
                     }
-                    
-                    console.log("itemList", this.itemList)
-                    
+
                     this.dataloaded = true;
                 });
             },
@@ -162,7 +149,7 @@
                             temp_promo.push(value);
                         }
                     });
-                    temp_promo = _.sortBy(temp_promo, ['created_at', 'end_date']).reverse();
+                    temp_promo = _.sortBy(temp_promo, ['end_date', 'created_at']).reverse();
                     return temp_promo;
                 },
                 contests() {
