@@ -52,19 +52,21 @@
     					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentPromo.store.name_2}}</h4>
     					    <h4 class="event_store_name caps" v-else>{{currentPromo.store.name}}</h4>
     					</div>
-						<p class="promo_div_date pull-left">{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
-						<social-sharing :url="$root.shareURL('promotions',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
-							<div class="blog-social-share pull-right" style="margin: 15px auto;">
-								<div class="social_share">
-									<network network="facebook">
-										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-									</network>
-									<network network="twitter">
-										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-									</network>
-								</div>
-							</div>
-						</social-sharing>
+    					<div class="promo_div_date">
+						    <p>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
+    						<social-sharing :url="$root.shareURL('promotions',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
+    							<div class="blog-social-share pull-right" style="margin: 15px auto;">
+    								<div class="social_share">
+    									<network network="facebook">
+    										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+    									</network>
+    									<network network="twitter">
+    										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+    									</network>
+    								</div>
+    							</div>
+    						</social-sharing>
+    					</div>
 					</div>
 					<div class="col-sm-12 no_padding">
 						<img v-if="!_.includes(currentPromo.image_url, 'missing')" v-lazy="currentPromo.image_url" class="image" :alt="currentPromo.name"/>
