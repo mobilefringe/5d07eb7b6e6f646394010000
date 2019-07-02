@@ -107,7 +107,8 @@
                     dataloaded: false,
                     pageBanner: null,
                     incrementBy: 5,
-                    showMore: 5
+                    showMore: 5,
+                    itemList: null
                 }
             },
             created() {
@@ -119,7 +120,8 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-
+                    
+                    this.itemList = _.concat(this.events, this.contests);
                     this.dataloaded = true;
                 });
             },
