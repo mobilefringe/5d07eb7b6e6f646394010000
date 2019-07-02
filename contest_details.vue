@@ -11,15 +11,15 @@
         <div class="site_container">
             <div class="row text-center">
                     <img :src='currentContest.image_url' alt="contest image" class="image"  v-if="locale=='en-ca'">
-                    <img :src="'//mallmaverick.com'+currentContest.photo_2_url" alt="contest image" class="image"  v-else>
+                    <img :src="'//mallmaverick.com' + currentContest.photo_2_url" alt="contest image" class="image"  v-else>
                 </div> 
             <div class="row"> 
                 <div class="col-sm-12 contest_contents">
                     <div class="description_text text_left" style="padding-top:40px" v-if="locale=='en-ca'" v-html="currentContest.rich_description">
-                        <!--{{currentContest.description}}-->
+                        {{currentContest.description}}
                     </div>
                     <div class="description_text text_left" style="padding-top:40px" v-else  v-html="currentContest.rich_description_2">
-                        <!--{{currentContest.description_2}}-->
+                        {{currentContest.description_2}}
                     </div>
                     <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
