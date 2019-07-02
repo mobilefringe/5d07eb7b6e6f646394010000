@@ -125,9 +125,9 @@
                 },
                 updatecurrentEvent (id) {
                     this.currentEvent = this.findEventBySlug(id);
-                    if (this.currentEvent === null || this.currentEvent === undefined){
-                        this.$router.replace('/');
-                    }
+                    // if (this.currentEvent === null || this.currentEvent === undefined){
+                    //     this.$router.replace('/');
+                    // }
                 }
             }
         });
