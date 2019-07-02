@@ -12,7 +12,7 @@
 		<div class="site_container page_content" id="events_container">
 			<div  v-if="promotions.length > 0">
 				<div class="row event_container" v-if="showMore > index" v-for="(promo,index) in promos">		
-					<div class="col-sm-6 col-md-4 event_image_container">
+					<div class="col-sm-6 col-md-3 event_image_container">
 						<div class="image_container details_store_image">
 							<div v-if="promo.store.no_store_logo" class="store_details_image center-block">
                                 <div class="no_logo">
@@ -56,7 +56,6 @@
 						<hr>
 					</div>
 				</div>
-				<!--</paginate>-->
 			</div>
 			<div id="no_events" class="row" v-else>
 				<div class="col-md-12">
@@ -64,20 +63,14 @@
 				</div>
 			</div>
 			<div class="show_more"  v-if="promos && showMore < promos.length">
-              <div
-                class="pointer"
-                @click="loadMoreItems()"
-              >{{$t("jobs_page.more_promos")}}</div>
+                <div class="pointer" @click="loadMoreItems()">{{$t("jobs_page.more_promos")}}</div>
             </div>
 		</div>
 	</div>
 </template>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate) {
-        Vue.use(Meta);
-        Vue.use(VueLazyload);
-        Vue.use(VuePaginate);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
         return Vue.component("promos-component", {
             template: template, // the variable template will be injected
             props:['locale'],
@@ -87,10 +80,9 @@
                     filteredPromos:[],
                     dataloaded: false,
                     pageBanner: null,
-                    // paginate: ['promos'],
                     promos : null,
                     incrementBy: 5,
-                    showMore: 5,
+                    showMore: 5
                 }
             },
             created() {
@@ -100,8 +92,7 @@
                     var temp_repo = this.findRepoByName('Jobs Banner');
                     if(temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
