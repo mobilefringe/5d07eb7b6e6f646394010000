@@ -25,7 +25,7 @@
         "id": "events_link",
         "sub_menu": [
             {
-                "name": "header.events",
+                "name": "header.events_and_contests",
                 "href": "/events-and-contests"
             },
             {
