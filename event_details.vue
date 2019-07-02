@@ -80,6 +80,7 @@
             },
             watch: {
                 currentEvent : function (){
+                    console.log("this", this.currentEvent)
                     if (this.currentEvent != null) {
                         if (this.currentEvent.store != null && this.currentEvent.store != undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
                             this.currentEvent.store.store_front_url_abs = this.property.default_logo_url;
