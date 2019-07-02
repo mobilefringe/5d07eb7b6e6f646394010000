@@ -12,7 +12,7 @@
 		<div class="site_container">
 			<div class="row">
 			    <div class="col-md-12 margin_30">
-			        <i class="fa fa-angle-left"></i>&nbps;<router-link to="/jobs">{{$t("jobs_page.back_to_jobs")}}</router-link>
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbps;<router-link to="/jobs">{{$t("jobs_page.back_to_jobs")}}</router-link></p>
 			    </div>
 				<div class="col-sm-4 promo_logo_container hidden_phone">
 					<div class="image_container details_store_image">
