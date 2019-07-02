@@ -121,7 +121,14 @@
                         this.pageBanner.image_url = "";
                     }
                     
-                    this.itemList = _.concat(this.events, this.contests);
+                    if (this.events) {
+                        if (this.contests) {
+                            this.itemList = _.concat(this.events, this.contests);
+                        } else {
+                            this.itemList =this.events;
+                        }
+                    }
+                    
                     console.log("itemList", this.itemList)
                     
                     this.dataloaded = true;
