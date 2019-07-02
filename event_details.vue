@@ -10,8 +10,11 @@
 		</div>
 		<div class="site_container">
 			<div class="row">
+			    <div class="col-md-12">
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/events-and-contests">{{$t("events_page.back_to_events")}}</router-link></p>
+			    </div>
 				<div class="col-sm-12 promo_image_container text-left">
-					<router-link to="/events"><i class="fa fa-angle-left"></i> &nbsp; {{$t("events_page.back_to_events")}}</router-link>
+					<!--<router-link to="/events"><i class="fa fa-angle-left"></i> &nbsp; {{$t("events_page.back_to_events")}}</router-link>-->
 					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
 					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentEvent.name_2}}</h3>
 					<div class="row">
