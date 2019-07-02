@@ -1,13 +1,11 @@
 <template>
 	<div v-if="dataloaded">
-		<div class="page_header" v-if="pageBanner" v-lazy:background-image="pageBanner.image_url">
-			<!--http://via.placeholder.com/1920x300-->
+		<div class="page_header" v-if="pageBanner" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content caps">
 					<h1>{{$t("events_page.events")}}</h1>
 					<h2 style="display:none;">Scroll to  view events</h2>
 					<h3 style="display:none;">View all events below</h3>
-					
 				</div>
 			</div>
 		</div>
