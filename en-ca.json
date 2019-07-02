@@ -81,9 +81,9 @@
     "events" : "Events & Contests",
     "read_more" : "View Event Details",
     "contest_read_more" : "View Contest Details",
-    "no_event_message" : "There are no Events at this time. Please check back soon.",
-    "back_to_events" : "Back to Events",
-    "more_promos": "Load More Events"
+    "no_event_message" : "There are no Events or Contests scheduled at this time. Please check back soon.",
+    "back_to_events" : "Back to Events & Contests",
+    "more_promos": "Load More"
   },
   "jobs_page": {
     "jobs" : "Careers",
