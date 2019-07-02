@@ -122,6 +122,7 @@
                     }
                     
                     this.itemList = _.concat(this.events, this.contests);
+                    
                     this.dataloaded = true;
                 });
             },
