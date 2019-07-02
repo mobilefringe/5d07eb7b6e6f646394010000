@@ -38,7 +38,7 @@
             },
             {
                 "name": "header.kids_club",
-                "href": "/kids_club"
+                "href": "/kids-club"
             }
         ]
     },
@@ -55,7 +55,7 @@
         "sub_menu": [
             {
                 "name": "header.services",
-                "href": "/guest-services"
+                "href": "/pages/sevenoaks-guest-services"
             },
             {
                 "name": "header.gift_cards",
@@ -75,7 +75,7 @@
         "sub_menu": [
             {
                 "name": "header.contact_sevenoaks",
-                "href": "/contact_us"
+                "href": "/contact-us"
             },
             {
                 "name": "header.hours",
@@ -88,10 +88,6 @@
             {
                 "name": "header.leasing",
                 "href": "/pages/sevenoaks-leasing"
-            },
-            {
-                "name": "header.about_morguard",
-                "href": "/pages/sevenoaks-about-morguard"
             }
         ]
     }
