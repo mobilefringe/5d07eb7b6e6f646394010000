@@ -150,7 +150,7 @@
                             temp_promo.push(value);
                         }
                     });
-                    temp_promo = _.sortBy(temp_promo, ['end_date'])
+                    // temp_promo = _.sortBy(temp_promo, ['end_date'])
                     return temp_promo;
                 },
                 contests() {
@@ -177,7 +177,7 @@
                             temp_promo.push(value);
                         }
                     });
-                    temp_promo = _.sortBy(temp_promo, ['end_date'])
+                    // temp_promo = _.sortBy(temp_promo, ['end_date'])
                     return temp_promo; 
                 }
             },
