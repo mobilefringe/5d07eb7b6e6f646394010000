@@ -196,11 +196,10 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                     }
                 });
             },
-            // shareURL(page,slug){
-            //     console.log("page, slug", page, slug)
-            //     var share_url= "http://www.newsudburycentre.ca/" + page + "/" + slug;
-            //     return share_url;
-            // },
+            shareURL(page,slug){
+                var share_url= "https://www.shopsevenoaks.com/" + page + "/" + slug;
+                return share_url;
+            },
         },
         destroyed: function() {
             window.removeEventListener('scroll', this.enableStickyNavbar);
