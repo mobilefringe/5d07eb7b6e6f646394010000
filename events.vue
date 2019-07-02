@@ -98,10 +98,7 @@
 </style>
 
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", "vue-meta", "vue-lazy-load", "vue-paginate"], function(Vue, Vuex, moment, tz, VueMoment, Meta, VueLazyload, VuePaginate) {
-        Vue.use(Meta);
-        Vue.use(VueLazyload);
-        Vue.use(VuePaginate);
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment"], function(Vue, Vuex, moment, tz, VueMoment) {
         return Vue.component("events-component", {
             template: template, // the variable template will be injected
             props:['locale'],
@@ -109,33 +106,30 @@
                 return {
                     dataloaded: false,
                     pageBanner: null,
-                    // paginate: ['events'],
                     incrementBy: 5,
-                    showMore: 5,
-                    promos: null
+                    showMore: 5
                 }
             },
             created() {
                 this.loadData().then(response => {
-                    this.dataloaded = true;
-                    
                     var temp_repo = this.findRepoByName('Events Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    this.promos = this.events;
+
+                    this.dataloaded = true;
                 });
             },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
-                    'processedEvents',
                     'findRepoByName',
+                    'processedEvents',
+                    'processedContests'
                 ]),
                 events() {
                     var vm = this;
@@ -163,12 +157,18 @@
                     temp_promo = _.sortBy(temp_promo, ['created_at', 'start_date']).reverse();
                     return temp_promo;
                 },
+                contests() {
+                    
+                }
             },
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "events"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "events"),
+                            this.$store.dispatch("getData", "contests"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
