@@ -55,7 +55,7 @@
     					<div class="promo_div_date">
 						    <p>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
     						<social-sharing :url="$root.shareURL('promotions',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
-    							<div class="blog-social-share pull-right" style="margin: 15px auto;">
+    							<div class="blog-social-share pull-right">
     								<div class="social_share">
     									<network network="facebook">
     										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
