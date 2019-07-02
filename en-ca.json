@@ -7,7 +7,7 @@
     "closed": "Closed Today",
     "sign_up": "Sign Up",
     "stores" : "Stores",
-    "directory": "Directory",
+    "directory": "Store Directory",
     "centre_map" : "Centre Map",
     "restaurants" : "Restaurants",
     "promos" : "Promotions",
@@ -53,7 +53,7 @@
     "our_feed" : "In Our Feed"
   },
   "stores_page" : {
-    "shopping" : "shopping",
+    "shopping" : "Store Directory",
     "restaurants" : "Restaurants",
     "map" : "Map",
     "find_your_store": "Find Your Store",
