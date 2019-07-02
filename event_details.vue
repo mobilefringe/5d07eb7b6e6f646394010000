@@ -14,13 +14,12 @@
 			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/events-and-contests">{{$t("events_page.back_to_events")}}</router-link></p>
 			    </div>
 				<div class="col-sm-12 promo_image_container text-left">
-					<!--<router-link to="/events"><i class="fa fa-angle-left"></i> &nbsp; {{$t("events_page.back_to_events")}}</router-link>-->
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
-					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentEvent.name_2}}</h3>
+					<h3 class="promo_name" v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
+					<h3 class="promo_name" v-else>{{currentEvent.name_2}}</h3>
 					<div class="row">
 						<p class="promo_div_date pull-left">{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
 						<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
-							<div class="blog-social-share pull-right" style="margin: 15px auto;">
+							<div class="blog-social-share pull-right">
 								<div class="social_share">
 									<network network="facebook">
 										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
