@@ -130,8 +130,7 @@
                             if (value.store  && _.includes(value.store.store_front_url_abs, 'missing')) {
                                 // this.currentPromo.store.store_front_url_abs = this.property.default_logo_url;
                                 value.store.no_store_logo = true;
-                            }
-                            else if (!value.store) {
+                            } else if (!value.store) {
                                 value.store = {};
                                 value.store.store_front_url_abs = vm.property.default_logo_url;
                             }
@@ -139,15 +138,16 @@
                         }
                     });
                     temp_promo = _.sortBy(temp_promo, ['created_at', 'start_date']).reverse();
-                    console.log(temp_promo)
                     return temp_promo;
                 },
             },
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "jobs"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "jobs"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
