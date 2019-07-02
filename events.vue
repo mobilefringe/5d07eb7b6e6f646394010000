@@ -109,9 +109,10 @@
                     
                     if (this.events) {
                         if (this.contests) {
-                            this.itemList = _.concat(this.events, this.contests);
+                            this.itemList = _.sortBy(_.concat(this.events, this.contests), ['end_date']);
+                            
                         } else {
-                            this.itemList = this.events;
+                            this.itemList = _.sortBy(this.events, ['end_date']);
                         }
                     }
 
