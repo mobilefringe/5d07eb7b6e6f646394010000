@@ -12,12 +12,11 @@
 		</div>
 		<div class="site_container">
 			<div class="row">
+			    <div class="col-md-12">
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/promotions">{{$t("promos_page.back_to_promos")}}</router-link></p>
+			    </div>
 				<div class="col-sm-4 promo_logo_container hidden_phone">
-					<!--<div class="image_container">-->
-					<!--	<img v-if="currentPromo.store" :src="currentPromo.store.store_front_url_abs" class="image" :alt="currentPromo.store.name+' Logo'"/>-->
-					<!--</div>-->
 					<div class="image_container details_store_image">
-						<!--<img v-lazy="currentStore.store_front_url_abs" class="image"/>-->
 						<div v-if="currentPromo.store.no_store_logo" class="store_details_image center-block">
                             <div class="no_logo">
                                 <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
@@ -46,7 +45,7 @@
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
-					<router-link to="/promotions"><i class="fa fa-angle-left"></i> &nbsp;{{$t("promos_page.back_to_promos")}}</router-link>
+					<router-link to="/promotions"><i class="fa fa-angle-left"></i> &nbsp;</router-link>
 					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-if="locale=='en-ca'">{{currentPromo.name}}</h3>
 					<h3 class="promo_name" style="margin: 20px auto 0px;"  v-else>{{currentPromo.name_2}}</h3>
 					<div class="row">
