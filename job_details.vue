@@ -43,8 +43,8 @@
 					</div>
 				</div>
 				<div class="col-sm-8 promo_image_container text-left">
-					<h3 class="promo_name" style="margin: 20px auto 0px;" v-if="locale=='en-ca'">{{currentJob.name}}</h3>
-					<h3 class="promo_name" style="margin: 20px auto 0px;" v-else>{{currentJob.name_2}}</h3>
+					<h3 class="promo_name" v-if="locale=='en-ca'">{{currentJob.name}}</h3>
+					<h3 class="promo_name" v-else>{{currentJob.name_2}}</h3>
 				    <div v-if="currentJob.jobable_type == 'Store'" class="visible_phone">
 					    <h4 class="event_store_name caps" v-if="locale=='fr-ca'">{{currentJob.store.name_2}}</h4>
 					    <h4 class="event_store_name caps" v-else>{{currentJob.store.name}}</h4>
