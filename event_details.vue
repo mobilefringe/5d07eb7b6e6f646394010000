@@ -16,8 +16,8 @@
 				<div class="col-sm-12 promo_image_container text-left">
 					<h3 class="promo_name" v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
 					<h3 class="promo_name" v-else>{{currentEvent.name_2}}</h3>
-					<div class="row">
-						<p class="promo_div_date pull-left">{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
+					<div class="promo_div_date">
+						<p>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
 						<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
 							<div class="blog-social-share pull-right">
 								<div class="social_share">
