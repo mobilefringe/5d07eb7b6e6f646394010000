@@ -44,16 +44,14 @@
 <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
 <!-- End Constant Contact Inline Form Code -->
 
-<!-- Begin Constant Contact Active Forms -->
-        <script> var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de"; </script>
-        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
-        <!-- End Constant Contact Active Forms -->
+
                 </div>
             </div>
             <div class="padding_top_40"></div>    
         </div>
     </div>
 </template>
+
 <style>
     .form-group label {
         display: inline-block;
@@ -63,6 +61,13 @@
             margin-left: 20px;
     }
 </style>
+
+<!-- Begin Constant Contact Active Forms -->
+        <script> var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de"; </script>
+        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+        <!-- End Constant Contact Active Forms -->
+        
+        
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'campaignMonitor'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, campaignMonitor) {
         Vue.use(VeeValidate);
