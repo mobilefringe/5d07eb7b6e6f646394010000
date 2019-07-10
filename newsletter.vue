@@ -64,7 +64,7 @@
 
 <!-- Begin Constant Contact Active Forms -->
 <!--        <script> var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de"; </script>-->
-<!--        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>-->
+        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
         <!-- End Constant Contact Active Forms -->
         
         
