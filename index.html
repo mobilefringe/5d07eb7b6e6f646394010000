@@ -34,68 +34,65 @@
             ga('create', 'UA-115200481-23', 'auto');
             ga('send', 'pageview');
         </script>
-        
 	</head>
 	<body>
 	    {%raw-%} 
     		<div id="app" v-cloak>
     			<loader v-if="!dataLoaded"></loader>
-    			<!--<div class="main_content_container" v-if="dataLoaded">-->
-    			    <h1 style="display:none;" v-if="property">{{property.name}}</h1>
-    			    <header-component  v-if="dataLoaded"></header-component>
-    				<transition name="custom-classes-transition" enter-active-class="fadeIn">
-    					<router-view class="router_content" :locale="locale"  v-if="dataLoaded"></router-view>
-    				</transition>
-    				<div class="home_subscription"  v-if="dataLoaded">
-                        <div class="subscribeBlog content_container">
-                             <h2 class="stay_update caps">{{$t("footer.stay_uptodate")}}</h2> 
-                             <div id="newsletterBlogForm">
-                                <label for="fieldEmail" style="display:none">Email Address</label>
-                                <input id="fieldEmail" name="cm-tkyhii-tkyhii" class="form-control" type="email" v-model="newsletter_email" :placeholder="$t('footer.enter_email')" required/> 
-                                <router-link class="contact_btn" data-i18n="general.submit" :to="'/newsletter?email='+ newsletter_email"><i class="fa fa-arrow-right"></i><p for="fieldEmail" style="display:none">Submit</p></router-link>
-                             </div>
-                        </div>
+			    <h1 style="display:none;" v-if="property">{{ property.name }}</h1>
+			    <header-component  v-if="dataLoaded"></header-component>
+				<transition name="custom-classes-transition" enter-active-class="fadeIn">
+					<router-view class="router_content" :locale="locale"  v-if="dataLoaded"></router-view>
+				</transition>
+				<div class="home_subscription"  v-if="dataLoaded">
+                    <div class="subscribeBlog content_container">
+                         <h2 class="stay_update caps">{{$t("footer.stay_uptodate")}}</h2> 
+                         <div id="newsletterBlogForm">
+                            <label for="fieldEmail" style="display:none">Email Address</label>
+                            <input id="fieldEmail" name="cm-tkyhii-tkyhii" class="form-control" type="email" v-model="newsletter_email" :placeholder="$t('footer.enter_email')" required/> 
+                            <router-link class="contact_btn" data-i18n="general.submit" :to="'/newsletter?email='+ newsletter_email"><i class="fa fa-arrow-right"></i><p for="fieldEmail" style="display:none">Submit</p></router-link>
+                         </div>
                     </div>
-    				<div class="footer" v-if="dataLoaded">
-    					<div class="site_container">
-    						<div class="footer_logos">
-    							<div v-if="property" class="site_logo ">
-    								<router-link to="/"><img :src="property_logo" :alt="property.name"/></router-link>
-    							</div>
-    							<div class="footer_property">
-    								<a href="https://www.morguard.com/" target="_blank">
-    								<img src="//codecloud.cdn.speedyrails.net/sites/5c0581a36e6f643f53050000/image/png/1524517405981/Morguard_White_3.5inch.png" class="" alt="Managed by Morguard">
-    								</a>
-    							</div>
-    							<div class="safe_emplyer_logo">
-    								<a href="https://www.morguard.com/news-knowledge/posts/cse2017-silverwin" target="_blank">
-    								    <img src="//codecloud.cdn.speedyrails.net/sites/5afb34e36e6f646e4a5d0000/image/png/1539965304000/logo.png" alt="Morguard Safest Employer Award"/>
-    								</a>
-    							</div>
-    							<div class="safe_emplyer_logo">
-    								<a href="http://www.bomatoronto.org/" target="_blank">
-    								    <img src="//codecloud.cdn.speedyrails.net/sites/5c54b7e46e6f6447f2000000/image/png/1550678301949/BOMA BEST_Certified_Gold_ENGLISH_PMS_TM transparent.png" alt="BOMA Best Certified Platinum"/>
-    								</a>
-    							</div>
-						    </div>
-    						<div class="footer_social">
-                                <social-links></social-links>
-    						</div>
-    						<div class="footer_terms">
-    							<p v-if="property">
-    							    &copy; {{copyright_year}}
-    							    <span class="caps"> {{property.name}}</span> 
-    							    {{$t("footer.all_rights")}}
-    							    <a href="https://www.morguard.com/privacy/" target="_blank"> {{$t("footer.privacy_policy")}} </a>
-    							    <span class="hidden_phone">|</span>
-    							    <a href="https://www.morguard.com/legal" target="_blank">{{$t("footer.terms")}} </a>
-    							    <span class="hidden_phone">|</span>
-    							    <span> {{$t("footer.powered_by")}}<a href="//www.mallmaverick.com" target="_blank"> Mall Maverick</a></span>
-							    </p>
-    						</div>
-    					</div>
-    				</div>
-    			<!--</div>-->
+                </div>
+				<div class="footer" v-if="dataLoaded">
+					<div class="site_container">
+						<div class="footer_logos">
+							<div v-if="property" class="site_logo ">
+								<router-link to="/"><img :src="property_logo" :alt="property.name"/></router-link>
+							</div>
+							<div class="footer_property">
+								<a href="https://www.morguard.com/" target="_blank">
+								<img src="//codecloud.cdn.speedyrails.net/sites/5c0581a36e6f643f53050000/image/png/1524517405981/Morguard_White_3.5inch.png" class="" alt="Managed by Morguard">
+								</a>
+							</div>
+							<div class="safe_emplyer_logo">
+								<a href="https://www.morguard.com/news-knowledge/posts/cse2017-silverwin" target="_blank">
+								    <img src="//codecloud.cdn.speedyrails.net/sites/5afb34e36e6f646e4a5d0000/image/png/1539965304000/logo.png" alt="Morguard Safest Employer Award"/>
+								</a>
+							</div>
+							<div class="safe_emplyer_logo">
+								<a href="http://www.bomatoronto.org/" target="_blank">
+								    <img src="//codecloud.cdn.speedyrails.net/sites/5c54b7e46e6f6447f2000000/image/png/1550678301949/BOMA BEST_Certified_Gold_ENGLISH_PMS_TM transparent.png" alt="BOMA Best Certified Platinum"/>
+								</a>
+							</div>
+					    </div>
+						<div class="footer_social">
+                            <social-links></social-links>
+						</div>
+						<div class="footer_terms">
+							<p v-if="property">
+							    &copy; {{copyright_year}}
+							    <span class="caps"> {{property.name}}</span> 
+							    {{$t("footer.all_rights")}}
+							    <a href="https://www.morguard.com/privacy/" target="_blank"> {{$t("footer.privacy_policy")}} </a>
+							    <span class="hidden_phone">|</span>
+							    <a href="https://www.morguard.com/legal" target="_blank">{{$t("footer.terms")}} </a>
+							    <span class="hidden_phone">|</span>
+							    <span> {{$t("footer.powered_by")}}<a href="//www.mallmaverick.com" target="_blank"> Mall Maverick</a></span>
+						    </p>
+						</div>
+					</div>
+				</div>
     		</div>
     		<div class='modal-backdrop custom_backdrop hidden_now' id="popup_backdrop"></div>
 		{%endraw-%} 
