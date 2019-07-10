@@ -69,7 +69,7 @@
         
         
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'constantContact'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, constantContact) {
         Vue.use(VeeValidate);
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
