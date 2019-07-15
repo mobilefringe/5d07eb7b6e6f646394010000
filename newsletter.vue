@@ -41,17 +41,13 @@
  
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'constantContact'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, constantContact) {
-        Vue.use(VeeValidate);
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
             data: function() {
                 return {
                     dataloaded: false,
                     pageBanner: null,
-                    currentPage: {},
-                    form_data : {},
-                    formSuccess : false,
-                    formError: false,
+                    currentPage: {}
                 }
             },
             created () {
@@ -73,19 +69,6 @@
                     this.currentPage = response.data;
                 });
             },
-            mounted () {
-                // var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de";
-                // window._ctct_m = _ctct_m;
-
-                this.form_data.email = this.$route.query.email;
-                $("#email_address_0").val(this.form_data.email);
-            },
-            watch : {
-                $route () {
-                    this.form_data.email = this.$route.query.email;
-                    $("#email_address_0").val(this.form_data.email);
-                }
-            },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
@@ -94,21 +77,6 @@
                 ])
             },
             methods: {
-                validateBeforeSubmit(form) {
-                    this.$validator.validateAll().then((result) => {
-                        let errors = this.errors;
-                        if (errors && errors.items.length == 0) { 
-                            if (errors.length > 0) {
-                                console.log("Error", errors);
-                                this.formError = true;
-                                form.preventDefault();
-                                form.target.action = "";
-                            } else {
-                                this.campaignMonitorCall($('#subForm'), '92D4C54F0FEC16E5ADC2B1904DE9ED1AEC652151923F368AFF8F79BD97653D518B1251FC5BB09D7603C4AFEECA699B380141E6B93F1A28592DA91D0CB25CE7F2'); 
-                            }
-                        }
-                    })
-                },
                 loadData: async function() {
                     try {
                         let results = await Promise.all([
@@ -116,45 +84,6 @@
                         ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
-                    }
-                },
-                campaignMonitorCall(form, form_data_id) {
-                    // Get e-mail value.
-                    var vm = this;
-                    email = $('input[type=email]', form).val();
-        
-                    // Build request data for tokenRequest.
-                    request_data = "email=" + encodeURIComponent(email) + "&data=" + form_data_id;
-        
-                    // Prepare tokenRequest.
-                    tokenRequest = new XMLHttpRequest();
-                    tokenRequest.open('POST', 'https://createsend.com//t/getsecuresubscribelink', true);
-                    tokenRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    tokenRequest.send(request_data);
-        
-                    // Ready state.
-                    tokenRequest.onreadystatechange = function() {
-                        if (this.readyState === 4) {
-                            if (this.status === 200) {
-                                // Having token and new submit url we can create new request to subscribe a user.
-                                subscribeRequest = new XMLHttpRequest();
-                                subscribeRequest.open('POST', this.responseText, true);
-                                subscribeRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                                subscribeRequest.send(form.serialize());
-                                // On ready state call response function.
-                                subscribeRequest.onreadystatechange = function() {
-                                    if (subscribeRequest.readyState === 4) {
-                                        if (_.includes(subscribeRequest.response, 'Thank You')) {
-                                            vm.formSuccess = true;
-                                        } else {
-                                            vm.formError = true;
-                                        }
-                                    }
-                                }
-                            } else {
-                                return false;
-                            }
-                        }
                     }
                 }
             }
