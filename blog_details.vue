@@ -4,7 +4,7 @@
 		<div class="site_container inside_page_content page_content" v-if="currentPost">
             <div class="row">
                 <div class="col-md-12">
-			        <p class="back_to_list link_hover"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
 			    </div>
 			</div>
 		    <div class="row">
