@@ -14,7 +14,6 @@
 				<div class="row event_container" v-if="showMore > index" v-for="(promo,index) in promos">
 					<div class="col-sm-6 col-md-3 event_image_container" style="max-width:100%">
 						<div class="image_container details_store_image">
-							
 							<div v-if="!checkImageURL(promo)" class="store_details_image center-block">
                                 <div class="no_logo">
                                     <img class="store_img" src="//www.mallmaverick.com/system/site_images/photos/000/041/782/original/transparent_logo.png?1533845225" alt="">
@@ -22,8 +21,8 @@
                                 </div>    
                             </div>
                             <img v-else class="center-block" :src="checkImageURL(promo)" :alt="promo.name" />
-                            </div>
-						</div>
+                        </div>
+					</div>
 					<div class="col-sm-6 col-md-8 event_dets_container">
 						<h4 class="event_name caps" v-if="locale=='en-ca'">{{promo.name}}</h4>
 						<h4 class="event_name caps" v-else>{{promo.name_2}}</h4>
