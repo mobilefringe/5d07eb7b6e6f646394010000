@@ -173,22 +173,14 @@
                     var mobile_features = this.$store.state.feature_items;
                     _.forEach(mobile_features, function(value, key) {
                       
-                        if( _.includes([0,1], key) ) {
+                        if (_.includes([0, 1], key)) {
                             value.masonry_class = "grid-item--height2";
-                        }
-                        else if ( _.includes([2,5], key) ){
+                        } else if (_.includes([2, 5], key)){
                             value.masonry_class = "grid-item--width2";
-                        }
-                        else {
+                        } else {
                             value.masonry_class = " ";
                         }
-                        
-                        // if(key > 7) {
-                        //     value.mobile_order = key + 2;
-                        // }
-                        // else {
-                        //     value.mobile_order = key + 1;
-                        // }
+
                         // if (key == 1) {
                         //     value.mobile_order = 6;
                         // }
@@ -199,10 +191,9 @@
                         //     value.mobile_order = key;
                         // }
                         
-                        if( _.includes(value.url, '//')) {
+                        if(_.includes(value.url, '//')) {
                             value.do_anchor_tag = true;
-                        }
-                        else {
+                        } else {
                             value.do_anchor_tag = false;
                         }
                     });
@@ -213,8 +204,13 @@
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "banners"), this.$store.dispatch("getData", "feature_items"), this.$store.dispatch("getData", "promotions"), this.$store.dispatch("getData", "popups"), this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host +"/api/v4/"+this.$root.subdomain+"/social.json"})]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "banners"), 
+                            this.$store.dispatch("getData", "feature_items"), 
+                            this.$store.dispatch("getData", "promotions"), 
+                            this.$store.dispatch("getData", "popups"), 
+                            this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/api/v4/" + this.$root.subdomain + "/social.json" })
+                        ]);
                         return results;
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
