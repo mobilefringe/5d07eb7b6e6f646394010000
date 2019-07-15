@@ -1,5 +1,5 @@
 <template>
-    <div class="page_container" id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render --> <!--  v-if="currentContest" -->
+    <div class="page_container" id="contact_us_container"> <!-- without an outer container div this component template will not render -->
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -178,7 +178,7 @@
             },
             created() {
                 this.loadData().then(response => {
-                    this.currentContest = this.findContestBySlug('to.params.id');
+                    
                     var temp_repo = this.findRepoByName('Events & Contests Banner');
                     if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
@@ -186,6 +186,8 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
+                    
+                    this.currentContest = this.findContestBySlug('to.params.id');
                     console.log("this.pageBanner", this.pageBanner)
                 });
             },
