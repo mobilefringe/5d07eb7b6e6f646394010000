@@ -26,12 +26,10 @@
 </template>
 
 <style>
-    .form-group label {
-        display: inline-block;
-    }
-    .checkbox {
-        font-weight: normal;
-            margin-left: 20px;
+    div.ctct-form-embed div.ctct-form-defaults {
+        margin-top: 30px;
+        padding: 0;
+        background-color: transparent;
     }
 </style>
 
