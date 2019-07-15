@@ -31,6 +31,9 @@
         padding: 0 !important;
         background-color: transparent !important;
     }
+    div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
+        margin-left: 12px;
+    }
 </style>
 
 <!-- Begin Constant Contact Active Forms -->
