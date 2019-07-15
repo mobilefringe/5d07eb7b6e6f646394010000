@@ -31,15 +31,14 @@
 						    <h4 class="event_store_name caps" v-if="locale=='en-ca'">{{promo.store.name}}</h4>
 						    <h4 class="event_store_name caps" v-else>{{promo.store.name_2}}</h4>
 						</div>
-						
 						<div class="event_thick_line"></div>
-						<p class="event_dates">{{promo.start_date | moment("MMM D", timezone)}} - {{promo.end_date | moment("MMM D", timezone)}}</p>
+						<p class="event_dates">{{ promo.start_date | moment("MMM D", timezone) }} - {{ promo.end_date | moment("MMM D", timezone) }}</p>
 						<p class="event_desc"  v-if="locale=='en-ca'" >{{promo.description_short}}</p>
 						<p class="event_desc" v-else>{{promo.description_short_2}}</p>
 					
 						<div class="text-right col-md-6 col-sm-12" v-if="promo" style="padding:0">
-							<router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left hvr-icon-wobble-horizontal"  :aria="promo.name">
-							   {{$t("promos_page.read_more")}} <i class="fa fa-angle-right hvr-icon" aria-hidden="true"></i>
+							<router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left"  :aria="promo.name">
+							   {{$t("promos_page.read_more")}} <i class="fa fa-angle-right" aria-hidden="true"></i>
 						    </router-link>
 							<social-sharing :url="$root.shareURL('promotions',promo.slug)" :title="promo.title" :description="promo.body" :quote="_.truncate(promo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="promo.image_url" inline-template >
 								<div class="blog-social-share pull_right">
