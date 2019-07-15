@@ -32,7 +32,7 @@
 								</div>
 							</div>
 						</social-sharing>
-                        <div class="margin_60 post_text" v-html="currentPost.html_body"></div>
+                        <div class="post_text" v-html="currentPost.html_body"></div>
                     </div>
                 </div>
                 <div class="col-md-4">
