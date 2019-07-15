@@ -130,6 +130,14 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
             }
         },
         computed: {
+            ...Vuex.mapGetters([
+                'property',
+                'timezone',
+                'banners',
+                'hours',
+                'getTodayHours',
+                'processedStores',
+            ]),
             // computed property for locale which returns locale value from data store and also updates the data store with new locale information
             locale: {
                 get() {
@@ -144,14 +152,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
             copyright_year() {
                 return moment().year();
             },
-            ...Vuex.mapGetters([
-                'property',
-                'timezone',
-                'banners',
-                'hours',
-                'getTodayHours',
-                'processedStores',
-            ]),
             todays_hours() {
                 return this.getTodayHours;
             },
@@ -195,7 +195,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 } else {
                     this.stickyMenu = false;
                 }
-
             },
             toggleSubMenu (name) {
                 this.menu_items.map(menu => {
