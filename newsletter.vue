@@ -38,13 +38,7 @@
         display: none !important;   
     }
 </style>
-
-<!-- Begin Constant Contact Active Forms -->
-<!--        <script> var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de"; </script>-->
-        <!--<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>-->
-        <!-- End Constant Contact Active Forms -->
-        
-        
+ 
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'constantContact'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, constantContact) {
         Vue.use(VeeValidate);
@@ -82,7 +76,7 @@
             mounted () {
                 // var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de";
                 // window._ctct_m = _ctct_m;
-                // window.MktoForms2.loadForm("//app-sj03.marketo.com", "561-LJY-710", 3302);
+
                 this.form_data.email = this.$route.query.email;
                 $("#email_address_0").val(this.form_data.email);
             },
