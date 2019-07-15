@@ -47,16 +47,8 @@
 								<input v-model="form_data.phone" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="phone" type="text" placeholder="Phone number" data-vv-delay="500" data-vv-as="phone">
 								<span v-show="errors.has('phone')" class="form-control-feedback">{{ errors.first('phone') }}</span>
 							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('street')}"  style="padding-top: 20px;">
-								<label class="label" for="street">Street Address</label>
-								<input v-model="form_data.mailing_address" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="street" type="text" placeholder="Street Address" data-vv-delay="500" data-vv-as="street address">
-								<span v-show="errors.has('street')" class="form-control-feedback">{{ errors.first('street') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12"  :class="{'has-error': errors.has('city')}" style="padding-top: 20px;">
-								<label class="label" for="city"> City</label>
-								<input v-model="form_data.city" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="city" type="text" placeholder="Town/City" data-vv-delay="500" data-vv-as="city">
-								<span v-show="errors.has('city')" class="form-control-feedback">{{ errors.first('city') }}</span>
-							</div>
+						</div>
+						<div class="form-group">
 							<div class="col-sm-6 col-xs-12 " :class="{'has-error': errors.has('postal')}"  style="padding-top: 20px;">
 								<label class="label" for="postal">Postal Code</label>
 								<input v-model="form_data.postal_code" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="postal" type="text" placeholder="Postal Code" data-vv-delay="500" data-vv-as="postal code">
@@ -69,14 +61,7 @@
 								<span v-show="errors.has('birthday')" class="form-control-feedback">{{ errors.first('birthday') }}</span>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-6" :class="{'has-error': errors.has('validate')}">
-								<label class="label" for="validate">Enter the following number below to proceed: {{correctValNum}}</label> 
-								<input v-model="validaNum" v-validate="'required|numeric|min:6|max:6'" class="form-control col-xs-3" :class="{'input': true}" name="validate" type="text" placeholder="Enter above number" data-vv-delay="500" data-vv-as="validation">
-								<span v-show="errors.has('validate')" class="form-control-feedback">{{ errors.first('validate') }}</span>
-								<span v-if="validaNum.length === 6 && validaNum !== correctValNum && errors.first('validate') == null" class="form-control-feedback" :class="{shake_element : validNumError}">Please enter correct number</span>
-							</div>
-						</div>
+					
 						<div class="form-group account-btn text-left m-t-10 agreement">
 						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
 						        <label class="checkbox">
