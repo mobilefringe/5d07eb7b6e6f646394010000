@@ -74,7 +74,7 @@
                                     I agree to the <a href = "/pages/eastgate-contest-rules-and-regulations" target="_blank"><u> rules and regulations</u></a>
                                 </label>
 						    </div>
-							<div class="col-xs-12" style="margin-top: 20px;padding: 0;">
+							<div class="col-xs-12">
 								<button class="contest_btn" type="submit" :disabled="formSuccess">Submit</button>
 							</div>
 						</div>
