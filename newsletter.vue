@@ -66,8 +66,7 @@
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
-                    
-                    
+
                     this.dataloaded = true;
                 }); 
                 this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/sevenoaks-newsletter.json"}).then(response => {
