@@ -88,6 +88,8 @@
                     this.instaFeed = _.slice(social_feed, [0], [4]);
                     
                     this.meta = this.findMetaDataByPath(this.$route.path);
+                    
+                    console.log("this.$root.subdomain", this.$root.subdomain)
                 });
             },
             watch : {
@@ -172,7 +174,6 @@
                 mobile_feature_items () {
                     var mobile_features = this.$store.state.feature_items;
                     _.forEach(mobile_features, function(value, key) {
-                      
                         if (_.includes([0, 1], key)) {
                             value.masonry_class = "grid-item--height2";
                         } else if (_.includes([2, 5], key)){
@@ -191,7 +192,7 @@
                         //     value.mobile_order = key;
                         // }
                         
-                        if(_.includes(value.url, '//')) {
+                        if (_.includes(value.url, '//')) {
                             value.do_anchor_tag = true;
                         } else {
                             value.do_anchor_tag = false;
