@@ -99,8 +99,7 @@
                         this.show_popup = true;
                         this.popup.image_url = "//mallmaverick.cdn.speedyrails.net" + this.popup.photo_url;
                         document.getElementById('popup_backdrop').style.display = "block";
-                    }
-                    else {
+                    } else {
                         document.getElementById('popup_backdrop').style.display = "none";
                     }
                 },
@@ -174,7 +173,7 @@
                     var mobile_features = this.$store.state.feature_items;
                     _.forEach(mobile_features, function(value, key) {
                       
-                        if( _.includes([0,6], key) ) {
+                        if( _.includes([0,1], key) ) {
                             value.masonry_class = "grid-item--height2";
                         }
                         else if ( _.includes([2,5], key) ){
