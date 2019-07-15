@@ -15,7 +15,7 @@
                 </div>
                 <div class="post_content">
                     <h2 class="post_heading caps">{{ post.title }}</h2>
-                    <p class="post_dates">{{ post.publish_date | moment("MMM DD, YYYY", timezone) }}</p>
+                    <p class="post_dates">{{ post.publish_date | moment("MMMM DD, YYYY", timezone) }}</p>
                     <div class="post_text" v-html="post.body_short"></div>
                     <router-link :to="{ name: 'blogDetails', params: { id: post.slug }}" class="post_read_more"  :aria="post.title">
 					   {{ $t("blog_page.read_post") }} <i class="fa fa-angle-right" aria-hidden="true"></i>
