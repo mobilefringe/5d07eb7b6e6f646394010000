@@ -177,6 +177,14 @@
                     pageBanner: null
                 }
             },
+            props:['id', 'locale'],
+            beforeRouteUpdate(to, from, next) {
+                this.updateCurrentContest('to.params.id');
+                    // if (this.currentEvent === null || this.currentEvent === undefined){
+                    //     this.$router.replace('/');
+                    // }
+                next();
+            },
             created() {
                 this.loadData().then(response => {
                     var temp_repo = this.findRepoByName('Events & Contests Banner');
@@ -187,7 +195,8 @@
                         this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
                     
-                    this.currentContest = this.findContestBySlug('to.params.id');
+                    this.updateCurrentContest(this.id);
+        
                     console.log("this.pageBanner", this.pageBanner)
                     
                     this.dataLoaded = true;
@@ -217,6 +226,10 @@
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
+                },
+                updatecurrentEvent (id) {
+                    this.currentContest = this.findContestBySlug(id);
+                    console.log("this", this.currentContest)
                 },
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
