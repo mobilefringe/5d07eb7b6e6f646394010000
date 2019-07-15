@@ -4,6 +4,11 @@
 		<div class="site_container inside_page_content page_content" v-if="currentPost">
             <div class="row">
                 <div class="col-md-12">
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/promotions">{{$t("promos_page.back_to_promos")}}</router-link></p>
+			    </div>
+			</div>
+		    <div class="row">
+                <div class="col-md-12">
                     <div class="post_details_image">
                         <img :src="currentPost.image_url" :alt="currentPost.title" />
                     </div>
@@ -11,9 +16,7 @@
             </div>
             <div class="row">
                 <div class="margin_60"></div>
-                <div class="col-md-12">
-			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/promotions">{{$t("promos_page.back_to_promos")}}</router-link></p>
-			    </div>
+                
                 <div class="col-md-8">
                     <div class="post_details_container right_border">
                         <h2 class="post_heading caps">{{ currentPost.title }}</h2>
