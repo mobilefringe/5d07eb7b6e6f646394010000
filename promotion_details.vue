@@ -1,7 +1,6 @@
 <template>
 	<div class="promo_dets_container" v-if="currentPromo">
 		<div class="page_header" v-if="pageBanner" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
-			<!--http://via.placeholder.com/1920x300-->
 			<div class="site_container">
 				<div class="header_content caps">
 					<h1>{{$t("promos_page.promotions")}}</h1>
@@ -52,7 +51,8 @@
 					    <h4 class="event_store_name caps" v-else>{{currentPromo.store.name}}</h4>
 					</div>
 					<div class="promo_div_date">
-					    <p>{{currentPromo.start_date | moment("MMM D", timezone)}} - {{currentPromo.end_date | moment("MMM D", timezone)}}</p>
+					    <p v-if="isMultiDay(currentPromo)">{{ currentPromo.start_date | moment("MMMM D", timezone)}} - {{ currentPromo.end_date | moment("MMMM D", timezone)}}</p>
+                        <p v-else>{{ currentPromo.start_date | moment("MMMM D", timezone)}}</p>
 						<social-sharing :url="$root.shareURL('promotions',currentPromo.slug)" :title="currentPromo.title" :description="currentPromo.body" :quote="_.truncate(currentPromo.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPromo.image_url" inline-template >
 							<div class="blog-social-share pull-right">
 								<div class="social_share">
@@ -172,12 +172,6 @@
                 },
             },
             methods: {
-                updateCurrentPromo (id) {
-                    this.currentPromo = this.findPromoBySlug(id);
-                    if (this.currentPromo === null || this.currentPromo === undefined){
-                        this.$router.replace('/');
-                    }
-                },
                 loadData: async function() {
                     try {
                         let results = await Promise.all([
@@ -187,7 +181,23 @@
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
-                }
+                },
+                 updateCurrentPromo (id) {
+                    this.currentPromo = this.findPromoBySlug(id);
+                    if (this.currentPromo === null || this.currentPromo === undefined){
+                        this.$router.replace('/');
+                    }
+                },
+            	isMultiDay(currentPromo) {
+					var timezone = this.timezone
+					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				}
             }
         });
     });
