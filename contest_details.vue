@@ -1,5 +1,5 @@
 <template>
-    <div class="page_container" id="contact_us_container"> <!-- without an outer container div this component template will not render -->
+    <div v-if="dataLoaded" class="page_container" id="contact_us_container"> <!-- without an outer container div this component template will not render -->
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -166,6 +166,7 @@
             props:['locale'],
             data: function() {
                 return {
+                    dataLoaded: false,
                     form_data: {},
                     formSuccess: false,
                     formError: false,
@@ -188,6 +189,8 @@
                     
                     this.currentContest = this.findContestBySlug('to.params.id');
                     console.log("this.pageBanner", this.pageBanner)
+                    
+                    this.dataLoaded = true;
                 });
             },
             mounted() {
