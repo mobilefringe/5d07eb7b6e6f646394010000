@@ -28,8 +28,8 @@
 <style>
     div.ctct-form-embed div.ctct-form-defaults {
         margin-top: 30px;
-        padding: 0;
-        background-color: transparent;
+        padding: 0 !important;
+        background-color: transparent !important;
     }
 </style>
 
