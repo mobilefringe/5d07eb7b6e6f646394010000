@@ -17,7 +17,8 @@
 					<h3 class="promo_name" v-if="locale=='en-ca'">{{currentEvent.name}}</h3>
 					<h3 class="promo_name" v-else>{{currentEvent.name_2}}</h3>
 					<div class="promo_div_date">
-						<p>{{currentEvent.start_date | moment("MMM D", timezone)}} - {{currentEvent.end_date | moment("MMM D", timezone)}}</p>
+						<p v-if="isMultiDay(currentEvent)">{{ currentEvent.start_date | moment("MMMM D", timezone)}} - {{ currentEvent.end_date | moment("MMMM D", timezone)}}</p>
+                        <p v-else>{{ currentEvent.start_date | moment("MMMM D", timezone)}}</p>
 						<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
 							<div class="blog-social-share pull-right">
 								<div class="social_share">
@@ -130,7 +131,17 @@
                     // if (this.currentEvent === null || this.currentEvent === undefined){
                     //     this.$router.replace('/');
                     // }
-                }
+                },
+                isMultiDay(currentPromo) {
+					var timezone = this.timezone
+					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				}
             }
         });
     });
