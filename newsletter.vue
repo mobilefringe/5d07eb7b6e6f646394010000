@@ -34,6 +34,9 @@
     div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
         margin-left: 12px;
     }
+    .ctct-form-footer-img {
+        display: none !important;   
+    }
 </style>
 
 <!-- Begin Constant Contact Active Forms -->
