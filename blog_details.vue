@@ -4,7 +4,7 @@
 		<div class="site_container inside_page_content page_content" v-if="currentPost">
             <div class="row">
                 <div class="col-md-12">
-			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/promotions">{{$t("promos_page.back_to_promos")}}</router-link></p>
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
 			    </div>
 			</div>
 		    <div class="row">
@@ -16,7 +16,6 @@
             </div>
             <div class="row">
                 <div class="margin_60"></div>
-                
                 <div class="col-md-8">
                     <div class="post_details_container right_border">
                         <h2 class="post_heading caps">{{ currentPost.title }}</h2>
@@ -34,9 +33,6 @@
 							</div>
 						</social-sharing>
                         <div class="margin_60 post_text" v-html="currentPost.html_body"></div>
-                        <router-link to="/blog">
-                            <button class="contact_btn">Back to Blog</button>
-                        </router-link>
                     </div>
                 </div>
                 <div class="col-md-4">
