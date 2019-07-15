@@ -74,8 +74,8 @@
                 });
             },
             mounted () {
-                var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de";
-                window._ctct_m = _ctct_m;
+                // var _ctct_m = "af59dbeaeac204d177abd4d5717fc2de";
+                // window._ctct_m = _ctct_m;
                 // window.MktoForms2.loadForm("//app-sj03.marketo.com", "561-LJY-710", 3302);
                 this.form_data.email = this.$route.query.email;
                 $("#email_address_0").val(this.form_data.email);
