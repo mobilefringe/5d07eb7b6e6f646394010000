@@ -253,7 +253,7 @@
                         console.log("Error loading data: " + e.message);
                     }
                 },
-                updatecurrentEvent (id) {
+                updateCurrentContest (id) {
                     this.currentContest = this.findContestBySlug(id);
                     console.log("this", this.currentContest)
                 },
