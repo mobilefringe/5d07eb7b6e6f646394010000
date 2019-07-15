@@ -185,6 +185,36 @@
                     // }
                 next();
             },
+            mounted() {
+                //creating random validation num 
+                this.correctValNum = Utility.rannumber();
+                
+            },
+            watch: {
+                currentContest : function (){
+                    console.log("this", this.currentContest)
+                    // if (this.currentEvent != null) {
+                    //     if (this.currentEvent.store != null && this.currentEvent.store != undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
+                    //         this.currentEvent.store.store_front_url_abs = this.property.default_logo_url;
+                    //     }
+                    //     else if (this.currentEvent.store == null || this.currentEvent.store == undefined) {
+                    //         this.currentEvent.store = {};
+                    //         this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
+                    //     }
+                    //     var vm = this;
+                    //     var temp_event = [];
+                    //     var current_id =_.toNumber(this.currentEvent.id);
+                    //     _.forEach(this.currentEvent.store.event, function(value, key) {
+                    //         if(_.toNumber(value) != current_id){
+                    //             var current_event = vm.findEventById(value);
+                    //             current_event.description_short = _.truncate(current_event.description, {'length': 70});
+                    //             temp_event.push(current_event);
+                    //         }
+                    //     });
+                    //     this.storeEvents = temp_event;
+                    // }
+                }
+            },
             created() {
                 this.loadData().then(response => {
                     var temp_repo = this.findRepoByName('Events & Contests Banner');
@@ -202,11 +232,7 @@
                     this.dataLoaded = true;
                 });
             },
-            mounted() {
-                //creating random validation num 
-                this.correctValNum = Utility.rannumber();
-                
-            },
+            
             computed: {
                 ...Vuex.mapGetters([
                     'property',
