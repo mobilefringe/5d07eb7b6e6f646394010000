@@ -23,6 +23,81 @@
                     <div class="description_text text_left" style="padding-top:40px" v-else  v-html="currentContest.rich_description_2">
                         {{ currentContest.description_2 }}
                     </div>
+                </div>
+            </div>
+            <div v-if="kidsClubForm" class="row"> 
+                <div class="col-sm-12 contest_contents">
+                    <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
+						<div class="form-group ">
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
+								<label class="label" for="first_name">First Name</label>
+								<input v-model="form_data.first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="first name">
+								<span v-show="errors.has('first_name')" class="form-control-feedback">{{ errors.first('first_name') }}</span>
+							</div>
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('last_name')}">
+								<label class="label" for="last_name">Last Name</label>
+								<input v-model="form_data.last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="last_name" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="last name">
+								<span v-show="errors.has('last_name')" class="form-control-feedback">{{ errors.first('last_name') }}</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
+								<label class="label" for="email">Email Address</label>
+								<input v-model="form_data.email" v-validate="'required|email'" class="form-control" :class="{'input': true}" name="email" type="email" placeholder="Email Address" data-vv-delay="500" data-vv-as="email">
+								<span v-show="errors.has('email')" class="form-control-feedback">{{ errors.first('email') }}</span>
+							</div>
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('phone')}" >
+								<label class="label" for="phone">Phone Number</label>
+								<input v-model="form_data.phone" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="phone" type="text" placeholder="Phone Number" data-vv-delay="500" data-vv-as="phone">
+								<span v-show="errors.has('phone')" class="form-control-feedback">{{ errors.first('phone') }}</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-6 col-xs-12 " :class="{'has-error': errors.has('postal')}">
+								<label class="label" for="postal">Postal Code</label>
+								<input v-model="form_data.postal_code" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="postal" type="text" placeholder="Postal Code" data-vv-delay="500" data-vv-as="postal code">
+								<span v-show="errors.has('postal')" class="form-control-feedback">{{ errors.first('postal') }}</span>
+							</div>
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('birthday')}">
+								<label class="label" for="birthday">Birthday</label>
+								<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:DD/MM/YYYY'" :class="{'input': true}" name="birthday" type="text" placeholder="DD/MM/YYYY" data-vv-delay="500" data-vv-as="birthday">
+								<span v-show="errors.has('birthday')" class="form-control-feedback">{{ errors.first('birthday') }}</span>
+							</div>
+						</div>
+						<div class="form-group">
+						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
+						        <label class="checkbox">
+                                    <input name="agree_newsletter" type="checkbox" v-model="form_data.agree_newsletter">
+                                        Yes, I would like to receive ongoing news related to events, promotions and special announcements from {{ property.name }}.
+                                </label>
+						    </div>
+						    <div class="col-xs-12">
+						        <label class="checkbox">
+                                    <input name="agree_terms" required type="checkbox" >
+                                    I have read and agree to the <a href="/pages/eastgate-contest-rules-and-regulations" target="_blank">Rules & Regulations</a>.
+                                </label>
+						    </div>
+							<div class="col-xs-12">
+								<button class="contest_btn" type="submit" :disabled="formSuccess">Submit</button>
+							</div>
+						</div>
+					</form>
+                    
+                    <div id="send_contact_success" class="alert alert-success text-left" role="alert" v-show="formSuccess">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span class="sr-only">Success</span>
+                        Thank you for contacting us. A member from our team will contact you shortly.
+                    </div>
+                    <div id="send_contact_error" class="alert alert-danger text-left" role="alert" v-show="formError">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        There was an error when trying to submit your request. Please try again later.
+                    </div>
+                    
+                </div>
+            </div>
+            <div v-else class="row"> 
+                <div class="col-sm-12 contest_contents">
                     <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
@@ -152,14 +227,16 @@
             data: function() {
                 return {
                     dataLoaded: false,
+                    pageBanner: null,
+                    currentContest: {},
+                    kidsClubForm: false,
                     form_data: {},
                     formSuccess: false,
                     formError: false,
                     validaNum: '',
                     correctValNum: null,
                     validNumError: false,
-                    currentContest: {},
-                    pageBanner: null
+                    
                 }
             },
             props:['id', 'locale'],
@@ -240,7 +317,14 @@
                 },
                 updateCurrentContest (id) {
                     this.currentContest = this.findContestBySlug(id);
-                    console.log("this", this.currentContest)
+                    if (this.currentContest != null) {
+                        console.log("this", this.currentContest)
+                        if (this.currentContest.is_featured) {
+                            this.kidsClubForm = true;
+                        } else {
+                            this.kidsClubForm = false;
+                        }
+                    }
                 },
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
