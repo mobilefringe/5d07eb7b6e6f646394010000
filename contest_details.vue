@@ -216,6 +216,7 @@
                     pageBanner: null,
                     currentContest: {},
                     kidsClubForm: false,
+                    contestDisclaimer: {},
                     form_data: {},
                     formSuccess: false,
                     formError: false
@@ -264,6 +265,7 @@
                         this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
                     
+                    this.contestDisclaimer = response[2].data
                     this.updateCurrentContest(this.id);
 
                     this.dataLoaded = true;
