@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div v-else class="row"> 
-                <div class="col-sm-12 contest_contents">
+                <div class="col-sm-12">
                     <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
@@ -172,6 +172,8 @@
                     
                 </div>
             </div>
+            
+            <p>As agent for the Landlord, Morguard is committed to maintaining the security and confidentiality of personal information in accordance with applicable privacy legislation and our Privacy Policy. By completing and submitting this form, you are consenting to Morguard collecting, using and disclosing your personal information in order to identify and communicate with you, for such other purposes as may be necessary in order to provide you with the products and/or services you have requested, and for any other purposes where you consent or where such collection, use or disclosure is permitted or required by law. You represent that you have all necessary authority and/or have obtained all necessary consents from any other individuals about whom you have disclosed personal information to Morguard in order to enable us to collect, use and disclose such personal information to fulfill the purposes described above. For further information regarding Morguard’s personal information handling practices, please refer to Morguard’s Privacy Policy at www.morguard.com.</p>
             <div class="padding_top_40"></div>    
         </div>
     </div>
@@ -213,11 +215,7 @@
                     kidsClubForm: false,
                     form_data: {},
                     formSuccess: false,
-                    formError: false,
-                    validaNum: '',
-                    correctValNum: null,
-                    validNumError: false,
-                    
+                    formError: false
                 }
             },
             props:['id', 'locale'],
@@ -227,11 +225,6 @@
                     //     this.$router.replace('/');
                     // }
                 next();
-            },
-            mounted() {
-                //creating random validation num 
-                this.correctValNum = Utility.rannumber();
-                
             },
             watch: {
                 currentContest : function (){
@@ -269,20 +262,17 @@
                     }
                     
                     this.updateCurrentContest(this.id);
-        
-                    console.log("this.pageBanner", this.pageBanner)
-                    
+
                     this.dataLoaded = true;
                 });
             },
-            
             computed: {
                 ...Vuex.mapGetters([
                     'property',
                     'timezone',
                     'findContestBySlug',
                     'findRepoByName'
-                ]),
+                ])
             },
             methods: {
                 loadData: async function(id) {
@@ -312,25 +302,7 @@
                         if (result &&  (this.correctValNum === this.validaNum)) {
                             let errors = this.errors;
                             this.validNumError = false;
-                            if(this.form_data.agree_newsletter ) {
-                                $.getJSON("//mobilefringe.createsend.com/t/d/s/irudui/?callback=?",
-                                "cm-name=" + this.form_data.first_name + this.form_data.last_name +
-                                "&cm-irudui-irudui=" + this.form_data.email +
-                                "&cm-f-jtukyu=" + this.form_data.city+
-                                "&cm-f-jtukjr=" + this.form_data.phone +
-                                "&cm-f-jtukjy=" + this.form_data.mailing_address +
-                                "&cm-f-jtukjj=" + this.form_data.postal_code +
-                                "&cm-f-jtukjt=" + this.form_data.birthday,
-                                    function (data) {
-                                    if (data.Status === 400) {
-                                        e.preventDefault();
-                                        console.error("Please try again later.");
-                                    } else { // 200
-                                        console.log("Newsletter submission successful.");
-                                    }
-                                });  
-                            }
-                            //format contests data for MM
+                            // Format contests data for MM
                             var contest_entry = {};
                             contest_entry.contest = this.form_data;
                             var vm = this;
