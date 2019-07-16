@@ -145,11 +145,11 @@
 								<span v-show="errors.has('birthday')" class="form-control-feedback">{{ errors.first('birthday') }}</span>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-12">
-							    <hr>
-							</div>
-						</div>
+						<!--<div class="form-group">-->
+						<!--	<div class="col-xs-12">-->
+						<!--	    <hr>-->
+						<!--	</div>-->
+						<!--</div>-->
 						<div class="form-group">
 						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
 						        <label class="checkbox">
@@ -184,6 +184,7 @@
             </div>
             <div class="row"> 
                 <div class="col-sm-12 padding_top_40">
+                    <hr>
                     <div class="description_text text_left" v-html="contestDisclaimer.body"></div>
                 </div>
             </div>
