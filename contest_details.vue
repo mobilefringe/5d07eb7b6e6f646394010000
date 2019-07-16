@@ -173,7 +173,7 @@
                 </div>
             </div>
             <div class="row"> 
-                <div class="col-sm-12 contest_contents">
+                <div class="col-sm-12 padding_top_40">
                     <div class="description_text text_left" v-html="contestDisclaimer.body"></div>
                 </div>
             </div>
