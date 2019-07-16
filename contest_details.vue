@@ -29,6 +29,18 @@
                 <div class="col-sm-12 contest_contents">
                     <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_first_name')}">
+								<label class="label" for="first_name">Child's First Name</label>
+								<input v-model="form_data.child_first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_first_name" type="text" placeholder="Child's First Name" data-vv-delay="500" data-vv-as="Child's First Name">
+								<span v-show="errors.has('child_first_name')" class="form-control-feedback">{{ errors.first('child_first_name') }}</span>
+							</div>
+							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_last_name')}">
+								<label class="label" for="last_name">Child's Last Name</label>
+								<input v-model="form_data.child_last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="child_last_name" type="text" placeholder="Child's Last Name" data-vv-delay="500" data-vv-as="Child's Last Name">
+								<span v-show="errors.has('child_last_name')" class="form-control-feedback">{{ errors.first('child_last_name') }}</span>
+							</div>
+						</div>
+						<div class="form-group ">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
 								<label class="label" for="first_name">First Name</label>
 								<input v-model="form_data.first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="first name">
