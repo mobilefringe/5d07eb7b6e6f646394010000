@@ -302,12 +302,12 @@
                 },
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
-                        if (result &&  (this.correctValNum === this.validaNum)) {
+                        if (result) {
                             let errors = this.errors;
-                            this.validNumError = false;
                             // Format contests data for MM
                             var contest_entry = {};
                             contest_entry.contest = this.form_data;
+                            console.log("contest_entry.contest", contest_entry.contest)
                             var vm = this;
                             host_name = this.property.mm_host.replace("http:", "");
                             var url = host_name + "/contests/" + this.currentContest.slug + "/create_js_entry";
