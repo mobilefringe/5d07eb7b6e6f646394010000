@@ -172,7 +172,7 @@
                     
                 </div>
             </div>
-            <div v-else class="row"> 
+            <div class="row"> 
                 <div class="col-sm-12 contest_contents">
                     <div class="description_text text_left" v-html="contestDisclaimer.body"></div>
                 </div>
@@ -265,7 +265,7 @@
                         this.pageBanner.image_url = "http://via.placeholder.com/1920x300";
                     }
                     
-                    this.contestDisclaimer = response[2].data
+                    this.contestDisclaimer = response[2].data;
                     this.updateCurrentContest(this.id);
 
                     this.dataLoaded = true;
