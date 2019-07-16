@@ -16,8 +16,8 @@
             </div> 
             <div class="row"> 
                 <div class="col-sm-12 contest_contents">
-                    <h2 v-if="locale=='en-ca'">{{ currentContest.name }}</h2>
-                    <h2 v-else>{{ currentContest.name_2 }}</h2>
+                    <h2 class="center" v-if="locale=='en-ca'">{{ currentContest.name }}</h2>
+                    <h2 class="center" v-else>{{ currentContest.name_2 }}</h2>
                     <div class="description_text text_left" style="padding-top:40px" v-if="locale=='en-ca'" v-html="currentContest.rich_description">
                         {{ currentContest.description }}
                     </div>
