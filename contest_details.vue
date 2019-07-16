@@ -172,8 +172,11 @@
                     
                 </div>
             </div>
-            
-            <p>As agent for the Landlord, Morguard is committed to maintaining the security and confidentiality of personal information in accordance with applicable privacy legislation and our Privacy Policy. By completing and submitting this form, you are consenting to Morguard collecting, using and disclosing your personal information in order to identify and communicate with you, for such other purposes as may be necessary in order to provide you with the products and/or services you have requested, and for any other purposes where you consent or where such collection, use or disclosure is permitted or required by law. You represent that you have all necessary authority and/or have obtained all necessary consents from any other individuals about whom you have disclosed personal information to Morguard in order to enable us to collect, use and disclose such personal information to fulfill the purposes described above. For further information regarding Morguard’s personal information handling practices, please refer to Morguard’s Privacy Policy at www.morguard.com.</p>
+            <div v-else class="row"> 
+                <div class="col-sm-12 contest_contents">
+                    <div class="description_text text_left" v-html="contestDisclaimer.body"></div>
+                </div>
+            </div>
             <div class="padding_top_40"></div>    
         </div>
     </div>
