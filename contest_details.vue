@@ -69,11 +69,11 @@
 								<span v-show="errors.has('postal')" class="form-control-feedback">{{ errors.first('postal') }}</span>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-12">
-							    <hr>
-							</div>
-						</div>
+						<!--<div class="form-group">-->
+						<!--	<div class="col-xs-12">-->
+						<!--	    <hr>-->
+						<!--	</div>-->
+						<!--</div>-->
 						<div class="form-group">
 						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
 						        <label class="checkbox">
