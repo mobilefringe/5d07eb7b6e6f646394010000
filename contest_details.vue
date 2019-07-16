@@ -70,6 +70,11 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<div class="col-xs-12">
+							    <hr>
+							</div>
+						</div>
+						<div class="form-group">
 						    <div class="col-xs-12" :class="{'has-error': errors.has('agree_newsletter')}">
 						        <label class="checkbox">
                                     <input name="agree_newsletter" type="checkbox" v-model="form_data.agree_newsletter">
