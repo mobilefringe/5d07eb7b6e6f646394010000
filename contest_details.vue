@@ -1,5 +1,5 @@
 <template>
-    <div v-if="dataLoaded" class="page_container" id="contact_us_container"> <!-- without an outer container div this component template will not render -->
+    <div v-if="dataLoaded" id="contact_us_container"> <!-- without an outer container div this component template will not render -->
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
@@ -8,14 +8,14 @@
 			</div>
 		</div>
         <div class="site_container">
-            <div class="row text-center">
-                <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12 text-center">
                     <img :src='currentContest.image_url' alt="contest image" class="image"  v-if="locale=='en-ca'">
                     <img :src="'//mallmaverick.com' + currentContest.photo_2_url" alt="contest image" class="image"  v-else>
                 </div>
             </div> 
             <div class="row"> 
-                <div class="col-sm-12 contest_contents">
+                <div class="col-sm-12">
                     <h2 class="margin_40 center" v-if="locale=='en-ca'">{{ currentContest.name }}</h2>
                     <h2 class="margin_40 center" v-else>{{ currentContest.name_2 }}</h2>
                     <div class="description_text text_left" v-if="locale=='en-ca'" v-html="currentContest.rich_description"></div>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div v-if="kidsClubForm" class="row"> 
-                <div class="col-sm-12 contest_contents">
+                <div class="col-sm-12">
                     <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_first_name')}">
