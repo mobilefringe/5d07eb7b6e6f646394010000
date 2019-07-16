@@ -3,7 +3,7 @@
         <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
-					<h1 v-if="locale=='en-ca'">{{ currentContest.name }}</h1>
+					<h1 v-if="locale=='en-ca'">{{ $t("events_page.events") }}</h1>
 					<h1 v-else>{{ currentContest.name_2 }}</h1>
 				</div>
 			</div>
@@ -17,6 +17,8 @@
             </div> 
             <div class="row"> 
                 <div class="col-sm-12 contest_contents">
+                    <h2 v-if="locale=='en-ca'">{{ currentContest.name }}</h2>
+                    <h2 v-else>{{ currentContest.name_2 }}</h2>
                     <div class="description_text text_left" style="padding-top:40px" v-if="locale=='en-ca'" v-html="currentContest.rich_description">
                         {{ currentContest.description }}
                     </div>
