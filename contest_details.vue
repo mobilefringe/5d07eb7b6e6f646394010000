@@ -188,12 +188,7 @@
     #contact_us_container .row{
         margin-left:inherit;
     }
-    .contest_contents {
-        min-height: 700px;
-    }
-    /*.form-group [class*="col-"] {*/
-    /*    padding-top:0;    */
-    /*}*/
+
     .form-group .form-control-feedback{
         font-size: 12px;
         /*top:60px;*/
