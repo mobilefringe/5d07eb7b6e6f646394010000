@@ -20,6 +20,7 @@
                     <h2 class="margin_40 center" v-else>{{ currentContest.name_2 }}</h2>
                     <div class="description_text text_left" v-if="locale=='en-ca'" v-html="currentContest.rich_description"></div>
                     <div class="description_text text_left" v-else  v-html="currentContest.rich_description_2"></div>
+                    <hr>
                 </div>
             </div>
             <div v-if="kidsClubForm" class="row"> 
@@ -66,11 +67,6 @@
 								<label class="label" for="postal">Postal Code</label>
 								<input v-model="form_data.postal_code" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="postal" type="text" placeholder="Postal Code" data-vv-delay="500" data-vv-as="postal code" required>
 								<span v-show="errors.has('postal')" class="form-control-feedback">{{ errors.first('postal') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('birthday')}">
-								<label class="label" for="birthday">Birthday</label>
-								<input v-model="form_data.birthday" class="form-control" v-validate="'required|date_format:DD/MM/YYYY'" :class="{'input': true}" name="birthday" type="text" placeholder="DD/MM/YYYY" data-vv-delay="500" data-vv-as="birthday">
-								<span v-show="errors.has('birthday')" class="form-control-feedback">{{ errors.first('birthday') }}</span>
 							</div>
 						</div>
 						<div class="form-group">
