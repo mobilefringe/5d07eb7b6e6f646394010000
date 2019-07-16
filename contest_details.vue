@@ -25,7 +25,7 @@
             </div>
             <div v-if="kidsClubForm" class="row"> 
                 <div class="col-sm-12">
-                    <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
+                    <form class="form-horizontal" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('child_first_name')}">
 								<label class="label" for="first_name">Child's First Name</label>
@@ -108,7 +108,7 @@
             </div>
             <div v-else class="row"> 
                 <div class="col-sm-12">
-                    <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
+                    <form class="form-horizontal" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
 						<div class="form-group ">
 							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
 								<label class="label" for="first_name">First Name</label>
