@@ -187,6 +187,9 @@
     hr {
         border-top: 1px solid #000;
     }
+    .form-group {
+        margin-bottom: 0;
+    }
     .form-group .form-control-feedback{
         font-size: 12px;
         /*top:60px;*/
