@@ -282,7 +282,8 @@
                     try {
                         let results = await Promise.all([
                             this.$store.dispatch("getData", "repos"),
-                            this.$store.dispatch("getData", "contests")
+                            this.$store.dispatch("getData", "contests"),
+                            this.$store.dispatch('LOAD_PAGE_DATA', { url: this.property.mm_host + "/pages/sevenoaks-contest-disclaimer.json" }),
                         ]);
                         return results;
                     } catch (e) {
