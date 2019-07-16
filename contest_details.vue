@@ -190,14 +190,7 @@
     .form-group {
         margin-bottom: 0;
     }
-    .form-group .form-control-feedback{
-        font-size: 12px;
-        /*top:60px;*/
-        color: #F44336;
-        top: initial;
-        bottom: -27px;
-    }
-    
+
     .agreement.form-group {
         margin:0;   
     }
