@@ -38,7 +38,7 @@
                     <div class="previous_post_container">
                         <h3 class="previous_post_title">Previous Posts</h3>
                         <ul v-if="relatedPosts.length > 0">
-                            <li v-for="post in relatedPosts">
+                            <li v-for="(post, index) in relatedPosts">
                                 <router-link :to="{ name: 'postDetails', params: { id: post.slug }}" class="" :aria="post.title">
 					                <h4>{{ post.title }}</h4>
 				                </router-link>
@@ -90,6 +90,7 @@
                 ]),
                 relatedPosts () {
                     var blog_posts = _.reverse(_.orderBy(this.findBlogByName("Sevenoaks Shopping Centre").posts, function (o) { return o.publish_date }));
+                    console.log("blog_posts", blog_posts)
 
                     var current_post_date = this.currentPost.publish_date
                     var current_post_id = this.currentPost.id
