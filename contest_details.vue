@@ -288,16 +288,7 @@
                     this.dataLoaded = true;
                 });
             },
-            updated(){
-                var self = this;
-                var script = document.createElement("script");
             
-                script.async = true;
-                script.defer = true;
-                script.src = "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js";
-                // document.getElementById('cc_universal_code').appendChild(script);
-                document.getElementsByTagName("head")[0].appendChild(script);
-            },
             computed: {
                 ...Vuex.mapGetters([
                     'property',
