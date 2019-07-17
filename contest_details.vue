@@ -202,6 +202,17 @@
     .checkbox {
         font-weight: normal;
     }
+    div.ctct-form-embed div.ctct-form-defaults {
+        margin-top: 30px;
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
+    div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
+        margin-left: 12px;
+    }
+    .ctct-form-footer-img {
+        display: none !important;   
+    }
 </style>
 
 <script>
