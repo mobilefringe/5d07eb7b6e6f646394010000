@@ -126,7 +126,9 @@
                                 this.formError = true;
                             }
                             else {
-                                console.log('hello')
+                                console.log('hello');
+                                // $('#email_address_field_0').val()
+                                
                             }
                         }
 
