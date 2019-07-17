@@ -6,6 +6,30 @@
                 <div class="col-md-12">
 			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
 			    </div>
+				<div class="col-sm-12">
+					<h3 class="promo_name" v-if="locale=='en-ca'">{{ currentPost.name }}</h3>
+					<h3 class="promo_name" v-else>{{ currentPost.name_2 }}</h3>
+					<div class="promo_div_date">
+					    <p>{{ currentPost.publish_date | moment("MMMM DD, YYYY", timezone) }}</p>
+						
+						<social-sharing :url="$root.shareURL('events',currentPost.slug)" :title="currentPost.title" :description="currentPost.body" :quote="_.truncate(currentPost.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPost.image_url" inline-template >
+							<div class="blog-social-share pull-right">
+								<div class="social_share">
+									<network network="facebook">
+										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+									</network>
+									<network network="twitter">
+										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+									</network>
+								</div>
+							</div>
+						</social-sharing>
+					</div>
+					<img v-if="!_.includes(currentPost.image_url, 'missing')" v-lazy="currentPost.image_url" class="image" :alt="currentPost.name"/>
+					
+                <div class="col-md-12">
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
+			    </div>
 			</div>
 		    <div class="row">
                 <div class="col-md-12">
