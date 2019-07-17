@@ -326,9 +326,9 @@
                                 success: function(data) {
                                     //post to constant contact 
                                     if(vm.form_data.agree_newsletter){
-                                        $('#email_address_0').val(this.form_data.email)  
-                                        $('#first_name_0').val(this.form_data.first_name)
-                                        $('#last_name_0').val(this.form_data.last_name)
+                                        $('#email_address_0').val(vm.form_data.email)  
+                                        $('#first_name_0').val(vm.form_data.first_name)
+                                        $('#last_name_0').val(vm.form_data.last_name)
                                         $('#ctct_form_0').submit();
                                         vm.formSuccess = true;
                                     } else {
