@@ -207,7 +207,7 @@
 </style>
 
 <script>
-    define(['Vue', 'vuex', 'axios', 'moment', 'moment-timezone', 'vue-moment', 'vee-validate', 'v-calendar', 'utility'], function(Vue, Vuex, axios, moment, tz, VueMoment, VeeValidate, VCalendar, Utility) {
+    define(['Vue', 'vuex', 'axios', 'moment', 'moment-timezone', 'vue-moment', 'vee-validate', 'v-calendar', 'utility', 'constantContact'], function(Vue, Vuex, axios, moment, tz, VueMoment, VeeValidate, VCalendar, Utility, constantContact) {
         Vue.use(VeeValidate);
         Vue.use(VCalendar.default);
 
