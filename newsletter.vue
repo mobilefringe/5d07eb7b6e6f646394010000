@@ -16,10 +16,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Begin Constant Contact Inline Form Code -->
-                        <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
+                    <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
                     <!-- End Constant Contact Inline Form Code -->
-                    
-                     <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
                 </div>
             </div>
             <div class="padding_top_40"></div>    
@@ -42,7 +40,7 @@
 </style>
  
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'constantContact'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, constantContact) {
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
             data: function() {
