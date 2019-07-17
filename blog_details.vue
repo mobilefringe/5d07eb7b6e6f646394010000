@@ -11,7 +11,7 @@
 					<div class="promo_div_date">
 					    <p>{{ currentPost.publish_date | moment("MMMM DD, YYYY", timezone) }}</p>
 						
-						<social-sharing :url="$root.shareURL('events',currentPost.slug)" :title="currentPost.title" :description="currentPost.body" :quote="_.truncate(currentPost.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPost.image_url" inline-template >
+						<social-sharing :url="$root.shareURL('blog', currentPost.slug)" :title="currentPost.title" :description="currentPost.body" :quote="_.truncate(currentPost.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentPost.image_url" inline-template >
 							<div class="blog-social-share pull-right">
 								<div class="social_share">
 									<network network="facebook">
