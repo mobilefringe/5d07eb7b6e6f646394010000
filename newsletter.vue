@@ -118,12 +118,15 @@
                 },
                 validateBeforeSubmit() {
                     this.$validator.validateAll().then((result) => {
-                        if (result &&  (this.correctValNum === this.validaNum)) {
+                        if (result) {
                             let errors = this.errors;
-                            this.validNumError = false;
                             
-                            var vm = this;
-                            
+                            if(errors.length > 0) {
+                                console.log("Error");
+                                this.formError = true;
+                            }
+                            else {
+                            }
                         }
 
                     })
