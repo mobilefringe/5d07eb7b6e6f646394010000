@@ -98,7 +98,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
         created() {
             this.loadData().then(response => {
                 this.locale = "en-ca";
-                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1563201256161/sevenoaks.png";
+                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1563388753605/sevenoaks_default.png";
                 this.dataLoaded = true;
                 
             });
