@@ -319,17 +319,22 @@
                             host_name = this.property.mm_host.replace("http:", "");
                             var url = host_name + "/contests/" + this.currentContest.slug + "/create_js_entry";
                             console.log("url", url)
-                            // $.ajax({
-                            //     url: url,
-                            //     type: "POST",
-                            //     data: contest_entry,
-                            //     success: function(data) {
-                            //         vm.formSuccess = true;
-                            //     },
-                            //     error: function(data){
-                            //         vm.formError = true;
-                            //     }
-                            // });
+                            $.ajax({
+                                url: url,
+                                type: "POST",
+                                data: contest_entry,
+                                success: function(data) {
+                                    //post to constant contact 
+                                    $('#email_address_0').val(this.form_data.email)  
+                                    $('#first_name_0').val(this.form_data.first_name)
+                                    $('#last_name_0').val(this.form_data.last_name)
+                                    $('#ctct_form_0').submit();
+                                    vm.formSuccess = true;
+                                },
+                                error: function(data){
+                                    vm.formError = true;
+                                }
+                            });
                         }
 
                     })
