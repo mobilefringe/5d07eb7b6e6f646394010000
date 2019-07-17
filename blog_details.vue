@@ -39,7 +39,7 @@
                         <h3 class="previous_post_title">Previous Posts</h3>
                         <ul v-if="relatedPosts.length > 0">
                             <li v-for="(post, index) in relatedPosts">
-                                <router-link :to="{ name: 'postDetails', params: { id: post.slug }}" class="" :aria="post.title">
+                                <router-link :to="'/blog/' + post.slug " class="" :aria="post.title">
 					                <h4>{{ post.title }}</h4>
 				                </router-link>
                             </li>
