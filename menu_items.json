@@ -80,7 +80,7 @@
             {
                 "name": "header.newsletter",
                 "href": "/newsletter",
-                "external": true
+                "external_in_window": true
             },
             {
                 "name": "header.leasing",
