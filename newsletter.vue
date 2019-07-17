@@ -18,11 +18,12 @@
                     <!-- Begin Constant Contact Inline Form Code -->
                         <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
                     <!-- End Constant Contact Inline Form Code -->
+                    
+                     <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
                 </div>
             </div>
             <div class="padding_top_40"></div>    
         </div>
-        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
     </div>
 </template>
 
