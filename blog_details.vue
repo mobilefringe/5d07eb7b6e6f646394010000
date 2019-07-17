@@ -24,35 +24,13 @@
 							</div>
 						</social-sharing>
 					</div>
-					<img v-if="!_.includes(currentPost.image_url, 'missing')" v-lazy="currentPost.image_url" class="image" :alt="currentPost.name"/>
-					
+					<img :src="currentPost.image_url" :alt="currentPost.title" />
                 </div>
 			</div>
-		    <div class="row">
-                <div class="col-md-12">
-                    <div class="post_details_image">
-                        <img :src="currentPost.image_url" :alt="currentPost.title" />
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="margin_60"></div>
                 <div class="col-md-8">
                     <div class="post_details_container right_border">
-                        <h2 class="post_heading caps">{{ currentPost.title }}</h2>
-                        <p class="post_dates">{{ currentPost.publish_date | moment("MMMM DD, YYYY", timezone) }}</p>
-                        <social-sharing :url="shareURL(currentPost.slug)" :title="currentPost.title" :description="currentPost.body" :quote="_.truncate(currentPost.description, {'length': 99})" twitter-user="BCCstyle" :media="currentPost.image_url" inline-template >
-							<div class="blog-social-share">
-								<div class="social_share">
-									<network network="facebook">
-										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-									</network>
-									<network network="twitter">
-										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-									</network>
-								</div>
-							</div>
-						</social-sharing>
                         <div class="post_text" v-html="currentPost.html_body"></div>
                     </div>
                 </div>
