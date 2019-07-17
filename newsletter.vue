@@ -15,35 +15,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-horizontal padding_top_20" action="form-submit" v-on:submit.prevent="validateBeforeSubmit">
-						<div class="form-group ">
-						    <div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('email')}">
-								<label class="label" for="email">Email</label>
-								<input v-model="form_data.email" v-validate="'required|email'" class="form-control" :class="{'input': true}" name="email" type="email" placeholder="Email" data-vv-delay="500" data-vv-as="email">
-								<span v-show="errors.has('email')" class="form-control-feedback">{{ errors.first('email') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('first_name')}">
-								<label class="label" for="first_name">First Name</label>
-								<input v-model="form_data.first_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="first_name" type="text" placeholder="First Name" data-vv-delay="500" data-vv-as="first name">
-								<span v-show="errors.has('first_name')" class="form-control-feedback">{{ errors.first('first_name') }}</span>
-							</div>
-							<div class="col-sm-6 col-xs-12" :class="{'has-error': errors.has('last_name')}">
-								<label class="label" for="last_name">Last Name</label>
-								<input v-model="form_data.last_name" v-validate="'required:true'" class="form-control" :class="{'input': true}" name="last_name" type="text" placeholder="Last Name" data-vv-delay="500" data-vv-as="last name">
-								<span v-show="errors.has('last_name')" class="form-control-feedback">{{ errors.first('last_name') }}</span>
-							</div>
-						</div>
-						<div class="form-group account-btn text-left m-t-10 agreement">
-							<div class="col-xs-12" style="margin-top: 20px;padding: 0;">
-								<button class="contest_btn" type="submit" :disabled="formSuccess">Submit</button>
-							</div>
-						</div>
-					</form>
-                    <div style="visibility:hidden;">
-                        <!-- Begin Constant Contact Inline Form Code -->
-                        <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
-                        <!-- End Constant Contact Inline Form Code -->
-                    </div>
+                    <!-- Begin Constant Contact Inline Form Code -->
+                    <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
+                    <!-- End Constant Contact Inline Form Code -->
                 </div>
             </div>
             <div class="padding_top_40"></div>    
@@ -67,17 +41,13 @@
  
 <script>
     define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'constantContact'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, constantContact) {
-        Vue.use(VeeValidate);
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
             data: function() {
                 return {
                     dataloaded: false,
                     pageBanner: null,
-                    currentPage: {},
-                    form_data: {},
-                    formSuccess: false,
-                    formError: false,
+                    currentPage: {}
                 }
             },
             created () {
@@ -115,27 +85,7 @@
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
-                },
-                validateBeforeSubmit() {
-                    this.$validator.validateAll().then((result) => {
-                        if (result) {
-                            let errors = this.errors;
-                            
-                            if(errors.length > 0) {
-                                console.log("Error");
-                                this.formError = true;
-                            }
-                            else {
-                                console.log('hello');
-                                $('#email_address_0').val(this.form_data.email)  
-                                $('#first_name_0').val(this.form_data.first_name)
-                                $('#last_name_0').val(this.form_data.last_name)
-                                $('#ctct_form_0').submit();
-                            }
-                        }
-
-                    })
-                },
+                }
             }
         });
     });
