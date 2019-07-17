@@ -122,7 +122,7 @@
     						        <ul v-if="item.sub_menu" class="dropdown-content">
     						            <li v-for="sub_menu in item.sub_menu" class="dropdown_item">
     						                <a v-if="sub_menu.external" :href="sub_menu.href" target="_blank">{{$t(sub_menu.name)}}</a>
-    						                <a v-elseif="sub_menu.external_in_window" :href="sub_menu.href">{{$t(sub_menu.name)}}</a>
+    						                <a v-else-if="sub_menu.external_in_window" :href="sub_menu.href">{{$t(sub_menu.name)}}</a>
     						                <router-link v-else-if="!sub_menu.router_name" :to="sub_menu.href">{{$t(sub_menu.name)}}</router-link>
     						                <router-link v-else :to="{name : sub_menu.router_name, params: { new_store: sub_menu.prop }, query:{new_store: 'new_store'}} ">{{$t(sub_menu.name)}}</router-link>
     						            </li>
