@@ -102,7 +102,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
         created() {
             this.loadData().then(response => {
                 this.locale = "en-ca";
-                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5c54b7e46e6f6447f2000000/image/jpeg/1549475208485/new_sudbury_black.jpg";
+                this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1563201256161/sevenoaks.png";
                 this.dataLoaded = true;
                 
             });
