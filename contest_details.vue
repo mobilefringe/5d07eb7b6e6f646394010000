@@ -286,10 +286,19 @@
                     this.updateCurrentContest(this.id);
 
                     this.dataLoaded = true;
-                    this.addCC_SCript();
+                    
                 });
             },
+            mounted(){
+                var script = document.createElement("script");
             
+                    script.async = true;
+                    script.defer = true;
+                    script.src = "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js";
+                    script.id = "signupScript"
+                    // document.getElementById('cc_universal_code').appendChild(script);
+                    document.getElementsByTagName("head")[0].appendChild(script);
+            }
             computed: {
                 ...Vuex.mapGetters([
                     'property',
@@ -358,16 +367,6 @@
                         }
 
                     })
-                },
-                addCC_SCript(){
-                    var script = document.createElement("script");
-            
-                    script.async = true;
-                    script.defer = true;
-                    script.src = "//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js";
-                    script.id = "signupScript"
-                    // document.getElementById('cc_universal_code').appendChild(script);
-                    document.getElementsByTagName("head")[0].appendChild(script);
                 }
             }
         });
