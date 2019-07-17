@@ -286,7 +286,7 @@
                     this.updateCurrentContest(this.id);
 
                     this.dataLoaded = true;
-                    
+                    this.addCC_SCript();
                 });
             },
             
