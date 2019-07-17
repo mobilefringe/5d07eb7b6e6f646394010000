@@ -79,7 +79,8 @@
             },
             {
                 "name": "header.newsletter",
-                "href": "/newsletter"
+                "href": "/newsletter",
+                "external": true
             },
             {
                 "name": "header.leasing",
