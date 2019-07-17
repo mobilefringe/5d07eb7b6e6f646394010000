@@ -22,6 +22,7 @@
             </div>
             <div class="padding_top_40"></div>    
         </div>
+        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
     </div>
 </template>
 
