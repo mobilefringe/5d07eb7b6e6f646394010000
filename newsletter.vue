@@ -127,8 +127,10 @@
                             }
                             else {
                                 console.log('hello');
-                                // $('#email_address_0').val()
-                                
+                                $('#email_address_0').val(this.form_data)  
+                                $('#first_name_0').val(this.form_data.first_name)
+                                $('#last_name_0').val(this.form_data.last_name)
+                                //ctct_form_0
                             }
                         }
 
