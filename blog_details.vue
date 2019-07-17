@@ -39,7 +39,7 @@
                         <h3 class="previous_post_title">Previous Posts</h3>
                         <ul v-if="relatedPosts.length > 0">
                             <li v-for="(post, index) in relatedPosts">
-                                <router-link :to="'/blog/' + post.slug " class="" :aria="post.title">
+                                <router-link :to="'/blog/' + post.slug" class="" :aria="post.title">
 					                <h4>{{ post.title }}</h4>
 				                </router-link>
                             </li>
@@ -62,23 +62,16 @@
                     currentPost: null
                 }
             },
+            watch: {
+                $route: function () {
+                    this.updateCurrentBlog(this.$route.params.id);
+                },
+            },
             created() {
                 this.loadData().then(response => {
                     this.updateCurrentBlog(this.id);
                     this.dataloaded = true;
                 });
-            },
-            watch: {
-                $route: function () {
-                    this.updateCurrentBlog(this.$route.params.id);
-                },
-                // currentPost: function () {
-                //     if (this.currentPost != null){
-                //         if (_.includes(this.currentPost.image_url, 'missing')) {
-                //             this.currentPost.image_url = "//codecloud.cdn.speedyrails.net/sites/5c0581a36e6f643f53050000/image/jpeg/1527006352000/bccblogplaceholder.jpg";
-                //         }
-                //     }
-                // } 
             },
             computed: {
                 ...Vuex.mapGetters([
