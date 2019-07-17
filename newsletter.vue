@@ -18,6 +18,7 @@
                     <!-- Begin Constant Contact Inline Form Code -->
                     <div class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
                     <!-- End Constant Contact Inline Form Code -->
+                    <div id="cc_universal_code"></div>
                 </div>
             </div>
             <div class="padding_top_40"></div>    
@@ -68,6 +69,9 @@
                 this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/sevenoaks-newsletter.json"}).then(response => {
                     this.currentPage = response.data;
                 });
+            },
+            mounted(){
+                postscribe('#gist', `<script src="https://gist.github.com/gautemo/d6b309c2bafe8f611f239b82f4f5501f.js"><\/script>`)  
             },
             computed: {
                 ...Vuex.mapGetters([
