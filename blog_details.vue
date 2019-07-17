@@ -7,8 +7,7 @@
 			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
 			    </div>
 				<div class="col-sm-12">
-					<h3 class="promo_name" v-if="locale=='en-ca'">{{ currentPost.name }}</h3>
-					<h3 class="promo_name" v-else>{{ currentPost.name_2 }}</h3>
+					<h3 class="promo_name">{{ currentPost.title }}</h3>
 					<div class="promo_div_date">
 					    <p>{{ currentPost.publish_date | moment("MMMM DD, YYYY", timezone) }}</p>
 						
