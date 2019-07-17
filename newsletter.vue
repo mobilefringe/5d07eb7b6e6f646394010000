@@ -71,7 +71,7 @@
                 });
             },
             mounted(){
-                postscribe('#gist', `<script src="https://gist.github.com/gautemo/d6b309c2bafe8f611f239b82f4f5501f.js"><\/script>`)  
+                postscribe('#cc_universal_code', `<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js"><\/script>`)  
             },
             computed: {
                 ...Vuex.mapGetters([
