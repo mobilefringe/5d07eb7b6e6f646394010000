@@ -172,6 +172,13 @@
                     
                 </div>
             </div>
+            <div class="row"> 
+                <div class="col-sm-12 padding_top_40">
+                    <hr>
+                    <div class="description_text text_left" v-html="contestDisclaimer.body"></div>
+                </div>
+            </div>
+            
             <div class="row" style="visibility:hidden;" >
                 <!-- Begin Constant Contact Inline Form Code -->
                 <div v-if="kidsClubForm" class="ctct-inline-form" data-form-id="84f7d4fd-a9c0-4607-8e78-25e3c098ab60"></div>
@@ -179,12 +186,6 @@
                 <!-- Begin Constant Contact Inline Form Code -->
                 <div v-else class="ctct-inline-form" data-form-id="5d453944-e3ff-44bb-9b42-ee4243b38e96"></div>
                 <!-- End Constant Contact Inline Form Code -->
-            </div>
-            <div class="row"> 
-                <div class="col-sm-12 padding_top_40">
-                    <hr>
-                    <div class="description_text text_left" v-html="contestDisclaimer.body"></div>
-                </div>
             </div>
             <div class="padding_top_40"></div>    
         </div>
