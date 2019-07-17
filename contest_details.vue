@@ -288,7 +288,7 @@
                     this.dataLoaded = true;
                 });
             },
-            mounted(){
+            updated(){
                 var self = this;
                 var script = document.createElement("script");
             
