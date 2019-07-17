@@ -27,9 +27,7 @@
 					</div>
 					<img v-if="!_.includes(currentPost.image_url, 'missing')" v-lazy="currentPost.image_url" class="image" :alt="currentPost.name"/>
 					
-                <div class="col-md-12">
-			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/blog">Back to Blog</router-link></p>
-			    </div>
+                </div>
 			</div>
 		    <div class="row">
                 <div class="col-md-12">
