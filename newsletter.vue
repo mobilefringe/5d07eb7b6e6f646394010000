@@ -72,7 +72,10 @@
                 return {
                     dataloaded: false,
                     pageBanner: null,
-                    currentPage: {}
+                    currentPage: {},
+                    form_data: {},
+                    formSuccess: false,
+                    formError: false,
                 }
             },
             created () {
