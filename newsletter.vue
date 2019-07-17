@@ -122,23 +122,8 @@
                             let errors = this.errors;
                             this.validNumError = false;
                             
-                            //format contests data for MM
-                            var contest_entry = {};
-                            contest_entry.contest = this.form_data;
                             var vm = this;
-                            host_name = this.property.mm_host.replace("http:", "");
-                            var url = host_name + "/contests/" + this.currentContest.slug + "/create_js_entry";
-                            $.ajax({
-                                url: url,
-                                type: "POST",
-                                data: contest_entry,
-                                success: function(data) {
-                                    vm.formSuccess = true;
-                                },
-                                error: function(data){
-                                    vm.formError = true;
-                                }
-                            });
+                            
                         }
 
                     })
