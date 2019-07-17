@@ -329,6 +329,7 @@
                                         $('#email_address_0').val(vm.form_data.email)  
                                         $('#first_name_0').val(vm.form_data.first_name)
                                         $('#last_name_0').val(vm.form_data.last_name)
+                                        console.log( $('#email_address_0').val(),$('#first_name_0').val(),$('#last_name_0').val() )
                                         $('#ctct_form_0').submit();
                                         vm.formSuccess = true;
                                     } else {
