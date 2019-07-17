@@ -28,7 +28,7 @@
                 </div>
 			</div>
             <div class="row">
-                <div class="margin_60"></div>
+                <div class="margin_40"></div>
                 <div class="col-md-8">
                     <div class="post_details_container right_border">
                         <div class="post_text" v-html="currentPost.html_body"></div>
