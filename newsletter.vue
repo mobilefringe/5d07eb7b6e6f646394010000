@@ -40,7 +40,7 @@
 </style>
  
 <script>
-    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'constantContact'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, constantContact) {
+    define(["Vue", "vuex", "moment", "moment-timezone", "vue-moment", 'vee-validate', 'jquery', 'utility', 'postscribe'], function(Vue, Vuex, moment, tz, VueMoment, VeeValidate, $, Utility, postscribe) {
         return Vue.component("newsletter-component", {
             template: template, // the variable template will be injected
             data: function() {
