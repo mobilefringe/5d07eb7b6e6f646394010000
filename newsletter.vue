@@ -71,7 +71,7 @@
                 });
             },
             mounted(){
-                postscribe('#cc_universal_code', '<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js"><\/script>')
+                
             },
             computed: {
                 ...Vuex.mapGetters([
