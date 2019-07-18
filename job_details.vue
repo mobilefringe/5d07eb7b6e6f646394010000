@@ -166,12 +166,6 @@
                 },
             },
             methods: {
-                updateCurrentJob (id) {
-                    this.currentJob = this.findJobBySlug(id);
-                    if (this.currentJob === null || this.currentJob === undefined){
-                        this.$router.replace('/');
-                    }
-                },
                 loadData: async function() {
                     try {
                         let results = await Promise.all([
@@ -180,6 +174,12 @@
                         ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
+                    }
+                },
+                updateCurrentJob (id) {
+                    this.currentJob = this.findJobBySlug(id);
+                    if (this.currentJob === null || this.currentJob === undefined){
+                        this.$router.replace('/');
                     }
                 }
             }
