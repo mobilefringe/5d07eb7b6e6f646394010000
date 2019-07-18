@@ -94,7 +94,7 @@
                         this.pageBanner.image_url = "";
                     }
                 });
-                this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "	/pages/sevenoaks-contact-us.json"}).then(response => {
+                this.$store.dispatch('LOAD_PAGE_DATA', {url: this.property.mm_host + "/pages/sevenoaks-contact-us.json"}).then(response => {
                     this.currentPage = response.data;
                 });
             },
@@ -143,7 +143,6 @@
                 },
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
                         let results = await Promise.all([this.$store.dispatch("getData", "repos")]);
                         return results;
                     } catch (e) {
