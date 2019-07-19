@@ -61,7 +61,6 @@
                     searchResults: null,
                     searchQuery: null,
                     dataLoaded: true,
-                    
                 }
             },
             beforeRouteUpdate(to, from, next) {
@@ -72,10 +71,7 @@
             },
             created() {
                 this.updateResults();
-                if (
-                    this.$route.params.results == null &&
-                    this.$route.params.results == undefined
-                ) {
+                if (this.$route.params.results == null && this.$route.params.results == undefined) {
                     this.$router.push("/");
                 }
             },
@@ -87,10 +83,9 @@
                 pageBanner() {
                     var pageBanner = null;
                     var temp_repo = this.findRepoByName('Pages Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         pageBanner = {};
                         pageBanner.image_url = "";
                     }
