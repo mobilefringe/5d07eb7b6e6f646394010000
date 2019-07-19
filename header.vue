@@ -29,7 +29,7 @@
     					    <div class="search_icon inline_block solid_bg" @click="showSearch = !showSearch"> <i class="fa fa-search"></i></div>
     					    <social-links class="inline_block solid_bg"></social-links>
     					</div>
-    					<router-link id="signup" to="/newsletter">{{$t("header.sign_up")}}</router-link>
+    					<router-link id="signup" class="caps" to="/newsletter">{{$t("header.sign_up")}}</router-link>
     				</div>
     				<div class="mobile_search_icon inline_block" @click="showMobileSearch = !showMobileSearch">
     				    <i class="fa fa-search"></i>
