@@ -137,35 +137,30 @@
                     return _.orderBy(banners, ['position'], ['asc']);
                 },
                 feature_items () {
-                    // return this.$store.state.feature_items;
                     var features = this.$store.state.feature_items;
                     _.forEach(features, function(value, key) {
                       
-                        if( _.includes([0,6], key) ) {
+                        if ( _.includes([0,6], key) ) {
                             value.masonry_class = "grid-item--height2";
-                            // value.image_url = "https://picsum.photos/570/1140?image=98"+key;
-                        }
-                        else if ( _.includes([2,5], key) ){
+                        } else if ( _.includes([2,5], key) ) {
                             value.masonry_class = "grid-item--width2";
-                            // value.image_url = "https://picsum.photos/1140/570?image=97"+key;
-                        }
-                        else {
+                        } else {
                             value.masonry_class = " ";
-                            // value.image_url = "https://picsum.photos/570/570?image=88"+key;
                         }
-                        if(value.name === null || value.name === undefined || value.name.length == 0) {
+                        
+                        if (value.name === null || value.name === undefined || value.name.length == 0) {
                             value.no_hover_class = false;
-                        }
-                        else {
+                        } else {
                             value.no_hover_class = true;
                         }
-                        if(value.url ==  null ||value.url == undefined || value.url.length == 0 ) {
+                        
+                        if (value.url ==  null ||value.url == undefined || value.url.length == 0 ) {
                             value.no_link = true;
                         }
-                        if( _.includes(value.url, '//')) {
+                        
+                        if ( _.includes(value.url, '//')) {
                             value.do_anchor_tag = true;
-                        }
-                        else {
+                        } else {
                             value.do_anchor_tag = false;
                         }
                     });
@@ -176,22 +171,12 @@
                     _.forEach(mobile_features, function(value, key) {
                         if (_.includes([0, 1], key)) {
                             value.masonry_class = "grid-item--height2";
-                        } else if (_.includes([2, 5], key)){
+                        } else if (_.includes([2, 5], key)) {
                             value.masonry_class = "grid-item--width2";
                         } else {
                             value.masonry_class = " ";
                         }
 
-                        // if (key == 1) {
-                        //     value.mobile_order = 6;
-                        // }
-                        // else if(key == 6) {
-                        //     value.mobile_order = 1;
-                        // }
-                        // else {
-                        //     value.mobile_order = key;
-                        // }
-                        
                         if (_.includes(value.url, '//')) {
                             value.do_anchor_tag = true;
                         } else {
