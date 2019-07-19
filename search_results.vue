@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-sm-9 search_result_content">
                                 <h4 class="event_name caps">{{result.name}}</h4>
-                                <p>{{truncated(result.description)}}</p>
+                                <p class="event_desc">{{truncated(result.description)}}</p>
                                 <router-link v-if="result.store_front_url_abs" class="result_link event_learn_more" :to="{ name: 'storeDetails', params:{ id:result.slug }}">View Store Details</router-link>
                                 <router-link v-else-if="result.promo_image_url_abs" class="result_link event_learn_more" :to="{ name: 'promotionDetails', params: { id: result.slug }}">View Promotion Details</router-link>
                                 <router-link v-else-if="result.event_image_url_abs" class="result_link event_learn_more" :to="{ name: 'eventDetails', params: { id: result.slug }}">View Event Details</router-link>
