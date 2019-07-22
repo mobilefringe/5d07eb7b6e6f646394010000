@@ -86,7 +86,7 @@
                                 </div>
                                 <div>
                                     <p style="display:block"> {{ property.address1 }}</p>
-                                    <p style="display:block">{{ property.city }}, {{ property.postal_code }} {{ property.province_state }}</p>
+                                    <p style="display:block">{{ property.city }}, {{ property.province_state }} {{ property.postal_code }}</p>
                                 </div>
     							<div class="header_social">
     							    <social-links></social-links>
