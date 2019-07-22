@@ -84,7 +84,7 @@
     							<div class="tel_num" v-if="property">
                                     <a v-if="property.contact_phone" :href="'tel:'+property.contact_phone">{{ property.contact_phone }}</a>
                                 </div>
-                                <div>
+                                <div class="address" v-if="property">
                                     <p> {{ property.address1 }}<br/>
                                     {{ property.city }}, {{ property.province_state }} {{ property.postal_code }}</p>
                                 </div>
