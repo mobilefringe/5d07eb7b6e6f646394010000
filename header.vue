@@ -82,11 +82,11 @@
     							
     							<div class="small_hr"></div>
     							<div class="tel_num" v-if="property">
-                                    <a v-if="property.contact_phone" :href="'tel:'+property.contact_phone">{{property.contact_phone}}</a>
+                                    <a v-if="property.contact_phone" :href="'tel:'+property.contact_phone">{{ property.contact_phone }}</a>
                                 </div>
                                 <div>
-                                    <p style="display:block"> {{property.address1}}</p>
-                                    <p style="display:block">{{property.city}}, {{property.postal_code}} {{property.province_state}}</p>
+                                    <p style="display:block"> {{ property.address1 }}</p>
+                                    <p style="display:block">{{ property.city }}, {{ property.postal_code }} {{ property.province_state }}</p>
                                 </div>
     							<div class="header_social">
     							    <social-links></social-links>
