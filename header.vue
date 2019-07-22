@@ -51,6 +51,8 @@
     							<ul>
     								<div class="mobile_menu_site_logo">
     									<router-link to="/">
+    									
+    									{{ logo_dark }}
     									    <img :src="logo_dark" :alt="property.name +' Mobile Logo'"/>
 									    </router-link>
     								</div>
