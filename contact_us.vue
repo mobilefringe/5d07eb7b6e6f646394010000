@@ -1,6 +1,6 @@
 <template>
     <div id="contact_us_container"> <!-- for some reason if you do not put an outer container div this component template will not render -->
-        <div  v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+        <div v-if="pageBanner" class="page_header" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
 			<div class="site_container">
 				<div class="header_content">
 					<h1>Contact Us</h1>
@@ -20,7 +20,7 @@
                         CONTACT US FOR QUESTIONS, COMMENTS AND MORE INFORMATION.
                     </div>
                     <form class="form-horizontal padding_top_20" action="form-submit" @submit.prevent="validateBeforeSubmit">
-                        <div class="form-group ">
+                        <div class="form-group">
                             <div class="col-sm-12" :class="{'has-error': errors.has('name')}">
                                 <label class="label" for="contact_name">Name</label>
                                 <input v-model="form_data.name" v-validate="'required|alpha_spaces'" class="form-control" :class="{'input': true}" name="name" type="text" placeholder="Name" data-vv-delay="500" id="contact_name">
