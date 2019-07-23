@@ -53,12 +53,9 @@
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Error:</span>
                         There was an error when trying to submit your request. Please try again later.
-                    </div>
-                    
+                    <div>
                 </div>
-                
             </div>
-        	
             <div style="padding-top: 40px;"></div>    
         </div>
         <div style="margin-bottom:-50px">
@@ -66,6 +63,13 @@
         </div>
     </div>
 </template>
+
+<style>
+    hr {
+        border-top: 1px solid #000;
+    }
+</style>
+
 <script>
     define(["Vue", "vuex", "vue-meta", 'vee-validate', 'utility'], function(Vue, Vuex, Meta, VeeValidate, Utility) {
         Vue.use(Meta);
