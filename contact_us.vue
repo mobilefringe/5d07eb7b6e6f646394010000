@@ -16,6 +16,7 @@
                 </div> 
                 <div class="col-sm-6 contact_contents">
                     <div class="description_text text_left caps">
+                        <hr class="show_phone" >
                         CONTACT US FOR QUESTIONS, COMMENTS AND MORE INFORMATION.
                     </div>
                     <form class="form-horizontal padding_top_20" action="form-submit" @submit.prevent="validateBeforeSubmit">
