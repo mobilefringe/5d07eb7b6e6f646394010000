@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                     <button class="contact_btn" id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()">Load More</button>
                     <p v-else>No More Posts</p> 
                 </div>
