@@ -51,7 +51,7 @@
     							<ul>
     								<div class="mobile_menu_site_logo">
     									<router-link to="/">
-    									    <img v-if="property" src="//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1561568787667/sevenoaks_logo.png" :alt="property.name +' Mobile Logo'"/>
+    									    <img v-if="property" src="//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1564002270000/SevenOaksBlack.png//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1564002270000/SevenOaksBlack.png" :alt="property.name +' Mobile Logo'"/>
 									    </router-link>
     								</div>
     								<li v-for="(item,key) in menu_items" class="menu_item">
