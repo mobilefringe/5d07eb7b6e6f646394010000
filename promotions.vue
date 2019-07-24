@@ -35,7 +35,7 @@
 						<p class="event_desc"  v-if="locale=='en-ca'" >{{promo.description_short}}</p>
 						<p class="event_desc" v-else>{{promo.description_short_2}}</p>
 					
-						<div class="text-right col-md-6 col-sm-12" v-if="promo" style="padding:0">
+						<div class="text-right col-md-6 col-sm-12 promo_link" v-if="promo">
 							<router-link :to="'/promotions/'+ promo.slug" class="event_learn_more pull-left"  :aria="promo.name">
 							   {{$t("promos_page.read_more")}} <i class="fa fa-angle-right" aria-hidden="true"></i>
 						    </router-link>
