@@ -85,7 +85,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'vu
                 dataLoaded: false,
                 show_mobile_menu: false,
                 property_logo: "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1563201256161/sevenoaks.png",
-                logo_dark: "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1561568787667/sevenoaks_logo.png",
+                logo_dark: "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1564002270000/SevenOaksBlack.png//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1564002270000/SevenOaksBlack.png",
                 menu_items: MenuItems,
                 search_result : null,
                 suggestionAttribute: 'name',
