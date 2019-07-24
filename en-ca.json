@@ -75,7 +75,7 @@
     "read_more" : "View Promotion Details",
     "no_promo_message" : "There are no Promotions at this time. Please check back soon.",
     "back_to_promos" : "Back to Promotions",
-    "more_promos": "Load More Promos"
+    "more_promos": "Load More"
   },
   "events_page": {
     "events" : "Events & Contests",
@@ -90,7 +90,7 @@
     "read_more" : "View Posting Details",
     "no_job_message" : "There are no job postings at this time. Please check back soon.",
     "back_to_jobs" : "Back to Careers",
-    "more_promos": "Load More Careers"
+    "more_promos": "Load More"
   },
   "hours_page" : {
     "hours" : "Hours",
