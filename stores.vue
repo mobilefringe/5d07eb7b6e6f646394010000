@@ -21,7 +21,7 @@
 								</article>
 							</template>
 						</search-component>
-						<img src="//codecloud.cdn.speedyrails.net/sites/5a6a54eb6e6f647da51e0100/image/png/1517497861636/search_icon_2x.png" class="pull-right" id="store_search_img" alt="search icon">
+						<i class="fa fa-search pull-right" id="store_search_img"></i>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">
