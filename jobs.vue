@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			<div class="show_more"  v-if="promos && showMore < promos.length">
-                <div class="pointer" @click="loadMoreItems()">{{$t("jobs_page.more_promos")}}</div>
+                <div class="text-center pointer" @click="loadMoreItems()">{{$t("jobs_page.more_promos")}}</div>
             </div>
 		</div>
 	</div>
