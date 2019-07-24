@@ -34,8 +34,12 @@
 					</social-sharing>
                 </div>
             </div>
-            <button class="contact_btn" id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()">Load More</button>
-            <p v-else>No More Posts</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="contact_btn" id="load_more" v-if="blogs && showMore <= blogs.length" @click ="loadMore()">Load More</button>
+                    <p v-else>No More Posts</p> 
+                </div>
+            </div>
         </div>
     </div>
 </template>
