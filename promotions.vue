@@ -64,7 +64,7 @@
 				</div>
 			</div>
 			<div class="show_more"  v-if="promos && showMore < promos.length">
-                <div class="pointer" @click="loadMoreItems()">{{$t("promos_page.more_promos")}}</div>
+                <div class="contact_btn subscribe_btn pointer" @click="loadMoreItems()">{{$t("promos_page.more_promos")}}</div>
             </div>
 		</div>
 	</div>
