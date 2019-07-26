@@ -152,7 +152,7 @@
                 return {
                     dataLoaded: false,
                     show_mobile_menu: false,
-                    property_logo: "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1564002270000/SevenOaksWhite.png",
+                    property_logo: "//codecloud.cdn.speedyrails.net/sites/5d07eb7b6e6f646394010000/image/png/1564167641000/SevenOaksWhite.png",
                     menu_items: MenuItems,
                     showSearch: true,
                     search_result: null,
