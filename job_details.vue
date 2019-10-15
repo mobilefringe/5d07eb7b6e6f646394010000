@@ -52,20 +52,20 @@
 					<div class="promo_div_date">
 						<p>{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>
 						<p>{{currentJob.job_type}}</p>
-						
-						<social-sharing :url="$root.shareURL('jobs',currentJob.slug)" :title="currentJob.title" :description="currentJob.body" :quote="_.truncate(currentJob.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentJob.image_url" inline-template >
-							<div class="blog-social-share pull-right">
-								<div class="social_share">
-									<network network="facebook">
-										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
-									</network>
-									<network network="twitter">
-										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
-									</network>
-								</div>
-							</div>
-						</social-sharing>
 					</div>
+					<social-sharing :url="$root.shareURL('jobs',currentJob.slug)" :title="currentJob.title" :description="currentJob.body" :quote="_.truncate(currentJob.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentJob.image_url" inline-template >
+						<div class="blog-social-share pull-right">
+							<div class="social_share">
+								<network network="facebook">
+									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+								</network>
+								<network network="twitter">
+									<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+								</network>
+							</div>
+						</div>
+					</social-sharing>
+					
 					<div class="col-sm-12 no_padding">
 						<div class="text-left promo_description">
 							<p v-if="locale=='en-ca'" v-html="currentJob.rich_description"></p>
