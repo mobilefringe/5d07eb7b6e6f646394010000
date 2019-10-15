@@ -54,7 +54,7 @@
 						<p>{{currentJob.job_type}}</p>
 					</div>
 					<social-sharing :url="$root.shareURL('jobs',currentJob.slug)" :title="currentJob.title" :description="currentJob.body" :quote="_.truncate(currentJob.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentJob.image_url" inline-template >
-						<div class="blog-social-share pull-right">
+						<div class="blog-social-share">
 							<div class="social_share">
 								<network network="facebook">
 									<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
