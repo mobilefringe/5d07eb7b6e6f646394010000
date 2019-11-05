@@ -33,7 +33,7 @@
 						<h4 class="job_type caps">{{promo.job_type}}</h4>
 						
 						<div class="event_thick_line"></div>
-						<p class="event_dates">{{promo.start_date | moment("MMMM D", timezone)}} - {{promo.end_date | moment("MMMM D", timezone)}}</p>
+						<!--<p class="event_dates">{{promo.start_date | moment("MMMM D", timezone)}} - {{promo.end_date | moment("MMMM D", timezone)}}</p>-->
 						<p class="event_desc"  v-if="locale=='en-ca'">{{promo.description_short}}</p>
 						<p class="event_desc"  v-else>{{promo.description_short_2}}</p>
 						<div class="text-right col-md-6 col-sm-12" v-if="promo" style="padding:0">
