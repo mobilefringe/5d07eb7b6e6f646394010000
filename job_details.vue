@@ -50,7 +50,7 @@
 					    <h4 class="event_store_name caps" v-else>{{currentJob.store.name}}</h4>
 					</div>
 					<div class="promo_div_date">
-						<p>{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>
+						<!--<p>{{currentJob.start_date | moment("MMM D", timezone)}} - {{currentJob.end_date | moment("MMM D", timezone)}}</p>-->
 						<p>{{currentJob.job_type}}</p>
 					</div>
 					<social-sharing :url="$root.shareURL('jobs',currentJob.slug)" :title="currentJob.title" :description="currentJob.body" :quote="_.truncate(currentJob.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentJob.image_url" inline-template >
