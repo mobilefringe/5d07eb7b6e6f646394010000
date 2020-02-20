@@ -4,7 +4,8 @@
         "href": "",
         "open_dropdown": false,
         "id": "stores_link",
-        "sub_menu": [{
+        "sub_menu": [
+            {
                 "name": "Store Directory",
                 "href": "/stores"
             },
