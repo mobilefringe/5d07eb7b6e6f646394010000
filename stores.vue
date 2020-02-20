@@ -63,32 +63,33 @@
             },
             created (){
                 this.loadData().then(response => {
-                    this.dataloaded = true;
-                    this.filteredStores = this.allStores;
-                    
                     var temp_repo = this.findRepoByName('Directory Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
+                   
+                    this.filteredStores = this.allStores;
+                    this.dataloaded = true;
                 });
             },
             methods: {
                 loadData: async function() {
                     try {
-                        // avoid making LOAD_META_DATA call for now as it will cause the entire Promise.all to fail since no meta data is set up.
-                        let results = await Promise.all([this.$store.dispatch("getData", "categories"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "categories"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
                 },
                 onOptionSelect(option) {
                     this.search_result = "";
-                    this.$router.push("/stores/"+option.slug);
-                },
+                    this.$router.push("/stores/" + option.slug);
+                }
             },
             computed: {
                 ...Vuex.mapGetters([
@@ -101,7 +102,6 @@
                     'findCategoryById',
                     'findCategoryByName',
                     'findRepoByName'
-
                 ]),
                 allStores() {
                     var stores = this.processedStores;
@@ -144,7 +144,6 @@
                     if (category_id == "All") {
                         this.filteredStores = this.allStores;
                     } else {
-
                         var find = this.findCategoryById;
                         var filtered = _.filter(this.allStores, function(o) {
                             return _.indexOf(o.categories, _.toNumber(category_id)) > -1;
@@ -153,12 +152,10 @@
                         this.filteredStores = filtered;
                     }
                     var el = document.getElementById("selectByCat");
-                    if(el) {
+                    if (el) {
                         el.classList.remove("open");
                     }
-                    
-                },
-                
+                }
             }
         });
     });
