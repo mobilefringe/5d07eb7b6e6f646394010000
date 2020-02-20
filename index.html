@@ -56,7 +56,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</transition>
 				<div class="home_subscription"  v-if="dataLoaded">
                     <div class="subscribeBlog content_container">
-                         <h2 class="stay_update caps">{{$t("footer.stay_uptodate")}}</h2> 
+                         <h2 class="stay_update caps">Stay up to date on all of our Happenings</h2> 
                          <div id="newsletterBlogForm">
                             <a data-i18n="general.submit" :href="'/newsletter?email='+ newsletter_email">
                                 <div class="contact_btn subscribe_btn hidden_phone">Subscribe to Our e-Newsletter&nbsp;<i class="fa fa-arrow-right"></i></div>
@@ -71,7 +71,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<div v-if="property" class="site_logo">
 								<router-link to="/"><img :src="property_logo" :alt="property.name"/></router-link>
 							</div>
-							
 							<div class="safe_emplyer_logo">
 								<a href="https://www.morguard.com/news-knowledge/posts/cse2017-silverwin" target="_blank">
 								    <img src="//codecloud.cdn.speedyrails.net/sites/5afb34e36e6f646e4a5d0000/image/png/1539965304000/logo.png" alt="Morguard Safest Employer Award"/>
@@ -88,12 +87,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						</div>
 						<div class="footer_terms">
 							<p v-if="property">
-							    &copy; {{copyright_year}}
-							    <span class="caps"> {{property.name}}.</span> 
-							    {{$t("footer.all_rights")}}
-							    <a href="https://www.morguard.com/privacy/" target="_blank"> {{$t("footer.privacy_policy")}} </a>
+							    &copy; {{ copyright_year }} <span class="caps"> {{ property.name }}.</span> All Rights Reserved.
+							    <a href="https://www.morguard.com/privacy/" target="_blank">Privacy Policy</a>
 							    <span class="hidden_phone">|</span>
-							    <a href="https://www.morguard.com/legal" target="_blank">{{$t("footer.terms")}} </a>
+							    <a href="https://www.morguard.com/legal" target="_blank">Terms & Conditions</a>
 							    <span class="hidden_phone">|</span>
 							    <a href="https://www.mallmaverick.com/system/site_images/photos/000/056/010/original/SevenoaksCodeofConduct.pdf?1564169507" target="_blank">Code of Conduct</a>
 							    <span class="hidden_phone">|</span>
