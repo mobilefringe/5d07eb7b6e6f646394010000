@@ -87,42 +87,15 @@
                     'findRepoByName'
                 ]),
                 hours () {
-                    // Attempt 1
-                    // var hours = this.getPropertyHours;
-                    // var ordered_hours = [];
-                    // _.forEach(hours, function (val, key) {
-                    //     if (val.day_of_week === 0){
-                    //         val.order = 7;
-                    //     } else {
-                    //         val.order = val.day_of_week;
-                    //     }
-                    //     ordered_hours.push(val);
-                    // });
-                    // return _.sortBy(ordered_hours, [function(o) { return o.order; }]);
+                    // Previous Attempt
+                    // var ordered_hours =  _.sortBy(_.filter(this.getPropertyHours,function(o){ return o.day_of_week !== 0}), ['day_of_week']);
+                    // var sunday = _.find(this.getPropertyHours,function(o){ return o.day_of_week === 0})
+                    // ordered_hours.push(sunday);
+                    // return ordered_hours
                     
-                    
-                    // Attempt 2
-                    // var hours = _.sortBy(this.getPropertyHours, ['day_of_week']);
-                    // // var hours = this.getPropertyHours
-                    // var monday_start = [];
-                    // var sunday = [];
-                    // _.forEach(hours, function (val, key) {
-                    //     if (val.day_of_week == 0) {
-                    //         sunday.push(val);
-                    //     } else {
-                    //         monday_start.push(val);
-                    //         console.log(monday_start)
-                    //     }
-                    // });
-                    // return _.sortBy(this.getPropertyHours, ['day_of_week']);
-                    // return _.concat(monday_start, sunday)
-                    
-                    // Live
-                    var ordered_hours =  _.sortBy(_.filter(this.getPropertyHours,function(o){ return o.day_of_week !== 0}), ['day_of_week']);
-                    var sunday = _.find(this.getPropertyHours,function(o){ return o.day_of_week === 0})
-                    ordered_hours.push(sunday);
-                    return ordered_hours
-                    
+                    // Return default hours
+                    var hours = this.getPropertyHours;
+                    return hours
                 },
                 holidayHours () {
                     return this.getPropertyHolidayHours;
