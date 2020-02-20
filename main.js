@@ -93,7 +93,6 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'lo
         },
         created() {
             this.loadData().then(response => {
-                this.locale = "en-ca";
                 this.property.default_logo_url = "//codecloud.cdn.speedyrails.net/sites/5e4eaf2b6e6f641683040000/image/png/1563388753605/sevenoaks_default.png";
                 this.dataLoaded = true;
                 
@@ -143,7 +142,7 @@ require(['Vue', 'vuex', 'vue2-filters', 'vue_router', 'routes', 'datastore', 'lo
                     this.property.name = "Sevenoaks Shopping Centre";
                     this.property.mm_host = this.property.mm_host.replace("http:", "");
                     let results = await Promise.all([
-                        this.$store.dispatch("INITIALIZE_LOCALE"), 
+                        // this.$store.dispatch("INITIALIZE_LOCALE"), 
                         this.$store.dispatch("getData", "hours"), 
                         this.$store.dispatch("getData", "stores"), 
                         this.$store.dispatch("getData", "promotions"), 
