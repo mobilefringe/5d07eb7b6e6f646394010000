@@ -40,51 +40,51 @@
         ]
     },
     {
-        "name": "header.employment",
+        "name": "Careers",
         "href": "/jobs",
         "id": "jobs_link"
     },
     {
-        "name": "header.about",
+        "name": "About Us",
         "href": "",
         "open_dropdown": false,
         "id": "services_link",
         "sub_menu": [
             {
-                "name": "header.services",
+                "name": "Guest Services",
                 "href": "/pages/sevenoaks-guest-services"
             },
             {
-                "name": "header.gift_cards",
+                "name": "Gift Cards",
                 "href": "/pages/sevenoaks-gift-cards"
             },
             {
-                "name": "header.community_programs",
+                "name": "Community Programs",
                 "href": "/pages/sevenoaks-community-programs"
             }
         ]
     },
     {
-        "name": "header.contact_us",
+        "name": "Contact Us",
         "href": "",
         "id": "contact_link",
         "open_dropdown": false,
         "sub_menu": [
             {
-                "name": "header.contact_sevenoaks",
+                "name": "Contact Sevenoaks",
                 "href": "/contact-us"
             },
             {
-                "name": "header.hours",
+                "name": "Hours",
                 "href": "/hours"
             },
             {
-                "name": "header.newsletter",
+                "name": "E-Newsletter",
                 "href": "/newsletter",
                 "external_in_window": true
             },
             {
-                "name": "header.leasing",
+                "name": "Leasing Opportunities",
                 "href": "/pages/sevenoaks-leasing"
             }
         ]
