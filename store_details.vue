@@ -154,7 +154,7 @@
                         // }
                         store_hours.push(hour);
                     });
-                    // this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);
+                    this.storeHours = _.sortBy(store_hours, [function(o) { return o.day_of_week; }]);
                     this.storeHours = store_hours;
                     console.log("hours", this.storeHours)
                 }
