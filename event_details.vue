@@ -1,0 +1,144 @@
+<template>
+	<div class="event_dets_container" v-if="currentEvent">
+		<div class="page_header" v-if="pageBanner" v-bind:style="{ backgroundImage: 'url(' + pageBanner.image_url + ')' }">
+			<div class="site_container">
+				<div class="header_content caps">
+					<h1>Events & Contests</h1>
+					<h2 style="display:none;">Scroll to  view event details</h2>
+				</div>
+			</div>
+		</div>
+		<div class="site_container">
+			<div class="row">
+			    <div class="col-md-12">
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/events-and-contests">Back to Events & Contests</router-link></p>
+			    </div>
+				<div class="col-sm-12">
+					<h3 class="promo_name">{{ currentEvent.name }}</h3>
+					<div class="promo_div_date">
+						<p v-if="isMultiDay(currentEvent)">{{ currentEvent.start_date | moment("MMMM D, YYYY", timezone)}} - {{ currentEvent.end_date | moment("MMMM D, YYYY", timezone)}}</p>
+                        <p v-else>{{ currentEvent.start_date | moment("MMMM D, YYYY", timezone)}}</p>
+						<social-sharing :url="$root.shareURL('events',currentEvent.slug)" :title="currentEvent.title" :description="currentEvent.body" :quote="_.truncate(currentEvent.description, {'length': 99})" :twitter-user="$root.twitter_user" :media="currentEvent.image_url" inline-template >
+							<div class="blog-social-share pull-right">
+								<div class="social_share">
+									<network network="facebook">
+										<i class="fa fa-facebook social_icons" aria-hidden="true"></i>
+									</network>
+									<network network="twitter">
+										<i class="fa fa-twitter social_icons" aria-hidden="true"></i>
+									</network>
+								</div>
+							</div>
+						</social-sharing>
+					</div>
+					<img v-if="!_.includes(currentEvent.image_url, 'missing')" v-lazy="currentEvent.image_url" class="image" :alt="currentEvent.name"/>
+					<div class="text-left promo_description">
+						<p v-html="currentEvent.rich_description"></p>
+					</div>
+				</div>
+			</div>
+			<div class="margin_40"></div>
+		</div>
+	</div>
+</template>
+
+<script>
+    define(['Vue', 'vuex', 'moment', 'vue-lazy-load'], function(Vue, Vuex, moment, VueLazyload) {
+        Vue.use(VueLazyload);
+        return Vue.component("event-details-component", {
+            template: template, // the variable template will be injected,
+            data: function() {
+                return {
+                    currentEvent: null,
+                    storeEvents : null,
+                    storeHours : null,
+                    pageBanner : null
+                }
+            },
+            props:['id'],
+            beforeRouteUpdate(to, from, next) {
+                this.currentEvent = this.findEventBySlug(to.params.id);
+                    // if (this.currentEvent === null || this.currentEvent === undefined){
+                    //     this.$router.replace('/');
+                    // }
+                next();
+            },
+            created(){
+                this.loadData().then(response => {
+                    var temp_repo = this.findRepoByName('Events & Contests Banner');
+                    if (temp_repo && temp_repo.images) {
+                        this.pageBanner = temp_repo.images[0];
+                    } else {
+                        this.pageBanner = {};
+                        this.pageBanner.image_url = "";
+                    }
+                    
+                    this.updatecurrentEvent(this.id);
+                });
+            },
+            watch: {
+                currentEvent : function (){
+                    console.log("this", this.currentEvent)
+                    if (this.currentEvent != null) {
+                        if (this.currentEvent.store != null && this.currentEvent.store != undefined && _.includes(this.currentEvent.store.store_front_url_abs, 'missing')) {
+                            this.currentEvent.store.store_front_url_abs = this.property.default_logo_url;
+                        } else if (this.currentEvent.store == null || this.currentEvent.store == undefined) {
+                            this.currentEvent.store = {};
+                            this.currentEvent.store.store_front_url_abs =  this.property.default_logo_url;
+                        }
+                        var vm = this;
+                        var temp_event = [];
+                        var current_id =_.toNumber(this.currentEvent.id);
+                        _.forEach(this.currentEvent.store.event, function(value, key) {
+                            if (_.toNumber(value) != current_id){
+                                var current_event = vm.findEventById(value);
+                                current_event.description_short = _.truncate(current_event.description, {'length': 70});
+                                temp_event.push(current_event);
+                            }
+                        });
+                        this.storeEvents = temp_event;
+                    }
+                }
+            },
+            computed: {
+                ...Vuex.mapGetters([
+                    'property',
+                    'timezone',
+                    'findRepoByName',
+                    'processedEvents',
+                    'findEventBySlug',
+                    'findEventById',
+                ]),
+            },
+            methods: {
+                loadData: async function() {
+                    try {
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "events"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
+                    } catch (e) {
+                        console.log("Error loading data: " + e.message);
+                    }
+                },
+                updatecurrentEvent (id) {
+                    this.currentEvent = this.findEventBySlug(id);
+                    console.log("this", this.currentEvent)
+                    // if (this.currentEvent === null || this.currentEvent === undefined){
+                    //     this.$router.replace('/');
+                    // }
+                },
+                isMultiDay(currentPromo) {
+					var timezone = this.timezone
+					var start_date = moment(currentPromo.start_date).tz(timezone).format("MM-DD-YYYY")
+					var end_date = moment(currentPromo.end_date).tz(timezone).format("MM-DD-YYYY")
+					if (start_date === end_date) {
+						return false
+					} else {
+						return true
+					}
+				}
+            }
+        });
+    });
+</script>
