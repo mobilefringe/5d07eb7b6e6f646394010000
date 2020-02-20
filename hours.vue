@@ -94,7 +94,7 @@
                     // return ordered_hours
                     
                     // Return default hours
-                    var hours = this.getPropertyHours;
+                    var hours = _.sortBy(this.getPropertyHours, [function(o) { return o.day_of_week; }]);
                     return hours
                 },
                 holidayHours () {
