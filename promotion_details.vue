@@ -29,7 +29,7 @@
 						    <h4 class="event_store_name caps">{{currentPromo.store.name}}</h4>
 						</div>
 						<h4 v-if="currentPromo.store.phone" class="store_dets_title"> <a :href="'tel:'+currentPromo.store.phone">{{currentPromo.store.phone}}</a></h4>
-						<h4 v-if="currentPromo.store.website" class="store_dets_title"> <a :href="'//'+currentPromo.store.website" target="_blank">Store Website")}}</a></h4>
+						<h4 v-if="currentPromo.store.website" class="store_dets_title"> <a :href="'//'+currentPromo.store.website" target="_blank">Store Website</a></h4>
 						<h4 v-if="storeHours.length > 0" class="store_dets_title">Store Hours</h4>
 						<ul class="store_hours_list">
 							<li v-if="storeHours" v-for="hour in storeHours" class="col-xs-12">
