@@ -156,6 +156,7 @@
                     });
                     // this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);
                     this.storeHours = store_hours;
+                    console.log("hours", storeHours)
                 }
             },
             computed: {
