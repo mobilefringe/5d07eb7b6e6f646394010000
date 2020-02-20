@@ -10,7 +10,7 @@
         <div class="site_container">
             <div class="row">
 			    <div class="col-md-12">
-			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/events-and-contests">{{$t("events_page.back_to_events")}}</router-link></p>
+			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/events-and-contests">Back to Events & Contests</router-link></p>
 			    </div>
 				<div class="col-sm-12">
 					<h3 class="promo_name" v-if="locale=='en-ca'">{{ currentContest.name }}</h3>
@@ -33,8 +33,7 @@
 					</div>
 					<img v-if="!_.includes(currentContest.image_url, 'missing')" :src="currentContest.image_url" class="image" :alt="currentContest.name"/>
 					<div class="text-left promo_description">
-						<p v-if="locale=='en-ca'" v-html="currentContest.rich_description"></p>
-						<p v-else v-html="currentContest.rich_description_2"></p>
+						<p v-html="currentContest.rich_description"></p>
 					</div>
 					<hr>
 				</div>
@@ -238,10 +237,8 @@
     define(['Vue', 'vuex', 'axios', 'moment', 'moment-timezone', 'vue-moment', 'vee-validate', 'v-calendar', 'utility'], function(Vue, Vuex, axios, moment, tz, VueMoment, VeeValidate, VCalendar, Utility) {
         Vue.use(VeeValidate);
         Vue.use(VCalendar.default);
-
         return Vue.component("contest-component", {
             template: template, // the variable template will be injected
-            props:['locale'],
             data: function() {
                 return {
                     dataLoaded: false,
@@ -254,7 +251,7 @@
                     formError: false
                 }
             },
-            props:['id', 'locale'],
+            props:['id'],
             beforeRouteUpdate(to, from, next) {
                 this.updateCurrentContest('to.params.id');
                 next();
