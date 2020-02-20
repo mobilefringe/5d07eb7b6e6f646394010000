@@ -16,25 +16,25 @@
         ]
     },
     {
-        "name": "header.promos",
+        "name": "Retailer Promotions",
         "href": "/promotions",
         "id": "promo_link"
     },
     {
-        "name": "header.events_and_contests",
+        "name": "Events & Contests",
         "href": "",
         "id": "events_link",
         "sub_menu": [
             {
-                "name": "header.events_and_contests",
+                "name": "Events & Contests",
                 "href": "/events-and-contests"
             },
             {
-                "name": "header.blog",
+                "name": "What's New",
                 "href": "/blog"
             },
             {
-                "name": "header.kids_club",
+                "name": "Kids Club"",
                 "href": "/kids-club"
             }
         ]
