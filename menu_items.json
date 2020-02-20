@@ -1,0 +1,91 @@
+[
+    {
+        "name": "Stores",
+        "href": "",
+        "open_dropdown": false,
+        "id": "stores_link",
+        "sub_menu": [{
+                "name": "Store Directory",
+                "href": "/stores"
+            },
+            {
+                "name": "Centre Map",
+                "href": "/map"
+            }
+        ]
+    },
+    {
+        "name": "header.promos",
+        "href": "/promotions",
+        "id": "promo_link"
+    },
+    {
+        "name": "header.events_and_contests",
+        "href": "",
+        "id": "events_link",
+        "sub_menu": [
+            {
+                "name": "header.events_and_contests",
+                "href": "/events-and-contests"
+            },
+            {
+                "name": "header.blog",
+                "href": "/blog"
+            },
+            {
+                "name": "header.kids_club",
+                "href": "/kids-club"
+            }
+        ]
+    },
+    {
+        "name": "header.employment",
+        "href": "/jobs",
+        "id": "jobs_link"
+    },
+    {
+        "name": "header.about",
+        "href": "",
+        "open_dropdown": false,
+        "id": "services_link",
+        "sub_menu": [
+            {
+                "name": "header.services",
+                "href": "/pages/sevenoaks-guest-services"
+            },
+            {
+                "name": "header.gift_cards",
+                "href": "/pages/sevenoaks-gift-cards"
+            },
+            {
+                "name": "header.community_programs",
+                "href": "/pages/sevenoaks-community-programs"
+            }
+        ]
+    },
+    {
+        "name": "header.contact_us",
+        "href": "",
+        "id": "contact_link",
+        "open_dropdown": false,
+        "sub_menu": [
+            {
+                "name": "header.contact_sevenoaks",
+                "href": "/contact-us"
+            },
+            {
+                "name": "header.hours",
+                "href": "/hours"
+            },
+            {
+                "name": "header.newsletter",
+                "href": "/newsletter",
+                "external_in_window": true
+            },
+            {
+                "name": "header.leasing",
+                "href": "/pages/sevenoaks-leasing"
+            }
+        ]
+    }
+]
