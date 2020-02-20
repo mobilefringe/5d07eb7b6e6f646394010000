@@ -16,8 +16,8 @@
 		    <div>
 		        <h3 class="home_page_title caps">Explore</h3>
 		    </div>
-            <feature-masonry class="hidden_phone" :feature_items="feature_items" :locale="locale" key="1"></feature-masonry>
-		    <feature-masonry class="visible_phone" :feature_items="mobile_feature_items" :locale="locale" key="2"></feature-masonry>
+            <feature-masonry class="hidden_phone" :feature_items="feature_items" key="1"></feature-masonry>
+		    <feature-masonry class="visible_phone" :feature_items="mobile_feature_items" key="2"></feature-masonry>
             <div>
                 <h3 class="home_page_title caps" v-if="instaFeed && instaFeed.length > 0">In Our Feed</h3>
 		    </div>
@@ -51,7 +51,6 @@
         Vue.use(VueLazyload);
         return Vue.component("home-component", {
             template: template, // the variable template will be injected
-            props:['locale'],
             data: function() {
                 return {
                     suggestionAttribute: 'name',
@@ -89,8 +88,6 @@
                     this.instaFeed = _.slice(social_feed, [0], [4]);
                     
                     this.meta = this.findMetaDataByPath(this.$route.path);
-                    
-                    console.log("this.$root.subdomain", this.$root.subdomain)
                 });
             },
             watch : {
