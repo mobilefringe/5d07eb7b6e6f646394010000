@@ -142,7 +142,7 @@
                     this.promotions = temp_promo;
                     this.jobs = temp_job;
                     
-                    var storeHours = [];
+                    var store_hours = [];
                     var vm = this;
                     _.forEach(this.currentStore.store_hours, function (value, key) {
                         var hour = vm.findHourById(value);
@@ -152,9 +152,10 @@
                         // else {
                         //     hour.order = hour.day_of_week;
                         // }
-                        storeHours.push(hour);
+                        store_hours.push(hour);
                     });
-                    this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);
+                    // this.storeHours = _.sortBy(storeHours, [function(o) { return o.order; }]);
+                    this.storeHours = store_hours;
                 }
             },
             computed: {
