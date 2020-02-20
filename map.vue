@@ -54,18 +54,16 @@
             },
             created (){
                 this.loadData().then(response => {
-                    this.dataloaded = true;
-                    this.filteredStores = this.allStores;
-
                     var temp_repo = this.findRepoByName('Map Banner');
-                    if(temp_repo && temp_repo.images) {
+                    if (temp_repo && temp_repo.images) {
                         this.pageBanner = temp_repo.images[0];
-                        console.log(this.pageBanner, "hh")
-                    }
-                    else {
+                    } else {
                         this.pageBanner = {};
                         this.pageBanner.image_url = "";
                     }
+                    
+                    this.filteredStores = this.allStores;
+                    this.dataloaded = true;
                 });
             },
             watch: {
@@ -130,7 +128,10 @@
             methods: {
                 loadData: async function() {
                     try {
-                        let results = await Promise.all([this.$store.dispatch("getData", "categories"), this.$store.dispatch("getData", "repos")]);
+                        let results = await Promise.all([
+                            this.$store.dispatch("getData", "categories"), 
+                            this.$store.dispatch("getData", "repos")
+                        ]);
                     } catch (e) {
                         console.log("Error loading data: " + e.message);
                     }
@@ -144,11 +145,11 @@
                 onOptionSelect(option) {
                     this.search_result = "";
                     this.dropPin(option);
-                },
+                }
             },
             beforeDestroy: function() {
                 window.removeEventListener('resize', this.getWindowWidth);
-            },
+            }
         });
     });
 </script>
