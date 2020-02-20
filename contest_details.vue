@@ -13,8 +13,7 @@
 			        <p class="back_to_list"><i class="fa fa-angle-left"></i>&nbsp;<router-link to="/events-and-contests">Back to Events & Contests</router-link></p>
 			    </div>
 				<div class="col-sm-12">
-					<h3 class="promo_name" v-if="locale=='en-ca'">{{ currentContest.name }}</h3>
-					<h3 class="promo_name" v-else>{{ currentContest.name_2 }}</h3>
+					<h3 class="promo_name">{{ currentContest.name }}</h3>
 					<div class="promo_div_date">
 						<p v-if="isMultiDay(currentContest)">{{ currentContest.start_date | moment("MMMM D, YYYY", timezone)}} - {{ currentContest.end_date | moment("MMMM D, YYYY", timezone)}}</p>
                         <p v-else>{{ currentContest.start_date | moment("MMMM D, YYYY", timezone)}}</p>
