@@ -224,7 +224,7 @@
             
                             // Sending email
                             var send_data = {};
-                            send_data.url = "https://www.mallmaverick.com/send_contact_email";
+                            send_data.url = "https://sevenoaks.mallmaverick.com/send_contact_email";
                             send_data.form_data = JSON.stringify(Utility.serializeObject(contact_form));
                             contact_form.body = body;
             
