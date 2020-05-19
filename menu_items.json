@@ -40,9 +40,9 @@
         ]
     },
     {
-        "name": "Careers",
-        "href": "/jobs",
-        "id": "jobs_link"
+        "name": "Re-Opening",
+        "href": "/pages/sevenoaks-re-opening",
+        "id": "open_link"
     },
     {
         "name": "About Us",
@@ -82,6 +82,11 @@
                 "name": "E-Newsletter",
                 "href": "/newsletter",
                 "external_in_window": true
+            },
+            {
+                "name": "Careers",
+                "href": "/jobs",
+                "id": "jobs_link"
             },
             {
                 "name": "Leasing Opportunities",
