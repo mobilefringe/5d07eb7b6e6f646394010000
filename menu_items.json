@@ -16,6 +16,11 @@
         ]
     },
     {
+        "name": "Re-Opening",
+        "href": "/pages/sevenoaks-re-opening",
+        "id": "open_link"
+    },
+    {
         "name": "Retailer Promotions",
         "href": "/promotions",
         "id": "promo_link"
@@ -38,11 +43,6 @@
                 "href": "/kids-club"
             }
         ]
-    },
-    {
-        "name": "Re-Opening",
-        "href": "/pages/sevenoaks-re-opening",
-        "id": "open_link"
     },
     {
         "name": "About Us",
